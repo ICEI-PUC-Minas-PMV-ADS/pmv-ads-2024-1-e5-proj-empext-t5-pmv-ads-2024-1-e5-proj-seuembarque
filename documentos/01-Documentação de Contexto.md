@@ -1,40 +1,20 @@
 # Introdução
 
-Texto descritivo com a visão geral do projeto abordado. Inclui o contexto, o problema, os objetivos, a justificativa e o público-alvo do projeto.
-
+A velocidade e eficiência na comunicação entre cliente e empresa são essenciais no momento de vender pacotes turísticos. Por isso, para uma agência de viagens, o fato de poder entrar em contato imediato quando um viajante demonstrar interesse em algum destino é algo imprescindível. Além disso, essas agências não raro têm interesse em divulgar novos pacotes baseados nos pacotes selecionados, tanto por whatsapp quanto por email, bem como querem registrar esses potenciais viajantes para futuras vendas.
 ## Problema
-Nesse momento você deve apresentar o problema que a sua aplicação deve  resolver. No entanto, não é a hora de comentar sobre a aplicação.
-
-Descreva também o contexto em que essa aplicação será usada, se  houver: empresa, tecnologias, etc. Novamente, descreva apenas o que de  fato existir, pois ainda não é a hora de apresentar requisitos  detalhados ou projetos.
-
-Nesse momento, o grupo pode optar por fazer uso  de ferramentas como Design Thinking, que permite um olhar de ponta a ponta para o problema.
-
-> **Links Úteis**:
-> - [Objetivos, Problema de pesquisa e Justificativa](https://medium.com/@versioparole/objetivos-problema-de-pesquisa-e-justificativa-c98c8233b9c3)
-> - [Matriz Certezas, Suposições e Dúvidas](https://medium.com/educa%C3%A7%C3%A3o-fora-da-caixa/matriz-certezas-suposi%C3%A7%C3%B5es-e-d%C3%BAvidas-fa2263633655)
-> - [Brainstorming](https://www.euax.com.br/2018/09/brainstorming/)
-
+Essa aplicação visa a integrar a comunicação entre cliente e uma agência de turismo por meio de um formulário que será integrado a um banco de dados e ao whatsapp. Dessa forma, a empresa poderá atender a esses clientes e registrá-los para futuras vendas.
 ## Objetivos
-
-Aqui você deve descrever os objetivos do trabalho indicando que o objetivo geral é desenvolver um software para solucionar o problema apresentado acima. 
-
-Apresente também alguns (pelo menos 2) objetivos específicos dependendo de onde você vai querer concentrar a sua prática investigativa, ou como você vai aprofundar no seu trabalho.
- 
-> **Links Úteis**:
-> - [Objetivo geral e objetivo específico: como fazer e quais verbos utilizar](https://blog.mettzer.com/diferenca-entre-objetivo-geral-e-objetivo-especifico/)
-
+O objetivo geral dessa aplicação é possibilitar a comunicação entre uma agência de viagens e possíveis viajantes, registrando o interesse desses últimos.
+Objetivos específicos: 
+1) Criar uma interface para registro dos dados dos viajantes e seus interesses.
+2) Registrar esse interesse.
+3) Enviar esse registro para uma agência de viagens pelo whatsapp.
 ## Justificativa
-
-Descreva a importância ou a motivação para trabalhar com esta aplicação que você escolheu. Indique as razões pelas quais você escolheu seus objetivos específicos ou as razões para aprofundar em certos aspectos do software.
-
-O grupo de trabalho pode fazer uso de questionários, entrevistas e dados estatísticos, que podem ser apresentados, com o objetivo de esclarecer detalhes do problema que será abordado pelo grupo.
-
-> **Links Úteis**:
-> - [Como montar a justificativa](https://guiadamonografia.com.br/como-montar-justificativa-do-tcc/)
+Essa aplicação se justifica pelo fato de viabilizar a integração entre o interesse de viagem do cliente e a agência de viagens por meio de um registro ágil. Dessa forma, o cliente não precisa se preocupar com demandas variadas de viagens, tais como passagens e hospedagem, e repassa essas questões inerentes a qualquer viagem aos cuidados da agência de viagens interessada. Além disso, o banco de dados registra esses clientes, assim como os destinos selecionados, de forma que a agência de viagens passa a ter mais controle de seu fluxo de viajantes.
 
 ## Relação com a Extensão Universitária
 
-Relacionar a situação-problema da organização com o impacto social esperado com a implantação do sistema sociotécnico.
+Ao criar um site para a agência de turismo conforme o já especificado nos itens anteriores, torna-se mais formal a busca por novos clientes, além do fato de a comunicação entre esses últimos e a empresa ser melhorada e controlada. Desse modo, a empresa passa a ter mais visibilidade no mercado e pode angariar mais potenciais viajantes, assim como controlar seu fluxo de vendas de pacotes.
 
 ## Descrição do Parceiro
 
