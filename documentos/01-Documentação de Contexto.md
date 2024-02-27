@@ -18,4 +18,4 @@ Ao criar um site para a agência de turismo conforme o já especificado nos iten
 
 ## Descrição do Parceiro
 
-Apresente uma descrição resumida sobre a organização onde o projeto será desenvolvido para que possa ser compreendido o cenário sistema sociotécnico.
+Agência de viagem que proporciona experiências mais econômicas e mais completas, incluindo passagem de avião, hospedagens e passeios, conforme o cliente desejar. Usando a modalidade milhas aéreas, assim podendo trazer ótimas oportunidades de preços.
