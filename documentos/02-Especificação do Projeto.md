@@ -31,9 +31,12 @@ As tabelas que se seguem apresentam os requisitos funcionais e não funcionais q
 |RF-002| No campo Destino e Origem o campo deverá retornar uma lista com os aeroportos para cidade desejada pelo cliente | MEDIA |
 |RF-003| O sistema deverá conter uma checkbox para verificar se o cliente deseja uma viagem com hospedagem, ao selecionar sim ele deve permitir que o cliente selecione se quer algo incluso como café da manha e almoço| BAIXA |
 |RF-004| A aplicação deve enviar via mensagem no Whatsapp ou Email as informações preenchidas pelo cliente| ALTA |
-|RF-005| Ao enviar a Mensagem/Email das informações preenchidas o sistema deve armazenar no banco de dados o Destino do cliente| BAIXA |
+|RF-005| Ao enviar a Mensagem/Email das informações preenchidas o sistema deve armazenar no banco de dados o Destino, Origem e as datas do cliente| BAIXA |
 |RF-006| A aplicação deverá ter uma tela para visualização dos destinos mais escolhidos pelos clientes| BAIXA |
 |RF-007| Deverá ser desenvolvido uma api para mostrar os destinos mais procurados pelos clientes| BAIXA |
+|RF-008| O sistema deve possuir uma tela para que o administrador possa registrar clientes e editar os mesmos| BAIXA |
+|RF-009| O sistema devera ter uma tela para mostrar os pacotes pesquisados pelos clientes | BAIXA |
+|RF-010| Na tela dos pacotes deverá ser possivel inserir o valor do orçamento feito para aquele pacote| BAIXA |
 
 ### Requisitos não Funcionais
 
