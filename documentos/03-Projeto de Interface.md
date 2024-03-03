@@ -5,4 +5,6 @@
 
 Visão geral da interação do usuário com as funcionalidades que fazem parte do sistema sociotécnico (protótipo de telas).
 
+![Banner Instagram](img/banner-instagram.png)
+
 ![Tela Administrador](img/Seu-Embarque.png)
