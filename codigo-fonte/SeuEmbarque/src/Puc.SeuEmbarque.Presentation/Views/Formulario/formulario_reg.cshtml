@@ -1,0 +1,341 @@
+﻿@model Puc.SeuEmbarque.Domain.Models.Pacote
+
+@{
+    ViewData["Title"] = "formulario_reg";
+    Layout = "_FormLayout";
+}
+
+<style>
+    /* icone calendario */
+    .input-container {
+        position: relative;
+    }
+
+    .input-container .fas.fa-calendar {
+        color: gray;
+        position: absolute;
+        right: 80px;
+        top: 74%;
+        transform: translateY(-50%);
+        pointer-events: none;
+    }  
+
+    /*opções hospedagem*/
+    .option{
+        cursor: pointer;
+        opacity:0.7;
+    }
+    .option-selected {
+        background-color: #013d50 !important;
+        opacity: 1;
+    }
+    .disabled {
+        cursor: not-allowed;
+        opacity: 0.5;
+    }
+
+   
+    /*Checkbox*/
+    input[type="checkbox"] {
+        transform: scale(1.5);
+    }
+
+    input[type=checkbox]:before {
+        transform: scale(1.2);
+        content: "";
+        display: block;
+        position: absolute;
+        width: 12px;
+        height: 11px;
+        top: 0.1rem;
+        border: 1px solid #003f53;
+        background-color: rgb(0, 172, 206);
+    }
+
+    input[type=checkbox]:checked:before {
+        content: "";
+        display: block;
+        position: absolute;
+        width: 12px;
+        height: 10px;
+        top: 1;
+        left: 0;
+        background-color: #003f53;
+    }
+
+    input[type=checkbox]:checked:after {
+        content: "";
+        display: block;
+        width: 5px;
+        height: 7px;
+        border: solid white;
+        border-width: 0 2px 2px 0;
+        -ms-transform: rotate(45deg);
+        transform: rotate(45deg);
+        position: absolute;
+        top: 2;
+        left: 0.184rem;
+    }
+    /*Checkbox fim*/
+
+
+  
+</style>
+
+<body>
+    <div class="container">
+        <div class="title-container">
+            <h1 class="title-1 mt-5"> MONTE O SEU</h1>
+            <h2 class="title-2 mb-4">PACOTE DE VIAGEM!</h2>
+            <span class="title-3 m-0">
+                <p><strong>Simples e fácil,</strong> apenas nos envie<br>as informações desejadas:</p>
+            </span>
+        </div>
+        <div class="form-container">
+            <div class="form-section">
+                <form>
+                    <input type="hidden" id="options" value="" />
+
+                    <div>
+                        <label for="nomeCliente">Nome Completo:</label>
+                        <input id="nomeCliente" class="inputText form-control" type="text" />
+                        <span class="errMessage" id="nomeCliente_error" style="color:red;"></span>
+                    </div>
+                    <div>
+                        <label for="emailCliente">Email:</label>
+                        <input id="emailCliente" class="inputText form-control" type="text" />
+                        <span class="errMessage" id="emailCliente_error" style="color:red;"></span>
+                    </div>
+                    <div>
+                        <label for="origem">Origem:</label>
+                        <input id="origem" class="inputText form-control" type="text" />
+                        <span class="errMessage" id="origem_error" style="color:red;"></span>
+                    </div>
+                    <div>
+                        <label for="destino">Destino:</label>
+                        <input id="destino" class="inputText form-control" type="text" />
+                        <span class="errMessage" id="destino_error" style="color:red;"></span>
+                    </div>
+                    <div class="input-container">
+                        <label for="dataIda">Data ida:</label>
+                        <input id="dataIda" class="inputText form-control" autocomplete="off" />
+                        <span><i class="fas fa-calendar"></i></span>
+                    </div>
+                    <div class="input-container">
+                        <label for="dataVolta">Data volta:</label>
+                        <input id="dataVolta" class="inputText form-control" autocomplete="off" />
+                        <span><i class="fas fa-calendar"></i></span>
+                    </div>
+                </form>
+            </div>
+            <div class="chk-section">
+                <div class="mb-3 mt-2">
+                    <h2>Hospedagem?</h2>
+                </div>
+                <div class="checkbox d-flex">
+                    <div>
+                        <input id="chkSim" type="checkbox" name="Sim/Não" value="Sim">
+                        <label for="chkSim">Sim</label>
+                    </div>
+                    <div>
+                        <input id="chkNao" type="checkbox" name="Sim/Não" value="Não" checked> 
+                        <label for="chkNao">Não</label>
+                    </div>
+                </div>
+                <div class="options">
+                    <div>
+                        <span class="option disabled">All inclusive</span>
+                        <span class="option disabled">Café da Manhã</span>
+                    </div>
+                    <div>
+                        <span class="option disabled">Café da Manhã + Almoço</span>
+                    </div>
+                    <div>
+                        <span class="option disabled">Café da Manhã + Almoço + Jantar</span>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div class="checkbox1"><p><strong>Envie</strong> <strong>via WhatsApp!</strong></p></div>
+        <a class="redirecionar" aria-label="Enviar no WhatsApp">
+            <img alt="Enviar via WhatsApp" src="~/images/WhatsAppButtonGreenLarge.svg" />
+        </a>
+    </div>
+
+  
+    <script type="text/javascript">
+        var comHospedagem = false;
+
+        $(document).ready(function () {
+
+
+            ConfigurarAutocomplete('#origem');
+            ConfigurarAutocomplete('#destino');
+            ConfigurarHospedagem();
+
+            $('#dataIda, #dataVolta').datepicker({
+                format: 'dd/mm/yyyy',
+                showAnim: "slideDown",
+                minDate: 0
+            });
+
+            ValidarEmail("#emailCliente", "#emailCliente_error", "Endereço de e-mail inválido");
+            $('.inputText').focus(function () {
+                setTimeout(function () { $('.errMessage').text(""); }, 2500);
+            });
+
+            $('.redirecionar').on('click', function () {
+                var textoLink = MontarMensagem();
+                var linkWhatsapp = 'https://api.whatsapp.com/send?phone=5531997362114&text=' + textoLink;
+                if(ValidarForm()){
+                    window.open(linkWhatsapp, '_blank'); 
+                }
+            });
+        });       
+
+        function ConfigurarAutocomplete(campo) {
+            $(campo).autocomplete({
+                source: function (request, response) {
+                    $.ajax({
+                        url: '@Url.Content("/Aeroporto/PesquisarAeroporto")',
+                        method: 'GET',
+                        dataType: 'json',
+                        data: {
+                            termo: request.term
+                        },
+                        success: function (result) {
+                            var mappedData = $.map(result.data, function (item) {
+                                return {
+                                    label: item.name,
+                                    value: item.hierarchy
+                                };
+                            });
+                            response(mappedData);
+                        }
+                    });
+                },
+                minLength: 2,
+                select: function (event, ui) {
+                    $(campo).val(ui.item.label);
+                    return false;
+                }
+            });
+        }
+
+        function MontarMensagem(){
+            var nome = $('#nomeCliente').val();
+            var email = $('#emailCliente').val();
+            var origem = $('#origem').val();
+            var destino = $('#destino').val();
+            var dataIda = $('#dataIda').val();
+            var dataVolta = $('#dataVolta').val();
+            var opcionais = $('#options').val();
+
+            var textoLink = "Olá%20Seu%20Embarque!%20Segue%20informações%20da%20viagem%20que%20desejo%20para%20cotação:%0A%0A";
+
+            textoLink += "*Nome:* " + nome + "%0A";
+            textoLink += "*Email:* " + email + "%0A";
+            textoLink += "*Origem:* " + origem + "%0A";
+            textoLink += "*Destino:* " + destino + "%0A";
+            textoLink += "*Data de Ida:* " + dataIda + "%0A";
+            textoLink += "*Data de Volta:* " + dataVolta + "%0A";
+            if (comHospedagem)
+                opcionais != "" ? textoLink += "*Hospedagem com:* " + opcionais.replace(/\s*\+\s*/g, ', ') : textoLink += "*Hospedagem:* " + "Sim";
+
+            return textoLink;
+        }
+       
+        function ConfigurarHospedagem(){
+            
+            const options = $('.option');
+            const chkSim = $('#chkSim');
+            const chkNao = $('#chkNao');
+
+            chkSim.change(function () {
+                if ($(this).prop('checked')) {
+                    options.removeClass('disabled');
+                    chkNao.prop('checked', false);
+                    comHospedagem = true;
+                } else {
+                    options.addClass('disabled').removeClass('option-selected');
+                }
+            });
+
+            chkNao.change(function () {
+                if ($(this).prop('checked')) {
+                    options.addClass('disabled').removeClass('option-selected');
+                    chkSim.prop('checked', false);
+                    comHospedagem = false;
+                    $('#options').val('');
+                } else {
+                    options.removeClass('disabled');
+                }
+            });
+
+            options.click(function () {
+                if (!$(this).hasClass('disabled')) {
+                    var isSelected = $(this).hasClass('option-selected');
+
+                    // Remove a seleção de todos os elementos
+                    options.removeClass('option-selected');
+
+                    // Limpa o valor do campo
+                    $('#options').val('');
+
+                    // Se o elemento não estiver selecionado, adiciona a seleção
+                    if (!isSelected) {
+                        $(this).addClass('option-selected');
+                        var value = $(this).text().trim();
+                        $('#options').val(value);
+                    }
+
+                    var option = $('#options').val();
+                    console.log("Selected option:", option.replace(/\s*\+\s*/g, ', '));
+                }
+            });
+        }
+
+        function ValidarForm(){
+            var nome = $('#nomeCliente').val();
+            var email = $('#emailCliente').val();
+            var origem = $('#origem').val();
+            var destino = $('#destino').val();
+            var dataIda = $('#dataIda').val();
+            var dataVolta = $('#dataVolta').val();
+
+            if (nome == '') {
+                $('#nomeCliente_error').text('Por Favor preencha o Nome!');
+                setTimeout(function () { $('#nomeCliente').focus(); }, 800);
+                return false;
+            }
+            if (email == '') {
+                $('#emailCliente_error').text('Por Favor preencha o Email!');
+                setTimeout(function () { $('#emailCliente').focus(); }, 800);
+                return false;
+            }
+            if (origem == '') {
+                $('#origem_error').text('Por Favor preencha a Origem!');
+                setTimeout(function () { $('#origem').focus(); }, 800);
+                return false;
+            }
+            if (destino == '') {
+                $('#destino_error').text('Por Favor preencha o Destino!');
+                setTimeout(function () { $('#destino').focus(); }, 800);
+                return false;
+            }
+            if (dataIda == '') {
+                $('#dataIda_error').text('Por Favor preencha a Data!');
+                setTimeout(function () { $('#dataIda').focus(); }, 800);
+                return false;
+            }
+            if (dataVolta == '') {
+                $('#dataVolta_error').text('Por Favor preencha a Data!');
+                setTimeout(function () { $('#dataVolta').focus(); }, 800);
+                return false;
+            }
+
+            return true;
+        }
+    </script>
+</body>
