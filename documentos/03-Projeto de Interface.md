@@ -3,11 +3,11 @@
 
 <span style="color:red">Pré-requisitos: <a href="2-Especificação do Projeto.md"> Documentação de Especificação</a></span>
 
-Visão geral da interação do usuário com as funcionalidades que fazem parte do sistema sociotécnico (protótipo de telas).
+## Projeto da interface formulário
 
-![interface formulario](img/banner-instagram.png)
+![interface formulario](img/ProjetoInterface/Interface.png)
 
-#### Tela de visualização dos clientes, pacotes e destinos
-![interface tabela](img/ProjetoInterface/Wireframe%20tabelas.png)
+## Wireframes da interface
+![interface tabela](img/ProjetoInterface/Wireframe.jpg)
 
-![Tela Administrador](img/Seu-Embarque.png)
+
