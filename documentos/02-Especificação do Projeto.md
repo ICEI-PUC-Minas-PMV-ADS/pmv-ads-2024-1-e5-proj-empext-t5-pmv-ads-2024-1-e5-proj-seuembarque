@@ -37,6 +37,7 @@ As tabelas que se seguem apresentam os requisitos funcionais e não funcionais q
 |RF-008| O sistema deve possuir uma tela para que o administrador possa registrar clientes e editar os mesmos| BAIXA |
 |RF-009| O sistema devera ter uma tela para mostrar os pacotes pesquisados pelos clientes | BAIXA |
 |RF-010| Na tela dos pacotes deverá ser possivel inserir o valor do orçamento feito para aquele pacote| BAIXA |
+|RF-011| O sistema devera ter uma tela de login para autenticação do administrador| BAIXA |
 
 ### Requisitos não Funcionais
 
