@@ -16,7 +16,7 @@ Nosso Front-End será feito utilizando HTML,CSS,JavaScript e vamos contar com um
 
 ## Project Model Canvas
 
-![Model Canvas](img/Especificacao/Projectcanvas.png)
+![Model Canvas](img/Especificacao/Projectcanvas2.png)
 
 ## Requisitos
 
