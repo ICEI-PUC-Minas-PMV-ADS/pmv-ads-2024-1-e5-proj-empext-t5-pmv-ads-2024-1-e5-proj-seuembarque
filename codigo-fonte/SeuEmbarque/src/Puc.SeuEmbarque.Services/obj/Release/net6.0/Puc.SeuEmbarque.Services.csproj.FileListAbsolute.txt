@@ -1,0 +1,17 @@
+G:\Projeto Eixo5\CodigoFonte\SeuEmbarque\src\Puc.SeuEmbarque.Services\bin\Release\net6.0\Puc.SeuEmbarque.Services.deps.json
+G:\Projeto Eixo5\CodigoFonte\SeuEmbarque\src\Puc.SeuEmbarque.Services\bin\Release\net6.0\Puc.SeuEmbarque.Services.dll
+G:\Projeto Eixo5\CodigoFonte\SeuEmbarque\src\Puc.SeuEmbarque.Services\bin\Release\net6.0\Puc.SeuEmbarque.Services.pdb
+G:\Projeto Eixo5\CodigoFonte\SeuEmbarque\src\Puc.SeuEmbarque.Services\bin\Release\net6.0\Puc.SeuEmbarque.Domain.dll
+G:\Projeto Eixo5\CodigoFonte\SeuEmbarque\src\Puc.SeuEmbarque.Services\bin\Release\net6.0\Puc.SeuEmbarque.Infra.ApiData.dll
+G:\Projeto Eixo5\CodigoFonte\SeuEmbarque\src\Puc.SeuEmbarque.Services\bin\Release\net6.0\Puc.SeuEmbarque.Domain.pdb
+G:\Projeto Eixo5\CodigoFonte\SeuEmbarque\src\Puc.SeuEmbarque.Services\bin\Release\net6.0\Puc.SeuEmbarque.Infra.ApiData.pdb
+G:\Projeto Eixo5\CodigoFonte\SeuEmbarque\src\Puc.SeuEmbarque.Services\obj\Release\net6.0\Puc.SeuEmbarque.Services.csproj.AssemblyReference.cache
+G:\Projeto Eixo5\CodigoFonte\SeuEmbarque\src\Puc.SeuEmbarque.Services\obj\Release\net6.0\Puc.SeuEmbarque.Services.GeneratedMSBuildEditorConfig.editorconfig
+G:\Projeto Eixo5\CodigoFonte\SeuEmbarque\src\Puc.SeuEmbarque.Services\obj\Release\net6.0\Puc.SeuEmbarque.Services.AssemblyInfoInputs.cache
+G:\Projeto Eixo5\CodigoFonte\SeuEmbarque\src\Puc.SeuEmbarque.Services\obj\Release\net6.0\Puc.SeuEmbarque.Services.AssemblyInfo.cs
+G:\Projeto Eixo5\CodigoFonte\SeuEmbarque\src\Puc.SeuEmbarque.Services\obj\Release\net6.0\Puc.SeuEmbarque.Services.csproj.CoreCompileInputs.cache
+G:\Projeto Eixo5\CodigoFonte\SeuEmbarque\src\Puc.SeuEmbarque.Services\obj\Release\net6.0\Puc.SeuEmbarque.Services.csproj.CopyComplete
+G:\Projeto Eixo5\CodigoFonte\SeuEmbarque\src\Puc.SeuEmbarque.Services\obj\Release\net6.0\Puc.SeuEmbarque.Services.dll
+G:\Projeto Eixo5\CodigoFonte\SeuEmbarque\src\Puc.SeuEmbarque.Services\obj\Release\net6.0\refint\Puc.SeuEmbarque.Services.dll
+G:\Projeto Eixo5\CodigoFonte\SeuEmbarque\src\Puc.SeuEmbarque.Services\obj\Release\net6.0\Puc.SeuEmbarque.Services.pdb
+G:\Projeto Eixo5\CodigoFonte\SeuEmbarque\src\Puc.SeuEmbarque.Services\obj\Release\net6.0\ref\Puc.SeuEmbarque.Services.dll
