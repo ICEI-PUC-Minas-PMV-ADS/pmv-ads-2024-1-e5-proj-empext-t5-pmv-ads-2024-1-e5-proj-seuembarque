@@ -30,7 +30,7 @@ app.UseAuthorization();
 
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Painel}/{action=Painel}"
+    pattern: "{controller=Formulario}/{action=Formulario}"
 );
 
 app.Run();
