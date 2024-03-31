@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\Puc.SeuEmbarque.Presentation.props" />
+</Project>
