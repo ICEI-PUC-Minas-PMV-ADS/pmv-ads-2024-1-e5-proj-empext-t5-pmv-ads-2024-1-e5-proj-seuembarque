@@ -42,4 +42,4 @@ Apresente imagens e/ou vídeos que comprovam que um determinado teste foi execut
 
 | Testes 	| CT 01 – Formulário de Informações |
 |:---:	|:---:	|
-<img src="pmv-ads-2024-1-e5-proj-empext-t5-pmv-ads-2024-1-e5-proj-seuembarque/documentos/img/TesteHospedagem.png">
+![Teste de Formulário](img/Testes de Software/TesteHospedagem.png)
