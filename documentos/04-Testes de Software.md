@@ -42,4 +42,5 @@ Apresente imagens e/ou vídeos que comprovam que um determinado teste foi execut
 
 | Testes 	| CT 01 – Formulário de Informações |
 |:---:	|:---:	|
-![Teste de Formulário](img/Testes de Software/TesteHospedagem.png)
+
+(img/TesteHospedagem.png)
