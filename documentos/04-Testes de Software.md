@@ -38,4 +38,8 @@ Diante dos cenários apresentados e analisando os requisitos do projeto, foi rea
  
 # Evidências de Testes de Software
 
-Apresente imagens e/ou vídeos que comprovam que um determinado teste foi executado, e o resultado esperado foi obtido. Normalmente são screenshots de telas, ou vídeos do software em funcionamento.
+Apresente imagens e/ou vídeos que comprovam que um determinado teste foi executado, e o resultado esperado foi obtido. Normalmente são screenshots de telas, ou vídeos do software em funcionamento. 
+
+| Testes 	| CT 01 – Formulário de Informações |
+|:---:	|:---:	|
+<img src="documentos/img/TesteHospedagem.png">
