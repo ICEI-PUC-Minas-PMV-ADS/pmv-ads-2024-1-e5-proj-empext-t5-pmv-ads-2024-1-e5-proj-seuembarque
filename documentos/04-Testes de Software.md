@@ -68,3 +68,20 @@ Apresente imagens e/ou vídeos que comprovam que um determinado teste foi execut
 
 
 ## Registro dos erros e soluções Backend (API-Python, Back C#)
+
+
+### C#
+
+| Toast Erro	| Um dos problemas que tivemos na implementação do toast de validação da tela de login é que não estavamos conseguindo fazer ele exibir a mensagem da resposta ao tentar logar |
+|:---:	|:---:	|
+
+
+![ErroToastLogin](/documentos/img/TestesDeSoftware/ErroToastLogin.png)
+
+#### Solução
+
+A solução encontrada para este erro foi colocar uma condição validando se a mensagem for diferente de nulo ele chamar a função pra exibição do erro onde essa função ativa o toast
+
+![FrontSoluçãoToast](/documentos/img/TestesDeSoftware/FrontSoluçãoToast.png)
+
+![FunctionErroToast](/documentos/img/TestesDeSoftware/FunctionErroToast.png)
