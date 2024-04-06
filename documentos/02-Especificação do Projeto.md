@@ -33,7 +33,7 @@ As tabelas que se seguem apresentam os requisitos funcionais e não funcionais q
 |RF-004| A aplicação deve enviar via mensagem no Whatsapp ou Email as informações preenchidas pelo cliente| ALTA |
 |RF-005| Ao enviar a Mensagem/Email das informações preenchidas o sistema deve armazenar no banco de dados o Destino, Origem e as datas do cliente| BAIXA |
 |RF-006| A aplicação deverá ter uma tela para visualização dos destinos mais escolhidos pelos clientes| BAIXA |
-|RF-007| Deverá ser desenvolvido uma api para mostrar os destinos mais procurados pelos clientes| BAIXA |
+|RF-007| Deverá ser desenvolvido uma api para registro dos dados dos clientes e pacotes | ALTA |
 |RF-008| O sistema deve possuir uma tela para que o administrador possa registrar clientes e editar os mesmos| BAIXA |
 |RF-009| O sistema devera ter uma tela para mostrar os pacotes pesquisados pelos clientes | BAIXA |
 |RF-010| Na tela dos pacotes deverá ser possivel inserir o valor do orçamento feito para aquele pacote| BAIXA |
