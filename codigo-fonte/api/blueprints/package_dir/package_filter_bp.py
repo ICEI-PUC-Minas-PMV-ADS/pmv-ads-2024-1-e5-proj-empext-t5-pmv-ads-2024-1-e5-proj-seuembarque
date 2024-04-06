@@ -28,8 +28,7 @@ def packages_filter():
         package_data_json['email'] = client_email
         package_data_json['cpf'] = client_cpf
         package_data_json['cellphone'] = client_cellphone     
-        package_query_json.append(package_data_json)  
-
+        package_query_json.append(package_data_json) 
     return jsonify(message="Requested packages", data= package_query_json), 200
 
 
