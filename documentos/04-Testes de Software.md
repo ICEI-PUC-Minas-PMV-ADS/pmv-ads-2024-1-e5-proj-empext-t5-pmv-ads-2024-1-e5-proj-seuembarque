@@ -38,4 +38,50 @@ Diante dos cenários apresentados e analisando os requisitos do projeto, foi rea
  
 # Evidências de Testes de Software
 
-Apresente imagens e/ou vídeos que comprovam que um determinado teste foi executado, e o resultado esperado foi obtido. Normalmente são screenshots de telas, ou vídeos do software em funcionamento.
+Apresente imagens e/ou vídeos que comprovam que um determinado teste foi executado, e o resultado esperado foi obtido. Normalmente são screenshots de telas, ou vídeos do software em funcionamento. 
+
+## Registro das funcionalidades Front End
+
+| Testes 	| CT-001 – Formulário de Informações |
+|:---:	|:---:	|
+
+![Formulário Cliente](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2024-1-e5-proj-empext-t5-pmv-ads-2024-1-e5-proj-seuembarque/blob/cb71c30514ca92efdda5b536984db09e413fdff6/documentos/img/TesteHospedagem.png)
+
+| Testes 	| CT-002 – Lista de Aeroportos (Origem/Destino)|
+|:---:	|:---:	|
+
+![Listagem de Origem](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2024-1-e5-proj-empext-t5-pmv-ads-2024-1-e5-proj-seuembarque/blob/7f82d1ae46a4b79f82c0d74e497a87e33696ae1b/documentos/img/TesteOrigem.png)
+
+![Listagem de Destino](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2024-1-e5-proj-empext-t5-pmv-ads-2024-1-e5-proj-seuembarque/blob/7f82d1ae46a4b79f82c0d74e497a87e33696ae1b/documentos/img/TesteDestino.png)
+
+| Testes 	| CT-003 – Informações Hospedagem |
+|:---:	|:---:	|
+
+![Teste de Hospedagem](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2024-1-e5-proj-empext-t5-pmv-ads-2024-1-e5-proj-seuembarque/blob/7f82d1ae46a4b79f82c0d74e497a87e33696ae1b/documentos/img/TesteHospedagem.png)
+
+| Testes 	| CT-004 – Informações via e-mail ou whatsapp |
+|:---:	|:---:	|
+
+![Teste de Whatsapp1](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2024-1-e5-proj-empext-t5-pmv-ads-2024-1-e5-proj-seuembarque/blob/main/documentos/img/TesteWhatsapp1.png)
+
+![Teste de Whatsapp2](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2024-1-e5-proj-empext-t5-pmv-ads-2024-1-e5-proj-seuembarque/blob/main/documentos/img/TesteWhatsapp2.png)
+
+
+## Registro dos erros e soluções Backend (API-Python, Back C#)
+
+
+### C#
+
+| Toast Erro	| Um dos problemas que tivemos na implementação do toast de validação da tela de login é que não estavamos conseguindo fazer ele exibir a mensagem da resposta ao tentar logar |
+|:---:	|:---:	|
+
+
+![ErroToastLogin](/documentos/img/TestesDeSoftware/ErroToastLogin.png)
+
+#### Solução
+
+A solução encontrada para este erro foi colocar uma condição validando se a mensagem for diferente de nulo ele chamar a função pra exibição do erro onde essa função ativa o toast
+
+![FrontSoluçãoToast](/documentos/img/TestesDeSoftware/FrontSoluçãoToast.png)
+
+![FunctionErroToast](/documentos/img/TestesDeSoftware/FunctionErroToast.png)

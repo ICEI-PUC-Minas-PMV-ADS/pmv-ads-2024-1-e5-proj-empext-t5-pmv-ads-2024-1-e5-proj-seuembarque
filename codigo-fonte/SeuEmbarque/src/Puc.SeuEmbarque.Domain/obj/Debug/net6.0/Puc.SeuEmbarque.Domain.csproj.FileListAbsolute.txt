@@ -1,0 +1,12 @@
+G:\Projeto Eixo5\CodigoFonte\SeuEmbarque\src\Puc.SeuEmbarque.Domain\bin\Debug\net6.0\Puc.SeuEmbarque.Domain.deps.json
+G:\Projeto Eixo5\CodigoFonte\SeuEmbarque\src\Puc.SeuEmbarque.Domain\bin\Debug\net6.0\Puc.SeuEmbarque.Domain.dll
+G:\Projeto Eixo5\CodigoFonte\SeuEmbarque\src\Puc.SeuEmbarque.Domain\bin\Debug\net6.0\Puc.SeuEmbarque.Domain.pdb
+G:\Projeto Eixo5\CodigoFonte\SeuEmbarque\src\Puc.SeuEmbarque.Domain\obj\Debug\net6.0\Puc.SeuEmbarque.Domain.csproj.AssemblyReference.cache
+G:\Projeto Eixo5\CodigoFonte\SeuEmbarque\src\Puc.SeuEmbarque.Domain\obj\Debug\net6.0\Puc.SeuEmbarque.Domain.GeneratedMSBuildEditorConfig.editorconfig
+G:\Projeto Eixo5\CodigoFonte\SeuEmbarque\src\Puc.SeuEmbarque.Domain\obj\Debug\net6.0\Puc.SeuEmbarque.Domain.AssemblyInfoInputs.cache
+G:\Projeto Eixo5\CodigoFonte\SeuEmbarque\src\Puc.SeuEmbarque.Domain\obj\Debug\net6.0\Puc.SeuEmbarque.Domain.AssemblyInfo.cs
+G:\Projeto Eixo5\CodigoFonte\SeuEmbarque\src\Puc.SeuEmbarque.Domain\obj\Debug\net6.0\Puc.SeuEmbarque.Domain.csproj.CoreCompileInputs.cache
+G:\Projeto Eixo5\CodigoFonte\SeuEmbarque\src\Puc.SeuEmbarque.Domain\obj\Debug\net6.0\Puc.SeuEmbarque.Domain.dll
+G:\Projeto Eixo5\CodigoFonte\SeuEmbarque\src\Puc.SeuEmbarque.Domain\obj\Debug\net6.0\refint\Puc.SeuEmbarque.Domain.dll
+G:\Projeto Eixo5\CodigoFonte\SeuEmbarque\src\Puc.SeuEmbarque.Domain\obj\Debug\net6.0\Puc.SeuEmbarque.Domain.pdb
+G:\Projeto Eixo5\CodigoFonte\SeuEmbarque\src\Puc.SeuEmbarque.Domain\obj\Debug\net6.0\ref\Puc.SeuEmbarque.Domain.dll

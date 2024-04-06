@@ -1,0 +1,134 @@
+﻿@model Puc.SeuEmbarque.Domain.Models.Usuario.LoginVM
+@{
+    Layout = "_FormLayout";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>login</title>
+
+    <style>
+        .container{
+            margin-top:200px;
+        }
+
+        .form-section label {
+            display:flex;
+            align-self: flex-start;
+            margin-left:32px;
+        }
+
+        .inputText{
+            width:22rem;
+
+        }
+
+        #loginBtn{
+            margin-top:50px;
+            background-color: #003f53;
+            border-color: #003f53;
+            color:#FFF !important; 
+            margin-left:25px; height:50px; 
+            font-size:25px;
+        }
+
+        #loginBtn:hover {
+            background-color: #04607d;
+            border-color: #04607d;
+        }
+        #manterLogado{
+            position: absolute;
+            margin-right: 20rem;
+            margin-top: 3.4rem;            
+        }
+        input[type=checkbox]:before {
+            border-radius: 2px;
+            border-color:#FFF;
+        }
+
+        .manterConectadoTxt{
+            width: 40px;
+            margin-top: 1.7rem;
+        }
+
+        .manterConectadoTxt span{
+                position: absolute;
+                margin-right: 9rem;
+                font-weight: 800;
+                font-size: 18px;
+        }
+
+    </style>
+</head>
+<div class="container">
+    <div class="form-container mt-2">
+        <h1 class="title-1 mt-4">Login</h1>
+        <div class="form-section">
+            <form id="loginForm" method="post" action="@Url.Action("Login", "Login")">
+                <input type="hidden" id="options" value="" />
+                <div>
+                    <label asp-for="Email">Usuário</label>
+                    <input id="email" asp-for="Email" class="inputText form-control" type="text" />
+                </div>
+                <div class="mt-4">
+                    <label asp-for="Senha">Senha</label>
+                    <input id="senha" asp-for="Senha" class="inputText form-control" type="password" />
+                </div>   
+                <div>
+                    <div>
+                        <input id="manterLogado" asp-for="ManterLogado" type="checkbox" />
+                    </div>
+                    <div class="manterConectadoTxt">
+                        <span>Manter conectado</span>
+                    </div>                    
+                </div>
+            </form>
+        </div>       
+        <div class="">
+            <input id="loginBtn" class="inputText form-control" type="button" value="Entrar" />
+        </div>
+        @if(ViewData["ValidateMessage"] != null)
+        {
+            <script type="text/javascript">
+                ExibirErro(true, '@Html.Raw(ViewData["ValidateMessage"].ToString())', "Email");
+            </script>
+        }
+    </div>
+</div>
+</html>
+<script type="text/javascript">
+    $(document).ready(function(){
+        $('#loginBtn').click(function(){
+            if(ValidarForm()){
+                Autenticar();         
+            }
+        });    
+    });
+
+    function Autenticar(){
+          $('#loginForm').submit();
+    }
+
+    function ValidarForm(){
+        var email = $('#email').val();
+        var senha = $('#senha').val();
+       
+        if (email == '') {
+            console.log("email2", email);
+            ExibirErro(true, "Por Favor preencha o Email!", "Email");
+            setTimeout(function () { $('#email').focus(); }, 800);
+            return false;
+        } 
+        if (senha == '') {
+            console.log("senha2", senha);
+            ExibirErro(true, "Por Favor preencha o Senha!", "Senha");
+            setTimeout(function () { $('#senha').focus(); }, 800);
+            return false;
+        }
+
+        return true;
+    }
+</script>
