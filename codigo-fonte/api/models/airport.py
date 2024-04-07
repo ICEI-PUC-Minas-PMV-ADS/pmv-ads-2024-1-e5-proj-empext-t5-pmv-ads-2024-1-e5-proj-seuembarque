@@ -28,6 +28,7 @@ class Airport(db.Model):
             "airport_id": self.airport_id,
             "name": self.name,
             "country": self.country,
+            "city": self.city,
             "iata_code": self.iata_code,
             "latitude": self.latitude,
             "longitude": self.longitude,
