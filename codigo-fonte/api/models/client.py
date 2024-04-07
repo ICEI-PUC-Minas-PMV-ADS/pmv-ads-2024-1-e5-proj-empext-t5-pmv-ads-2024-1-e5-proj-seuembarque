@@ -1,7 +1,6 @@
 from flask_sqlalchemy import SQLAlchemy
 from config.config import db
 from datetime import datetime
-from app import app
 
 
 class Client(db.Model):
