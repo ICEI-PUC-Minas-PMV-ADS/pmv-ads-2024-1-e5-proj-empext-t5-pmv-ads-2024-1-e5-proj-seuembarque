@@ -35,6 +35,37 @@ Diante dos cenários apresentados e analisando os requisitos do projeto, foi rea
 |Objetivo do Teste| Verificar os dados dos clientes e realizar possíveis mudanças necessárias.| 
 |Passos   |1) Acessar a aplicação; 2) Visualizar a tela “Clientes”; 3) Realizar as modificações necessárias dos clientes; 4) Salvar as informações.| 
 | Critério de Êxito| Verificar se as modificações e novos registros foram realizados e salvos na base do administrador. |
+
+|*Caso de Teste      | *CT-006 – Inserção de novo cliente        | 
+|------------------|-------------------------------|
+|Requisito associado: |RF-007| Deverá ser desenvolvido uma api para registro dos dados dos clientes e pacotes | ALTA |
+|Objetivo do Teste| Verificar se o registro de clientes e está sendo executado corretamente. 
+|Passos   |1) Acessar a aplicação; 2) Fazer o payload no Postman, usando o raw json, de acordo com o modelo client; 3) Digitar a url /cliente e selecionar o método POST; 4) Clicar em "send".| 
+| Critério de Êxito| Um novo cliente deve ser inserido no banco de dados.|
+
+
+
+|*Caso de Teste      | *CT-007 – Listagem de clientes         | 
+|------------------|-------------------------------|
+|Requisito associado: |RF-007| Deverá ser desenvolvido uma api para registro dos dados dos clientes e pacotes | ALTA |
+|Objetivo do Teste| Verificar a listagem de clientes já inseridos no banco de dados. 
+|Passos   |1) Acessar a aplicação; 2) Digitar a url /clientes e selecionar o método GET; 3) Clicar em "send"
+| Critério de Êxito| Todos os clientes devem ser listados. |
+
+
+|*Caso de Teste      | *CT-008 – Inserção de solicitação de novo pacote de viagem       | 
+|------------------|-------------------------------|
+|Requisito associado: |RF-007| Deverá ser desenvolvido uma api para registro dos dados dos clientes e pacotes | ALTA |
+|Objetivo do Teste| Verificar a inserção de um novo pacote. 
+|Passos   |1) Acessar a aplicação; 2) Digitar a url /pacote 3) Montar o payload, em raw json, de acordo com o modelo package e selecionar o método POST; 3) Clicar em "send"
+| Critério de Êxito| Uma nova solicitação de pacote deve ser inserida no banco de dados. |
+
+|*Caso de Teste      | *CT-009 – Filtragem de pacotes          | 
+|------------------|-------------------------------|
+|Requisito associado: |RF-007| Deverá ser desenvolvido uma api para registro dos dados dos clientes e pacotes | ALTA |
+|Objetivo do Teste| Verificar se a filtragem de pacotes por múltiplos critérios está funcionando. 
+|Passos   |1) Acessar a aplicação; 2) Digitar a pacotes/filtrar? seguido do critério desejado e selecionar o método GET; 3) Clicar em "send"
+| Critério de Êxito| Todos os pacotes que correspondam aos critérios digitados devem ser listados. Os filtros são cumulativos. No caso de strings, são fornecidas todas os valores que possuam parte dos valores digitados, para facilitar a busca (operador %ILIKE%).|
  
 # Evidências de Testes de Software
 
@@ -67,45 +98,25 @@ Apresente imagens e/ou vídeos que comprovam que um determinado teste foi execut
 ![Teste de Whatsapp2](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2024-1-e5-proj-empext-t5-pmv-ads-2024-1-e5-proj-seuembarque/blob/main/documentos/img/TesteWhatsapp2.png)
 
 
-## Registro dos erros e soluções Backend (API-Python, Back C#)
-|*Caso de Teste      | *CT-006 – Inserção de novo cliente        | 
-Requisito associado: |RF-007| Deverá ser desenvolvido uma api para registro dos dados dos clientes e pacotes | ALTA |
-|Objetivo do Teste| Verificar se o registro de clientes e está sendo executado corretamente. 
-|Passos   |1) Acessar a aplicação; 2) Fazer o payload no Postman, usando o raw json, de acordo com o modelo client; 3) Digitar a url /cliente e selecionar o método POST; 4) Clicar em "send".| 
-| Critério de Êxito| Um novo cliente deve ser inserido no banco de dados.|
 
-|*Caso de Teste      | *CT-007 – Listagem de clientes         | 
-Requisito associado: |RF-007| Deverá ser desenvolvido uma api para registro dos dados dos clientes e pacotes | ALTA |
-|Objetivo do Teste| Verificar a listagem de clientes já inseridos no banco de dados. 
-|Passos   |1) Acessar a aplicação; 2) Digitar a url /clientes e selecionar o método GET; 3) Clicar em "send"
-| Critério de Êxito| Todos os clientes devem ser listados. |
-
-
-|*Caso de Teste      | *CT-008 – Inserção de solicitação de novo pacote de viagem       | 
-Requisito associado: |RF-007| Deverá ser desenvolvido uma api para registro dos dados dos clientes e pacotes | ALTA |
-|Objetivo do Teste| Verificar a inserção de um novo pacote. 
-|Passos   |1) Acessar a aplicação; 2) Digitar a url /pacote 3) Montar o payload, em raw json, de acordo com o modelo package e selecionar o método POST; 3) Clicar em "send"
-| Critério de Êxito| Uma nova solicitação de pacote deve ser inserida no banco de dados. |
-
-|*Caso de Teste      | *CT-009 – Filtragem de pacotes          | 
-Requisito associado: |RF-007| Deverá ser desenvolvido uma api para registro dos dados dos clientes e pacotes | ALTA |
-|Objetivo do Teste| Verificar se a filtragem de pacotes por múltiplos critérios está funcionando. 
-|Passos   |1) Acessar a aplicação; 2) Digitar a pacotes/filtrar? seguido do critério desejado e selecionar o método GET; 3) Clicar em "send"
-| Critério de Êxito| Todos os pacotes que correspondam aos critérios digitados devem ser listados. Os filtros são cumulativos. No caso de strings, são fornecidas todas os valores que possuam parte dos valores digitados, para facilitar a busca (operador %ILIKE%).|
-
-# Evidências de Testes de Software - Backend
-|*Caso de Teste      | *CT-006 – Inserção de novo cliente        | 
+## Evidências de Testes de Software - Backend
+|CT-006 – Inserção de novo cliente      |       | 
+|:---:	|:---:	|
 ![alt text](img/Teste_post_client.png)
 
-|*Caso de Teste      | *CT-007 – Listagem de clientes         | 
+|CT-007 – Listagem de clientes      |         | 
+|:---:	|:---:	|
 ![alt text](img/Teste_get_clientes.png)
 
-|*Caso de Teste      | *CT-008 – Inserção de solicitação de novo pacote de viagem       | 
+|CT-008 – Inserção de solicitação de novo pacote de viagem      |       | 
+|:---:	|:---:	|
 ![alt text](img/Teste_post_package.png)
 
-|*Caso de Teste      | *CT-009 – Filtragem de pacotes          | 
+|CT-009 – Filtragem de pacotes  |          | 
+|:---:	|:---:	|
 ![alt text](img/Teste_get_package_filtros.png)
 
+## Registro dos erros e soluções Backend (API-Python, Back C#)
 ### C#
 
 | Toast Erro	| Um dos problemas que tivemos na implementação do toast de validação da tela de login é que não estavamos conseguindo fazer ele exibir a mensagem da resposta ao tentar logar |
