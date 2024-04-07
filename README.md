@@ -6,7 +6,7 @@
 
 `Eixo 5`
 
-Descrever resumidamente, em um ou dois parágrafos, o projeto que está sendo desenvolvido.
+Essa aplicação visa a integrar a comunicação entre cliente e uma agência de turismo por meio de um formulário que será integrado a um banco de dados e ao whatsapp. Dessa forma, a empresa poderá atender a esses clientes e registrá-los para futuras vendas.
 
 ## Integrantes
 
