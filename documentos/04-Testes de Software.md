@@ -100,16 +100,20 @@ Apresente imagens e/ou vídeos que comprovam que um determinado teste foi execut
 
 
 ## Evidências de Testes de Software - Backend
-|*Caso de Teste      | *CT-006 – Inserção de novo cliente        | 
+|CT-006 – Inserção de novo cliente      |       | 
+|:---:	|:---:	|
 ![alt text](img/Teste_post_client.png)
 
-|*Caso de Teste      | *CT-007 – Listagem de clientes         | 
+|CT-007 – Listagem de clientes      |         | 
+|:---:	|:---:	|
 ![alt text](img/Teste_get_clientes.png)
 
-|*Caso de Teste      | *CT-008 – Inserção de solicitação de novo pacote de viagem       | 
+|CT-008 – Inserção de solicitação de novo pacote de viagem      |       | 
+|:---:	|:---:	|
 ![alt text](img/Teste_post_package.png)
 
-|*Caso de Teste      | *CT-009 – Filtragem de pacotes          | 
+|CT-009 – Filtragem de pacotes  |          | 
+|:---:	|:---:	|
 ![alt text](img/Teste_get_package_filtros.png)
 
 ## Registro dos erros e soluções Backend (API-Python, Back C#)
