@@ -18,7 +18,7 @@ def get_airport(airport_id):
         return jsonify(message="Airport not found"), 404
     else:
         airport_json = airport.to_json()
-        return jsonify(message="Requested airport"), 200
+        return jsonify(message="Requested airport", data=airport_json), 200
     
 @airport_bp.route("/aeroportos/filtrar", methods = ["GET"])
 def get_filters():
