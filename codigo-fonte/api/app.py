@@ -9,7 +9,7 @@ from blueprints.client_dir.client_filter_bp import clients_filter_bp
 from blueprints.package_dir.package_crud_bp import package_crud_bp
 from blueprints.package_dir.package_filter_bp import packages_filter_bp
 from blueprints.user_dir.user_crud_bp import user_bp
-from blueprints.airport_bp.airport import airport_bp
+from blueprints.airport_bp.airport_bp import airport_bp
 from flask_migrate import Migrate
 
 app = Flask(__name__)
