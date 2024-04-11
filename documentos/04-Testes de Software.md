@@ -116,7 +116,7 @@ Apresente imagens e/ou vídeos que comprovam que um determinado teste foi execut
 |:---:	|:---:	|
 ![alt text](img/Teste_get_package_filtros.png)
 
-<<<<<<< HEAD
+
 ### Erros na construção da api
 | Erro de circularidade Erro	| O erro mais importante a ser destacado na construção da api foi o de circularidade de importação. Isso ocorre quando o app gerado pela classe Flask, no app.py, é exportado para ser utilizado em outras classes. Como os modelos são importados para o app para construírem a aplicação, isso gerava circularidade, isto é, ao mesmo tempo que os modelos ou arquivos de blueprints (que são controllers) precisavam do app, o app precisava deles.   |
 ![alt text](img/TestesDeSoftwareBackendErros/erro_back_circularidade.png)
@@ -125,8 +125,8 @@ Apresente imagens e/ou vídeos que comprovam que um determinado teste foi execut
 ![alt text](img/TestesDeSoftwareBackendErros/solucao_circularidade.png)
 
 
-=======
-## Registro dos erros e soluções Backend (API-Python, Back C#)
+
+<!-- ## Registro dos erros e soluções Backend (API-Python, Back C#)
 >>>>>>> 4436a60c439d6d0443d3815d11043c8b2c0bc4bf
 ### C#
 
@@ -142,4 +142,4 @@ A solução encontrada para este erro foi colocar uma condição validando se a 
 
 ![FrontSoluçãoToast](/documentos/img/TestesDeSoftware/FrontSoluçãoToast.png)
 
-![FunctionErroToast](/documentos/img/TestesDeSoftware/FunctionErroToast.png)
+![FunctionErroToast](/documentos/img/TestesDeSoftware/FunctionErroToast.png) -->
