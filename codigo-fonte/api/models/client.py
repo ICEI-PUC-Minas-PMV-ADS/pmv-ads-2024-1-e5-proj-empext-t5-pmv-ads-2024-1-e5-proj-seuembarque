@@ -2,7 +2,6 @@ from flask_sqlalchemy import SQLAlchemy
 from config.config import db
 from datetime import datetime
 
-
 class Client(db.Model):
     __tablename__ = "clients_table"
     client_id = db.Column(db.Integer, primary_key = True, autoincrement=True)
