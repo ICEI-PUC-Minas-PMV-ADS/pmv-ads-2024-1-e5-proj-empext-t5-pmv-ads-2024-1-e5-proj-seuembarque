@@ -30,25 +30,25 @@ class Package(db.Model):
         self.return_date = return_date if return_date else None 
         self.registration_date = datetime.now().date()
         self.price = price
-        self.meals = self.valid_meals(meals)
+        self.meals = meals
         self.accommodation = accomodation
         self.kids = kids
         self.adults = adults
         self.travel_class = travel_class
     
-    def valid_meals(self, meals):       
-        if meals:
-            valid_meals = {"C", "A", "J", "ALL"}
-            meal_set = set(meals.split(','))
-            if "ALL" in meal_set:
-                return "ALL"
-            else:
-                meal_list = list(meal_set)
-                meal_list.sort()
-                if set(meal_list).issubset(valid_meals): 
-                    return meal_list
-                else:
-                    raise ValueError("The options for meals are just: C (breakfast), A (lunch), J (dinner) or ALL (all inclusive)")
+    # def valid_meals(self, meals):       
+    #     if meals:
+    #         valid_meals = {"C", "A", "J", "ALL"}
+    #         meal_set = set(meals.split(','))
+    #         if "ALL" in meal_set:
+    #             return "ALL"
+    #         else:
+    #             meal_list = list(meal_set)
+    #             meal_list.sort()
+    #             if set(meal_list).issubset(valid_meals): 
+    #                 return meal_list
+    #             else:
+    #                 raise ValueError("The options for meals are just: C (breakfast), A (lunch), J (dinner) or ALL (all inclusive)")
             
     def to_json(self):
         return {
