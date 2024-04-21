@@ -44,8 +44,8 @@ def add_package():
         return jsonify(message=f"You should provide {", ".join(missing_fields)}"), 400
     if return_date_obj < departure_date_obj:
         return jsonify(message="The return date must be after the departure date"), 400
-    if meals and meals not in ["A", "C", "J", "ALL_ME", "ALL_IN"]:
-        return jsonify(message="Invalid value for meals. It should be 'C' (breakfast), 'A', (lunch), 'J' (dinner) or 'ALL_ME' (all meals) or 'ALL_IN' (all inclusive)"),400 
+    # if meals and meals not in ["A", "C", "J", "ALL_ME", "ALL_IN"]:
+    #     return jsonify(message="Invalid value for meals. It should be 'C' (breakfast), 'A', (lunch), 'J' (dinner) or 'ALL_ME' (all meals) or 'ALL_IN' (all inclusive)"),400 
     if travel_class not in ["economica", "executiva", 'primeira_classe']:
         return jsonify(message="Invalid value for travel_class. The available values are: 'economica', 'executiva', 'primeira_classe'"), 400
     new_package = Package(client_id=client_id, origin=origin, 

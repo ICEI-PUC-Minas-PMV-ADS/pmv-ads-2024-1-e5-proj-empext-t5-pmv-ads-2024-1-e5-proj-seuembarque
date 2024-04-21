@@ -83,6 +83,24 @@ def delete_user():
         db.session.commit()
         return jsonify(message="User deleted successfully", data=user_to_delete_json), 200
 
+@user_bp.route("/usuario/admin/login", methods=["GET"])
+def login_user():
+    data = request.get_json()
+    if "email" not in data or "password" not in data:
+        return jsonify(message="You need to provide an email and a password to login"), 400
+    user_email =  data.get('email')
+    user_password = data.get('password')
+    user = User.query.filter(User.email == user_email).first()
+    if not user:
+        return jsonify(message="User not found"), 404
+    bcrypt = Bcrypt()
+    login_try = bcrypt.check_password_hash(user.password, user_password)
+    if login_try:
+        user_json = user.to_json()
+        return jsonify(message="Valid user and password", data=user_json, flag=login_try)
+    else:
+        return jsonify(message="Invalid password and/or user", flag=login_try)
+
 
     
 
