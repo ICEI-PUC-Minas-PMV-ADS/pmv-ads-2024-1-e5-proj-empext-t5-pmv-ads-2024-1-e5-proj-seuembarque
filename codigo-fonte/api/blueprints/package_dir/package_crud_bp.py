@@ -27,37 +27,42 @@ def add_package():
     client_id = package_data.get('client_id')
     origin = package_data.get('origin')
     destination = package_data.get('destination')
-    departure_date = package_data.get('departure_date')    
-    return_date = package_data.get('return_date')
-    departure_date_obj = datetime.strptime(departure_date, "%d/%m/%Y")
-    return_date_obj = datetime.strptime(return_date, "%d/%m/%Y")
+    departure_date_str = package_data.get('departure_date')
+    return_date_str = package_data.get('return_date')
+    departure_date = datetime.strptime(departure_date_str, "%d/%m/%Y")
+    return_date = datetime.strptime(return_date_str, "%d/%m/%Y")
+    if return_date < departure_date:
+        return jsonify(message="The return date must be after the departure date"), 400
     price = package_data.get('price')
     meals = package_data.get('meals')
-    accomodation = package_data.get('accomodation')
+    accommodation = package_data.get('accommodation')
     kids = package_data.get('kids')
     adults = package_data.get('adults')
     travel_class = package_data.get('travel_class')
 
-    mandatory_fields = ["client_id", "origin", "destination", "departure_date", "return_date", "accomodation", "travel_class"]
+    mandatory_fields = ["client_id", "origin", "destination", "departure_date", "return_date", "accommodation", "travel_class"]
     missing_fields = [x for x in mandatory_fields if x not in package_data]
     if missing_fields:
         return jsonify(message=f"You should provide {", ".join(missing_fields)}"), 400
-    if return_date_obj < departure_date_obj:
-        return jsonify(message="The return date must be after the departure date"), 400
+   
     # if meals and meals not in ["A", "C", "J", "ALL_ME", "ALL_IN"]:
     #     return jsonify(message="Invalid value for meals. It should be 'C' (breakfast), 'A', (lunch), 'J' (dinner) or 'ALL_ME' (all meals) or 'ALL_IN' (all inclusive)"),400 
     if travel_class not in ["economica", "executiva", 'primeira_classe']:
         return jsonify(message="Invalid value for travel_class. The available values are: 'economica', 'executiva', 'primeira_classe'"), 400
+    departure_date_form = departure_date.strftime("%Y/%m/%d")
+    return_date_form = return_date.strftime("%Y/%m/%d")
     new_package = Package(client_id=client_id, origin=origin, 
-                          destination=destination, departure_date=departure_date_obj.strftime("%Y/%m/%d"),
-                         return_date=return_date_obj.strftime("%Y/%m/%d"), price=price, meals=meals,
-                         accomodation=accomodation, kids=kids, adults=adults, travel_class=travel_class)
+                          destination=destination,
+                         departure_date=departure_date_form,
+                         return_date=return_date_form, price=price, meals=meals,
+                         accommodation=accommodation, kids=kids, adults=adults, travel_class=travel_class)
     if new_package:
         db.session.add(new_package)
         db.session.commit()
         new_package_json = new_package.to_json()
         return jsonify(data=new_package_json, message="New package added"), 201
     
+
 
 @package_crud_bp.route('/pacote', methods=["PUT"])
 def update_package():
