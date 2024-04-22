@@ -12,7 +12,7 @@ class Package(db.Model):
     destination = db.Column(db.String(150), nullable=False)
     departure_date = db.Column(db.Date, nullable=False)
     return_date = db.Column(db.Date, nullable=True)
-    registration_date = db.Column(db.Date)
+    registration_date = db.Column(db.DateTime)
     price = db.Column(db.Float, nullable=True)
     meals = db.Column(db.String(10), nullable= True)
     accommodation = db.Column(db.Boolean, nullable = True)
@@ -28,7 +28,7 @@ class Package(db.Model):
         self.destination = destination
         self.departure_date = departure_date
         self.return_date = return_date if return_date else None 
-        self.registration_date = datetime.now().date()
+        self.registration_date = datetime.now()
         self.price = price
         self.meals = meals
         self.accommodation = accomodation
@@ -44,7 +44,7 @@ class Package(db.Model):
             "destination": self.destination,
             "departure_date": self.departure_date.strftime("%d/%m/%Y") if self.departure_date is not None else None,
             "return_date": self.return_date.strftime("%d/%m/%Y") if self.return_date is not None else None, 
-            "registration_date": self.registration_date.strftime("%d/%m/%Y") if self.registration_date is not None else None,
+            "registration_date": self.registration_date.strftime("%d/%m/%Y %H:%M:%S") if self.registration_date is not None else None,
             "price": self.price,
             "meals": self.meals if self.meals is not None else None,
             "accomodation": self.accommodation if self.accommodation is not None else None,
