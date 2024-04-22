@@ -9,12 +9,14 @@ class User(db.Model):
     password = db.Column(db.String(250))
     email = db.Column(db.String(100))
     cellphone = db.Column(db.String(50))
+    master_user = db.Column(db.Boolean, default=False)
 
-    def __init__(self, name, password, email, cellphone):
+    def __init__(self, name, password, email, cellphone, master_user):
         self.name = name
         self.password = self.encript_password(password)
         self.email = email 
         self.cellphone = cellphone
+        self.master_user = master_user
 
     def encript_password(self, non_encripted_password):
         bcrypt = Bcrypt()
@@ -32,6 +34,7 @@ class User(db.Model):
             "user_id": self.user_id,
             "name": self.name, 
             "email": self.email,
-            "cellphone": self.cellphone            
+            "cellphone": self.cellphone, 
+            "master_user": self.master_user        
         }
 
