@@ -22,7 +22,7 @@ class Package(db.Model):
     client = db.relationship("Client", lazy="joined")      
 
     def __init__(self, client_id, origin, destination, departure_date, 
-                 return_date, price, meals, accommodation, kids, adults, travel_class):
+                 price, meals, accommodation, kids, adults, travel_class, return_date=None):
         self.client_id = client_id
         self.origin = origin
         self.destination = destination
@@ -43,7 +43,7 @@ class Package(db.Model):
             "client_id": self.client_id,
             "destination": self.destination,
             "departure_date": self.departure_date.strftime("%d/%m/%Y"),
-            "return_date": self.return_date.strftime("%d/%m/%Y"), 
+            "return_date": self.return_date.strftime("%d/%m/%Y") if self.return_date else None, 
             "registration_date": self.registration_date.strftime("%d/%m/%Y %H:%M:%S") if self.registration_date is not None else None,
             "price": self.price,
             "meals": self.meals if self.meals is not None else None,

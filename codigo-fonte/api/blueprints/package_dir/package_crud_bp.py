@@ -30,9 +30,13 @@ def add_package():
     departure_date_str = package_data.get('departure_date')
     return_date_str = package_data.get('return_date')
     departure_date = datetime.strptime(departure_date_str, "%d/%m/%Y")
-    return_date = datetime.strptime(return_date_str, "%d/%m/%Y")
-    if return_date < departure_date:
-        return jsonify(message="The return date must be after the departure date"), 400
+    if return_date_str:
+        return_date = datetime.strptime(return_date_str, "%d/%m/%Y")
+        if return_date < departure_date:
+            return jsonify(message="The return date must be after the departure date"), 400
+        return_date_form = return_date.strftime("%Y/%m/%d")
+    departure_date_form = departure_date.strftime("%Y/%m/%d")
+
     price = package_data.get('price')
     meals = package_data.get('meals')
     accommodation = package_data.get('accommodation')
@@ -40,7 +44,7 @@ def add_package():
     adults = package_data.get('adults')
     travel_class = package_data.get('travel_class')
 
-    mandatory_fields = ["client_id", "origin", "destination", "departure_date", "return_date", "accommodation", "travel_class"]
+    mandatory_fields = ["client_id", "origin", "destination", "departure_date",  "accommodation", "travel_class"]
     missing_fields = [x for x in mandatory_fields if x not in package_data]
     if missing_fields:
         return jsonify(message=f"You should provide {", ".join(missing_fields)}"), 400
@@ -49,13 +53,19 @@ def add_package():
     #     return jsonify(message="Invalid value for meals. It should be 'C' (breakfast), 'A', (lunch), 'J' (dinner) or 'ALL_ME' (all meals) or 'ALL_IN' (all inclusive)"),400 
     if travel_class not in ["economica", "executiva", 'primeira_classe']:
         return jsonify(message="Invalid value for travel_class. The available values are: 'economica', 'executiva', 'primeira_classe'"), 400
-    departure_date_form = departure_date.strftime("%Y/%m/%d")
-    return_date_form = return_date.strftime("%Y/%m/%d")
-    new_package = Package(client_id=client_id, origin=origin, 
+    if return_date_str:
+        new_package = Package(client_id=client_id, origin=origin, 
                           destination=destination,
                          departure_date=departure_date_form,
                          return_date=return_date_form, price=price, meals=meals,
                          accommodation=accommodation, kids=kids, adults=adults, travel_class=travel_class)
+    else:
+        new_package = Package(client_id=client_id, origin=origin, 
+                          destination=destination,
+                         departure_date=departure_date_form,
+                         price=price, meals=meals,
+                         accommodation=accommodation, kids=kids, adults=adults, travel_class=travel_class)
+   
     if new_package:
         db.session.add(new_package)
         db.session.commit()
