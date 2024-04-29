@@ -6,7 +6,7 @@ from flask_bcrypt import Bcrypt
 
 user_bp = Blueprint("user_crud_bp", __name__)
 
-@user_bp.route('/usuarios/admin', methods=["GET"])
+@user_bp.route('/usuario/admin', methods=["GET"])
 def get_users():
     users = User.query.all()
     if users:
