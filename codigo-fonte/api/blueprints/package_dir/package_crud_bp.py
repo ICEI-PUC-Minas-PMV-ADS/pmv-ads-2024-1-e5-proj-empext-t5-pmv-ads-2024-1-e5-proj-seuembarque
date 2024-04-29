@@ -43,7 +43,6 @@ def add_package():
     kids = package_data.get('kids')
     adults = package_data.get('adults')
     travel_class = package_data.get('travel_class')
-
     mandatory_fields = ["client_id", "origin", "destination", "departure_date",  "accommodation", "travel_class"]
     missing_fields = [x for x in mandatory_fields if x not in package_data]
     if missing_fields:
@@ -97,10 +96,10 @@ def update_package():
         updated_package.return_date = new_return_date_form.strftime("%Y/%m/%d") 
     if 'meals' in data_package:    
         new_meals = data_package.get('meals')
-        if new_meals not in ["C", "A", "J", "ALL"]:
-            return jsonify(message="Invalid value for updating meals. Values should be 'C' (breakfast), 'A', (lunch), 'J' (dinner) or 'ALL' (all inclusive)"),400 
-        else:
-            updated_package.meals = new_meals
+        # if new_meals not in ["C", "A", "J", "ALL", 'NAO']:
+        #     return jsonify(message="Invalid value for updating meals. Values should be 'C' (breakfast), 'A', (lunch), 'J' (dinner), 'ALL' (all inclusive) or NAO (no meals)"),400 
+        # else:
+        updated_package.meals = new_meals
     if 'travel_class' in data_package:
         new_travel_class = data_package.get('travel_class')
         if new_travel_class not in ['economica', 'executiva', 'primeira_classe']:
