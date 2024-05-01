@@ -6,7 +6,7 @@ from flask_bcrypt import Bcrypt
 
 user_bp = Blueprint("user_crud_bp", __name__)
 
-@user_bp.route('/usuarios/admin', methods=["GET"])
+@user_bp.route('/usuario/admin', methods=["GET"])
 def get_users():
     users = User.query.all()
     if users:
@@ -31,12 +31,15 @@ def add_user():
     user_password = data_user.get('password')
     user_cellphone = data_user.get('cellphone')
     user_email = data_user.get('email')
+    master_user = data_user.get('master_user')
     mandatory_fields = ["name", "password", "email"]
     missing_fields = [x for x in mandatory_fields if x not in data_user]
     if missing_fields:
         return jsonify(message=f"You have to provide {', '.join(missing_fields)}"), 400
     else:
-        new_user = User(name=user_name, password=user_password, cellphone=user_cellphone, email=user_email)
+        new_user = User(name=user_name, password=user_password,
+                         cellphone=user_cellphone, 
+                         email=user_email, master_user=master_user)
     if new_user:
         db.session.add(new_user)
         db.session.commit()
