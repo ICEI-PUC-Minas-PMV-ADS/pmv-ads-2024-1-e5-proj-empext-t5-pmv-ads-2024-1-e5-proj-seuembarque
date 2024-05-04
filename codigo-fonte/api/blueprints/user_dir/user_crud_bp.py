@@ -86,7 +86,7 @@ def delete_user():
         db.session.commit()
         return jsonify(message="User deleted successfully", data=user_to_delete_json), 200
 
-@user_bp.route("/usuario/admin/login", methods=["GET"])
+@user_bp.route("/usuario/admin/login", methods=["GET", "POST"])
 def login_user():
     data = request.get_json()
     if "email" not in data or "password" not in data:
