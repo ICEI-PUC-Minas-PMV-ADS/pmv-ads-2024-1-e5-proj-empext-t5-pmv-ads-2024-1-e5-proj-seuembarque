@@ -46,7 +46,7 @@ def add_package():
     mandatory_fields = ["client_id", "origin", "destination", "departure_date",  "accommodation", "travel_class"]
     missing_fields = [x for x in mandatory_fields if x not in package_data]
     if missing_fields:
-        return jsonify(message=f"You should provide {", ".join(missing_fields)}"), 400
+        return jsonify(message=f"You should provide {', '.join(missing_fields)}"), 400
    
     # if meals and meals not in ["A", "C", "J", "ALL_ME", "ALL_IN"]:
     #     return jsonify(message="Invalid value for meals. It should be 'C' (breakfast), 'A', (lunch), 'J' (dinner) or 'ALL_ME' (all meals) or 'ALL_IN' (all inclusive)"),400 
