@@ -47,7 +47,7 @@ class Package(db.Model):
             "registration_date": self.registration_date.strftime("%d/%m/%Y %H:%M:%S") if self.registration_date is not None else None,
             "price": self.price,
             "meals": self.meals if self.meals is not None else None,
-            "accomodation": self.accommodation if self.accommodation is not None else None,
+            "accommodation": self.accommodation if self.accommodation is not None else None,
             "origin": self.origin,
             "kids": self.kids,
             "adults": self.adults,

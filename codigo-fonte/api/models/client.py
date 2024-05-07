@@ -12,10 +12,12 @@ class Client(db.Model):
     registration_date = db.Column(db.DateTime)
     packages = db.relationship("Package", viewonly = True, lazy="joined")
 
-    def __init__(self, name, email):
+    def __init__(self, name, email, cpf, cellphone):
         self.name = name 
         self.email = email
         self.registration_date = datetime.now()
+        self.cpf = cpf
+        self.cellphone = cellphone
 
     def __repr__(self):
         return f"Cliente {self.name}, email {self.email}"
