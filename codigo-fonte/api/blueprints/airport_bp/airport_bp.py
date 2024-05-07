@@ -37,9 +37,7 @@ def add_airport():
     db.session.add(new_air)
     new_air_json = new_air.to_json()
     return jsonify(message="Airport added successfully", data=new_air_json)
-
-
-    
+   
 @airport_bp.route("/aeroportos/filtrar", methods = ["GET"])
 def get_filters():
     for key in request.args.keys():

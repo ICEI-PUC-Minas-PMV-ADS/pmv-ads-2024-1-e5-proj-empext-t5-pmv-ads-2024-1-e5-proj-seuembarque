@@ -25,8 +25,11 @@ def add_client():
     name = new_client.get('name')
     email = new_client.get('email')
     cpf = new_client.get('cpf')
-    cellphone = new_client.get("cellphone")  
-    new_client_obj = Client(name=name, email=email)    
+    cellphone = new_client.get("cellphone") 
+    if cpf and cellphone:
+        new_client_obj = Client(name=name, email=email, cpf=cpf, cellphone=cellphone)    
+    elif not cpf and not cellphone:
+        new_client_obj = Client(name=name, email=email)
     db.session.add(new_client_obj)
     db.session.commit()
     return jsonify(data=new_client_obj.to_json(), message="Client added successfully"), 201
