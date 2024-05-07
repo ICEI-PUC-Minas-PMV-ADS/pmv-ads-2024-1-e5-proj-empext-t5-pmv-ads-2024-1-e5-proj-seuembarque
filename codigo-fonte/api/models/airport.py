@@ -11,7 +11,6 @@ class Airport(db.Model):
     latitude = db.Column(db.Float)
     longitude = db.Column(db.Float)
     links_count = db.Column(db.Integer)  
-    links_count = db.Column(db.Float)
 
     def __init__(self, name, city, country, iata_code,
                   latitude, longitude, links_count):

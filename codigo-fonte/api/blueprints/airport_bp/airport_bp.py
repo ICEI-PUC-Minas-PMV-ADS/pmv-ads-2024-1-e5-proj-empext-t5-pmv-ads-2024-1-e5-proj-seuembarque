@@ -1,7 +1,7 @@
 from flask_sqlalchemy import SQLAlchemy 
 from flask import request, jsonify, Blueprint
 from models.airport import Airport
-
+from config.config import db    
 airport_bp = Blueprint("airport_bp", __name__)
 
 
@@ -20,6 +20,26 @@ def get_airport(airport_id):
         airport_json = airport.to_json()
         return jsonify(message="Requested airport", data=airport_json), 200
     
+@airport_bp.route('/aeroporto', methods=["POST"])
+def add_airport():
+    data_air = request.get_json()
+    name = data_air.get('name')
+    city = data_air.get('city')
+    country = data_air.get('country')
+    iata_code = data_air.get('iata_code')
+    latitude = data_air.get('latitude')
+    longitude = data_air.get('longitude')
+    links_count = data_air.get('links_count')
+
+    new_air = Airport(name=name, city=city, country=country, 
+                      iata_code=iata_code, latitude=latitude, 
+                      longitude=longitude, links_count=links_count)
+    db.session.add(new_air)
+    new_air_json = new_air.to_json()
+    return jsonify(message="Airport added successfully", data=new_air_json)
+
+
+    
 @airport_bp.route("/aeroportos/filtrar", methods = ["GET"])
 def get_filters():
     for key in request.args.keys():
@@ -28,7 +48,6 @@ def get_filters():
             print(f"printando {key}")
             field = getattr(Airport, key)
             if key == "name" or key == "city"  or key == "country" or key == "iata_code":
-                print(f"printando key pela segunda vez {key}")
                 airport_query = Airport.query.filter(field.ilike(f"%{value}"))
             else:
                 airport_query = Airport.query.filter(field == value)
@@ -36,6 +55,8 @@ def get_filters():
         a_json = [x.to_json() for x in airport_query_obj]                    
 
     return jsonify(message="Results", data = a_json) 
+
+
 
 
 
