@@ -38,22 +38,22 @@ def add_airport():
     new_air_json = new_air.to_json()
     return jsonify(message="Airport added successfully", data=new_air_json)
    
-@airport_bp.route("/aeroportos/filtrar", methods = ["GET"])
+@airport_bp.route("/aeroportos/filtrar", methods=["GET"])
 def get_filters():
-    for key in request.args.keys():
-        value = request.args.get(key)
+    filtered_airports = []
+
+    for key, value in request.args.items():
         if hasattr(Airport, key):
-            print(f"printando {key}")
             field = getattr(Airport, key)
-            if key == "name" or key == "city"  or key == "country" or key == "iata_code":
-                airport_query = Airport.query.filter(field.ilike(f"%{value}"))
+            if key in ["name", "city", "country", "iata_code"]:
+                airport_query = Airport.query.filter(field.ilike(f"%{value}%")).all()
             else:
-                airport_query = Airport.query.filter(field == value)
-        airport_query_obj = airport_query.all()
-        a_json = [x.to_json() for x in airport_query_obj]                    
+                airport_query = Airport.query.filter(field == value).all()
+            filtered_airports.extend(airport_query)
 
-    return jsonify(message="Results", data = a_json) 
+    a_json = [airport.to_json() for airport in filtered_airports]
 
+    return jsonify(message="Results", data=a_json)
 
 
 
