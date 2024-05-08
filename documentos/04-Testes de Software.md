@@ -147,15 +147,15 @@ A solução encontrada para este erro foi colocar uma condição validando se a 
 ### Validação Login
 Tive um erro na validação de login onde eu tentava chamar o endpoint para validar o usuário porem dava o erro MethodNotAllowed
 
-![alt text](image.png)
+![alt text](/documentos/img/TestesDeSoftware/image.png)
 
 O erro ocorria pois no endpoint na api no python este metodo recebia o payload via body e eu estava usando o GetAsync do c# onde nao permite passar dados via body
 
-![alt text](image-1.png)
+![alt text](/documentos/img/TestesDeSoftware/image-1.png)
 
 #### Solução
 A solução para o problema foi mudar de GetAsync para PostAsync no c# 
-![alt text](image-2.png)
+![alt text](/documentos/img/TestesDeSoftware/image-2.png)
 
 E mudar na api para receber chamadas POST 
-![alt text](image-3.png)
+![alt text](/documentos/img/TestesDeSoftware/image-3.png)
