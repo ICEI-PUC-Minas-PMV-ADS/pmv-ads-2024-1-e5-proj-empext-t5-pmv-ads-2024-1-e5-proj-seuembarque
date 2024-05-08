@@ -98,6 +98,24 @@ Apresente imagens e/ou vídeos que comprovam que um determinado teste foi execut
 ![Teste de Whatsapp2](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2024-1-e5-proj-empext-t5-pmv-ads-2024-1-e5-proj-seuembarque/blob/main/documentos/img/TesteWhatsapp2.png)
 
 
+| Testes 	| CT-005 – Informações do cliente |
+|:---:	|:---:	|
+
+| Acessar a aplicação e Visualizar a tela “Clientes”| 
+
+![Tela de Cliente](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2024-1-e5-proj-empext-t5-pmv-ads-2024-1-e5-proj-seuembarque/blob/main/documentos/img/teladeclientes.png)
+
+| Realizar as modificações necessárias dos clientes |
+
+![Usuário sem CPF](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2024-1-e5-proj-empext-t5-pmv-ads-2024-1-e5-proj-seuembarque/blob/main/documentos/img/usuariosemcpf.png)
+
+| Salvar as alterações |
+
+![CPF Atualizado](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2024-1-e5-proj-empext-t5-pmv-ads-2024-1-e5-proj-seuembarque/blob/main/documentos/img/cpfatualizado.png)
+
+
+
+
 
 ## Evidências de Testes de Software - Backend
 |CT-006 – Inserção de novo cliente      |       | 
