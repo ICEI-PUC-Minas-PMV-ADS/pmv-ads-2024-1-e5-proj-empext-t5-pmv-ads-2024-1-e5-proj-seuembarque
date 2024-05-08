@@ -70,22 +70,6 @@ def update_user():
 
     return jsonify(message="User updated - the password is not displayed", data=updated_user_json), 200
 
-@user_bp.route('/usuario/admin', methods=["DELETE"])
-def delete_user():
-    data_user = request.get_json()
-    if "user_id" not in data_user:
-        return jsonify(message="You have to provide an user_id to delete an user"), 400
-    else:
-        user_id = data_user.get('user_id')
-        user_to_delete = User.query.get(user_id)
-    if not user_to_delete:
-        return jsonify(message="User not found"), 404
-    else:
-        user_to_delete_json = user_to_delete.to_json()
-        db.session.delete(user_to_delete)
-        db.session.commit()
-        return jsonify(message="User deleted successfully", data=user_to_delete_json), 200
-
 @user_bp.route("/usuario/admin/login", methods=["GET", "POST"])
 def login_user():
     data = request.get_json()
@@ -100,10 +84,20 @@ def login_user():
     login_try = bcrypt.check_password_hash(user.password, user_password)
     if login_try:
         user_json = user.to_json()
-        return jsonify(message="Valid user and password", data=user_json, flag=login_try)
+        return jsonify(message="Valid user and password", data=user_json, flag=login_try), 200
     else:
-        return jsonify(message="Invalid password and/or user", flag=login_try)
+        return jsonify(message="Invalid password and/or user", flag=login_try), 404
 
+@user_bp.route("/usuario/admin/<int:user_id>", methods=["DELETE"])
+def delete_user(user_id):
+    user = User.query.get(user_id)
+    if user:
+        user_json = user.to_json()
+        db.session.delete(user)
+        db.session.commit()
+        return jsonify(message="User deleted successfully", data=user_json), 200
+    else:
+        return jsonify(message="User not found"), 404
 
     
 
