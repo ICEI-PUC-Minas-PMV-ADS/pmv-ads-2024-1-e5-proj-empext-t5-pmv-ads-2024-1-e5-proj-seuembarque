@@ -126,8 +126,7 @@ Apresente imagens e/ou vídeos que comprovam que um determinado teste foi execut
 
 
 
-<!-- ## Registro dos erros e soluções Backend (API-Python, Back C#)
->>>>>>> 4436a60c439d6d0443d3815d11043c8b2c0bc4bf
+## Registro dos erros e soluções Backend (API-Python, Back C#)
 ### C#
 
 | Toast Erro	| Um dos problemas que tivemos na implementação do toast de validação da tela de login é que não estavamos conseguindo fazer ele exibir a mensagem da resposta ao tentar logar |
@@ -142,4 +141,21 @@ A solução encontrada para este erro foi colocar uma condição validando se a 
 
 ![FrontSoluçãoToast](/documentos/img/TestesDeSoftware/FrontSoluçãoToast.png)
 
-![FunctionErroToast](/documentos/img/TestesDeSoftware/FunctionErroToast.png) -->
+![FunctionErroToast](/documentos/img/TestesDeSoftware/FunctionErroToast.png) 
+
+
+### Validação Login
+Tive um erro na validação de login onde eu tentava chamar o endpoint para validar o usuário porem dava o erro MethodNotAllowed
+
+![alt text](image.png)
+
+O erro ocorria pois no endpoint na api no python este metodo recebia o payload via body e eu estava usando o GetAsync do c# onde nao permite passar dados via body
+
+![alt text](image-1.png)
+
+#### Solução
+A solução para o problema foi mudar de GetAsync para PostAsync no c# 
+![alt text](image-2.png)
+
+E mudar na api para receber chamadas POST 
+![alt text](image-3.png)
