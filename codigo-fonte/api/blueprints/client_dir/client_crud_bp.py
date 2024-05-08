@@ -49,19 +49,17 @@ def update_client():
     db.session.commit()
     return jsonify(data= updated_client_json, message="Client updated successfully"), 200
 
-@clients_bp.route('/cliente', methods= ["DELETE"])
-def delete_client():
-    data_client = request.get_json()
-    if 'client_id' not in data_client:
-        return jsonify(message="You should provide a client_id to delete a client"), 400
+@clients_bp.route('/cliente/<int:client_id>', methods= ["DELETE"])
+def delete_client(client_id):
+    client = Client.query.get(client_id)
+    if client:
+        client_json = client.to_json()
+        db.session.delete(client)
+        db.session.commit()
+        return jsonify(message="Client deleted successfully", data=client_json), 200
     else:
-        client_id = data_client.get('client_id')
-    client_to_delete = Client.query.get(client_id)
-    if not client_to_delete:
         return jsonify(message="Client not found"), 404
-    db.session.delete(client_to_delete)
-    client_to_delete_json = client_to_delete.to_json()
-    return jsonify(data = client_to_delete_json, message="Client deleted successfully"), 200
+    
 
 
 

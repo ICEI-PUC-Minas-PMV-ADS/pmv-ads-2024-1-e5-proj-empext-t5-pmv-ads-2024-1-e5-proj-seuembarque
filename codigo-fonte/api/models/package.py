@@ -7,7 +7,7 @@ from flask import jsonify
 class Package(db.Model):
     __tablename__ = "packages_table"
     package_id = db.Column(db.Integer, primary_key = True, autoincrement=True)
-    client_id = db.Column(db.Integer, ForeignKey('clients_table.client_id'), nullable=False)
+    client_id = db.Column(db.Integer, ForeignKey('clients_table.client_id', ondelete='CASCADE'), nullable=False)
     origin = db.Column(db.String(150), nullable=False)
     destination = db.Column(db.String(150), nullable=False)
     departure_date = db.Column(db.Date, nullable=False)
@@ -19,7 +19,8 @@ class Package(db.Model):
     kids = db.Column(db.SmallInteger, default = 0)
     adults = db.Column(db.SmallInteger, default = 1)
     travel_class = db.Column(db.String(20), default='economica')
-    client = db.relationship("Client", lazy="joined")      
+    # client = db.relationship("Client", lazy="joined") 
+    
 
     def __init__(self, client_id, origin, destination, departure_date, 
                  price, meals, accommodation, kids, adults, travel_class, return_date=None):
