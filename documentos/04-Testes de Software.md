@@ -113,6 +113,17 @@ Apresente imagens e/ou vídeos que comprovam que um determinado teste foi execut
 
 ![CPF Atualizado](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2024-1-e5-proj-empext-t5-pmv-ads-2024-1-e5-proj-seuembarque/blob/main/documentos/img/cpfatualizado.png)
 
+| Testes 	| CT-006 – Inserção de novo Cliente |
+|:---:	|:---:	|
+
+-> Inserindo novo cliente via tela 
+
+![Inserindo novo Cliente](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2024-1-e5-proj-empext-t5-pmv-ads-2024-1-e5-proj-seuembarque/blob/main/documentos/img/inserindonovocliente.png)
+
+-> Novo Cliente inserido via tela 
+
+![Novo Cliente Inserido](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2024-1-e5-proj-empext-t5-pmv-ads-2024-1-e5-proj-seuembarque/blob/main/documentos/img/clienteinserido.png)
+
 
 
 
