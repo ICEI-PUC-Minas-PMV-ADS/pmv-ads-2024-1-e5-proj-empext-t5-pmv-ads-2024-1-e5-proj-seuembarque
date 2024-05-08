@@ -109,22 +109,21 @@ def update_package():
     db.session.commit()
     return jsonify(message="Package updated successfully", data=updated_package.to_json()), 200
 
-@package_crud_bp.route('/pacote', methods= ["DELETE"])
-def delete_package():
-    data_package = request.get_json()
-    if "package_id" not in data_package:
-        return jsonify(message="You should provide a package_id to delete a package"), 400
+@package_crud_bp.route('/pacote/<int:package_id>', methods= ["DELETE"])
+def delete_package(package_id):
+    package = Package.query.get(package_id)
+    if package_id:
+        package_json = package.to_json()
+        db.session.delete(package)
+        db.session.commit()
+        return jsonify(data=package_json, message="Package deleted successfully"), 200
     else:
-        package_id = data_package.get('package_id')
-    package_to_delete = Package.query.get(package_id)
-    if not package_to_delete:
         return jsonify(message="Package not found"), 404
-    else:
-        package_to_delete_json = package_to_delete.to_json()
-    db.session.delete(package_to_delete)
-    db.session.commit()
-    return jsonify(data = package_to_delete_json, message = "Package successfully deleted"), 200
-     
+
+
+
+
+
 
 
     

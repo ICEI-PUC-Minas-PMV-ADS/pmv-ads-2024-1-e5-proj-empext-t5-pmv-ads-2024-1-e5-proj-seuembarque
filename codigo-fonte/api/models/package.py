@@ -19,7 +19,7 @@ class Package(db.Model):
     kids = db.Column(db.SmallInteger, default = 0)
     adults = db.Column(db.SmallInteger, default = 1)
     travel_class = db.Column(db.String(20), default='economica')
-    client = db.relationship("Client", lazy="joined")      
+    
 
     def __init__(self, client_id, origin, destination, departure_date, 
                  price, meals, accommodation, kids, adults, travel_class, return_date=None):
