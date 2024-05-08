@@ -118,7 +118,7 @@ Apresente imagens e/ou vídeos que comprovam que um determinado teste foi execut
 
 -> Inserindo novo cliente via tela 
 
-![Inserindo novo Cliente](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2024-1-e5-proj-empext-t5-pmv-ads-2024-1-e5-proj-seuembarque/blob/main/documentos/img/inserindonovocliente.png)
+![Inserindo novo Cliente](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2024-1-e5-proj-empext-t5-pmv-ads-2024-1-e5-proj-seuembarque/blob/main/documentos/img/inserindonovocliente.PNG)
 
 -> Novo Cliente inserido via tela 
 
