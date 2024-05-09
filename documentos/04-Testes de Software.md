@@ -43,15 +43,12 @@ Diante dos cenários apresentados e analisando os requisitos do projeto, foi rea
 |Passos   |1) Acessar a aplicação; 2) Fazer o payload no Postman, usando o raw json, de acordo com o modelo client; 3) Digitar a url /cliente e selecionar o método POST; 4) Clicar em "send".| 
 | Critério de Êxito| Um novo cliente deve ser inserido no banco de dados.|
 
-
-
 |*Caso de Teste      | *CT-007 – Listagem de clientes         | 
 |------------------|-------------------------------|
 |Requisito associado: |RF-007| Deverá ser desenvolvido uma api para registro dos dados dos clientes e pacotes | ALTA |
 |Objetivo do Teste| Verificar a listagem de clientes já inseridos no banco de dados. 
 |Passos   |1) Acessar a aplicação; 2) Digitar a url /clientes e selecionar o método GET; 3) Clicar em "send"
 | Critério de Êxito| Todos os clientes devem ser listados. |
-
 
 |*Caso de Teste      | *CT-008 – Inserção de solicitação de novo pacote de viagem       | 
 |------------------|-------------------------------|
@@ -64,7 +61,7 @@ Diante dos cenários apresentados e analisando os requisitos do projeto, foi rea
 |------------------|-------------------------------|
 |Requisito associado: |RF-007| Deverá ser desenvolvido uma api para registro dos dados dos clientes e pacotes | ALTA |
 |Objetivo do Teste| Verificar se a filtragem de pacotes por múltiplos critérios está funcionando. 
-|Passos   |1) Acessar a aplicação; 2) Digitar a pacotes/filtrar? seguido do critério desejado e selecionar o método GET; 3) Clicar em "send"
+|Passos   |1) Acessar a aplicação; 2) Digitar algum termo do pacote em filtrar seguido do critério desejado e selecionar o método GET; 3) Clicar em "send"
 | Critério de Êxito| Todos os pacotes que correspondam aos critérios digitados devem ser listados. Os filtros são cumulativos. No caso de strings, são fornecidas todas os valores que possuam parte dos valores digitados, para facilitar a busca (operador %ILIKE%).|
  
 # Evidências de Testes de Software
@@ -147,8 +144,39 @@ Apresente imagens e/ou vídeos que comprovam que um determinado teste foi execut
 | Testes 	| CT-008 – Inserção de solicitação de novo pacote de viagem |
 |:---:	|:---:	|
 
+-> Acessar a aplicação
+
+![Inserção de Solicitação 1](https://github.com/Alemagalhaes01/Seu-embarque/blob/1cc7509613f0edd142b4ec67f1841926fe62d361/documentos/img/Inser%C3%A7%C3%A3o%20de%20Solicita%C3%A7%C3%A3o%201.jpg)
+
+-> Montagem e inclusão do pacote
+
+![Inserção de Solicitação 2](https://github.com/Alemagalhaes01/Seu-embarque/blob/1cc7509613f0edd142b4ec67f1841926fe62d361/documentos/img/Inser%C3%A7%C3%A3o%20de%20Solicita%C3%A7%C3%A3o%202.jpg)
+
+![Inserção de Solicitação 3 ERRO NAS DATAS](https://github.com/Alemagalhaes01/Seu-embarque/blob/1cc7509613f0edd142b4ec67f1841926fe62d361/documentos/img/Inser%C3%A7%C3%A3o%20de%20Solicita%C3%A7%C3%A3o%203%20ERRO%20NAS%20DATAS.jpg)
+
+-> Inclusão do pacote na base de dados
+
+![Inserção de Solicitação 4 ERRO NAS DATAS](https://github.com/Alemagalhaes01/Seu-embarque/blob/1cc7509613f0edd142b4ec67f1841926fe62d361/documentos/img/Inser%C3%A7%C3%A3o%20de%20Solicita%C3%A7%C3%A3o%204%20ERRO%20NAS%20DATAS.jpg)
+|ERRO IDENTIFICADO| Pode-se observar um erro na data solicitada pelo cliente. Na inclusão do pacote observa-se que a data e solicitada no formato DD/MM/AAAA. Já na inclusão do pacote na base de dados o formato da data converte em MM/DD/AAAA.
+
 | Testes 	| CT-009 – Filtragem de pacotes |
 |:---:	|:---:	|
+
+-> Acessar a aplicação
+
+![Filtragem de pacotes 1](https://github.com/Alemagalhaes01/Seu-embarque/blob/011c93654599b7626b95d0417406fee2ba1688d1/documentos/img/Filtragem%20de%20pacotes%201.jpg)
+
+-> Filtragem do pacote
+
+![Filtragem de pacotes 2](https://github.com/Alemagalhaes01/Seu-embarque/blob/011c93654599b7626b95d0417406fee2ba1688d1/documentos/img/Filtragem%20de%20pacotes%202.jpg)
+
+![Filtragem de pacotes 22](https://github.com/Alemagalhaes01/Seu-embarque/blob/90ed2b48a9bf2e778d5e1800af5059cab2f302de/documentos/img/Filtragem%20de%20pacotes%2022.jpg)
+
+![Filtragem de pacotes 222](https://github.com/Alemagalhaes01/Seu-embarque/blob/90ed2b48a9bf2e778d5e1800af5059cab2f302de/documentos/img/Filtragem%20de%20pacotes%20222.jpg)
+
+-> Resultado da busca
+
+![Filtragem de pacotes 3](https://github.com/Alemagalhaes01/Seu-embarque/blob/011c93654599b7626b95d0417406fee2ba1688d1/documentos/img/Filtragem%20de%20pacotes%203.jpg)
 
 ## Evidências de Testes de Software - Backend
 |CT-006 – Inserção de novo cliente      |       | 
