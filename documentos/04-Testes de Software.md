@@ -170,7 +170,7 @@ Apresente imagens e/ou vídeos que comprovam que um determinado teste foi execut
 
 ![Filtragem de pacotes 2](https://github.com/Alemagalhaes01/Seu-embarque/blob/011c93654599b7626b95d0417406fee2ba1688d1/documentos/img/Filtragem%20de%20pacotes%202.jpg)
 
-![Filtragem de pacotes 22](Alemagalhaes01/Seu-embarque/blob/90ed2b48a9bf2e778d5e1800af5059cab2f302de/documentos/img/Filtragem%20de%20pacotes%2022.jpg)
+![Filtragem de pacotes 22](https://github.com/Alemagalhaes01/Seu-embarque/blob/90ed2b48a9bf2e778d5e1800af5059cab2f302de/documentos/img/Filtragem%20de%20pacotes%2022.jpg)
 
 ![Filtragem de pacotes 222](https://github.com/Alemagalhaes01/Seu-embarque/blob/90ed2b48a9bf2e778d5e1800af5059cab2f302de/documentos/img/Filtragem%20de%20pacotes%20222.jpg)
 
