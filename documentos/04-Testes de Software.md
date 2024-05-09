@@ -124,9 +124,31 @@ Apresente imagens e/ou vídeos que comprovam que um determinado teste foi execut
 
 ![Novo Cliente Inserido](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2024-1-e5-proj-empext-t5-pmv-ads-2024-1-e5-proj-seuembarque/blob/main/documentos/img/clienteinserido.png)
 
+| Testes 	| CT-007 – Listagem de clientes |
+|:---:	|:---:	|
+
+-> Acessar a aplicação
+
+![Listagem de clientes 1](https://github.com/Alemagalhaes01/Seu-embarque/blob/4a45a04933f62d5bbb5f59173c568cfd43072f11/documentos/img/Listagem%20de%20clientes%201.jpg)
+
+![Listagem de clientes 2](https://github.com/Alemagalhaes01/Seu-embarque/blob/4a45a04933f62d5bbb5f59173c568cfd43072f11/documentos/img/Listagem%20de%20clientes%202.jpg)
+
+-> Adicionar o cliente 
+
+![Listagem de clientes 3](https://github.com/Alemagalhaes01/Seu-embarque/blob/4a45a04933f62d5bbb5f59173c568cfd43072f11/documentos/img/Listagem%20de%20clientes%203.jpg)
+
+![Listagem de clientes 4](https://github.com/Alemagalhaes01/Seu-embarque/blob/4a45a04933f62d5bbb5f59173c568cfd43072f11/documentos/img/Listagem%20de%20clientes%204.jpg)
+
+-> Cliente adicionado na base
+
+![Listagem de clientes 5](https://github.com/Alemagalhaes01/Seu-embarque/blob/4a45a04933f62d5bbb5f59173c568cfd43072f11/documentos/img/Listagem%20de%20clientes%205.jpg)
 
 
+| Testes 	| CT-008 – Inserção de solicitação de novo pacote de viagem |
+|:---:	|:---:	|
 
+| Testes 	| CT-009 – Filtragem de pacotes |
+|:---:	|:---:	|
 
 ## Evidências de Testes de Software - Backend
 |CT-006 – Inserção de novo cliente      |       | 
