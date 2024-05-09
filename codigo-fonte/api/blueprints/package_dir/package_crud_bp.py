@@ -57,13 +57,15 @@ def add_package():
                           destination=destination,
                          departure_date=departure_date_form,
                          return_date=return_date_form, price=price, meals=meals,
-                         accommodation=accommodation, kids=kids, adults=adults, travel_class=travel_class)
+                         accommodation=accommodation, kids=kids, adults=adults, 
+                         travel_class=travel_class)
     else:
         new_package = Package(client_id=client_id, origin=origin, 
                           destination=destination,
                          departure_date=departure_date_form,
                          price=price, meals=meals,
-                         accommodation=accommodation, kids=kids, adults=adults, travel_class=travel_class)
+                         accommodation=accommodation, kids=kids,
+                           adults=adults, travel_class=travel_class)
    
     if new_package:
         db.session.add(new_package)
@@ -78,36 +80,61 @@ def update_package():
     data_package = request.get_json()
     package_id = data_package.get('package_id')
     if not package_id:
-        return jsonify(message="You must provide a package_id in order to update a package"), 400
-    
+        return jsonify(message="You must provide a package_id in order to update a package"), 400    
     updated_package = Package.query.get(package_id)
-    
+    if not updated_package:
+        return jsonify(message="Package not found"), 404
+        
     for key, value in data_package.items():
-        if key != "package_id" and key != "departure_date" and key != "return_date" and key != 'meals' and key != 'travel_class':
-            setattr(updated_package, key, value)
-    if "departure_date" in data_package or "return_date" in data_package:
-        new_departure_date = data_package.get('departure_date')
-        new_return_date = data_package.get('return_date')
-        new_departure_date_form = datetime.strptime(new_departure_date, "%d/%m/%Y")
-        new_return_date_form = datetime.strptime(new_return_date, "%d/%m/%Y")
-        if new_return_date_form < new_departure_date_form:
-            return jsonify(message="The return date must be after than the departure date "), 400
-        updated_package.departure_date = new_departure_date_form.strftime('%Y/%m/%d')
-        updated_package.return_date = new_return_date_form.strftime("%Y/%m/%d") 
-    if 'meals' in data_package:    
-        new_meals = data_package.get('meals')
-        # if new_meals not in ["C", "A", "J", "ALL", 'NAO']:
-        #     return jsonify(message="Invalid value for updating meals. Values should be 'C' (breakfast), 'A', (lunch), 'J' (dinner), 'ALL' (all inclusive) or NAO (no meals)"),400 
-        # else:
-        updated_package.meals = new_meals
-    if 'travel_class' in data_package:
-        new_travel_class = data_package.get('travel_class')
-        if new_travel_class not in ['economica', 'executiva', 'primeira_classe']:
-            return jsonify(message="Invalid value for travel_class. The available values are: 'economica', 'executiva', 'primeira_classe'")
-        else:   
-            updated_package.travel_class = new_travel_class
+        if key != "package_id" and key != "departure_date" and key != "return_date":
+            setattr(updated_package, key, value)    
     db.session.commit()
-    return jsonify(message="Package updated successfully", data=updated_package.to_json()), 200
+    if "departure_date" in data_package and "return_date" not in data_package:
+        departure_date_str = data_package.get('departure_date')
+        if departure_date_str:
+            departure_date_obj = datetime.strptime(departure_date_str, "%d/%m/%Y").date()
+            updated_package.departure_date = departure_date_obj.strftime("%Y/%m/%d")
+            db.session.commit()
+            return jsonify(data=updated_package.to_json())
+        else:
+            updated_package.departure_date = departure_date_str
+            db.session.commit()
+            return jsonify(data=updated_package.to_json()), 200
+    if "return_date" in data_package and "departure_date" not in data_package:
+        return_date_str = data_package.get('return_date')
+        if return_date_str:
+            return_date_obj = datetime.strptime(return_date_str, "%d/%m/%Y").date()
+            updated_package.return_date = return_date_obj.strftime("%Y/%m/%d")
+            db.session.commit()
+            return jsonify(data=updated_package.to_json()), 200
+        else:
+            updated_package.return_date = return_date_str
+            db.session.commit()
+            return jsonify(data=updated_package.to_json()), 200
+        
+    if "departure_date" in data_package and "return_date" in data_package:
+        departure_date_str = data_package.get('departure_date')
+        return_date_str = data_package.get('return_date')
+        if departure_date_str and return_date_str:
+            departure_date_obj = datetime.strptime(departure_date_str, "%d/%m/%Y").date()
+            updated_package.departure_date = departure_date_obj.strftime("%Y/%m/%d")
+            return_date_obj = datetime.strptime(return_date_str, "%d/%m/%Y").date()
+            updated_package.return_date = return_date_obj.strftime("%Y/%m/%d")
+            db.session.commit()
+            return jsonify(data=updated_package.to_json()), 200
+        if not departure_date_str and not return_date_str:
+            updated_package.departure_date = departure_date_str
+            updated_package.return_date = return_date_str
+            db.session.commit()
+            return jsonify(data=updated_package.to_json()), 200
+        if departure_date_str and not return_date_str:
+            departure_date_obj = datetime.strptime(departure_date_str, "%d/%m/%Y").date()
+            updated_package.departure_date = departure_date_obj.strftime("%Y/%m/%d")
+            updated_package.return_date = return_date_str
+            db.session.commit()
+            return jsonify(data=updated_package.to_json())
+            
+  
 
 @package_crud_bp.route('/pacote/<int:package_id>', methods= ["DELETE"])
 def delete_package(package_id):

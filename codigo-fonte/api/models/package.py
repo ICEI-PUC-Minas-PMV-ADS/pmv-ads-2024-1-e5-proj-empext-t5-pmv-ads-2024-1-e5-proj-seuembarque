@@ -10,7 +10,7 @@ class Package(db.Model):
     client_id = db.Column(db.Integer, ForeignKey('clients_table.client_id'), nullable=False)
     origin = db.Column(db.String(150), nullable=False)
     destination = db.Column(db.String(150), nullable=False)
-    departure_date = db.Column(db.Date, nullable=False)
+    departure_date = db.Column(db.Date, nullable=True)
     return_date = db.Column(db.Date, nullable=True)
     registration_date = db.Column(db.DateTime)
     price = db.Column(db.Float, nullable=True)
@@ -42,7 +42,7 @@ class Package(db.Model):
             "package_id": self.package_id,
             "client_id": self.client_id,
             "destination": self.destination,
-            "departure_date": self.departure_date.strftime("%d/%m/%Y"),
+            "departure_date": self.departure_date.strftime("%d/%m/%Y") if self.departure_date else None,
             "return_date": self.return_date.strftime("%d/%m/%Y") if self.return_date else None, 
             "registration_date": self.registration_date.strftime("%d/%m/%Y %H:%M:%S") if self.registration_date is not None else None,
             "price": self.price,
