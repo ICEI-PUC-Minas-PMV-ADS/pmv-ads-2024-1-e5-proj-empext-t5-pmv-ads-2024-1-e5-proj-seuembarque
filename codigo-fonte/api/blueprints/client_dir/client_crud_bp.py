@@ -30,6 +30,8 @@ def add_client():
         new_client_obj = Client(name=name, email=email, cpf=cpf, cellphone=cellphone)    
     elif not cpf and not cellphone:
         new_client_obj = Client(name=name, email=email)
+    elif not cpf and cellphone:
+        new_client_obj = Client(name=name, email=email, cellphone=cellphone)
     db.session.add(new_client_obj)
     db.session.commit()
     return jsonify(data=new_client_obj.to_json(), message="Client added successfully"), 201

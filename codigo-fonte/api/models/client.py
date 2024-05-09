@@ -7,13 +7,13 @@ class Client(db.Model):
     client_id = db.Column(db.Integer, primary_key = True, autoincrement=True)
     name = db.Column(db.String(200))
     email = db.Column(db.String(100))
-    cpf = db.Column(db.String(12), nullable=True, default="preencher")
-    cellphone = db.Column(db.String(50), nullable = True, default = "preencher")
+    cpf = db.Column(db.String(12), nullable=True, default= None)
+    cellphone = db.Column(db.String(50), nullable = True, default = None)
     registration_date = db.Column(db.DateTime)
     packages = db.relationship("Package", backref="client", cascade="all, delete-orphan")
 
 
-    def __init__(self, name, email, cpf, cellphone):
+    def __init__(self, name, email, cpf= None, cellphone= None):
         self.name = name 
         self.email = email
         self.registration_date = datetime.now()
