@@ -1,4 +1,5 @@
-﻿using Puc.SeuEmbarque.Domain.Models.Usuario;
+﻿using Puc.SeuEmbarque.Domain.Models;
+using Puc.SeuEmbarque.Domain.Models.Usuario;
 using Puc.SeuEmbarque.Domain.ObjValor;
 using System;
 using System.Collections.Generic;
@@ -10,9 +11,14 @@ namespace Puc.SeuEmbarque.Services.Interface
 {
     public interface IUsuarioService
     {
-        IContractorResult AutenticarUsuario(LoginVM usuario);
-        bool RegistrarUsuario(Usuario usuario);
-        bool Deletar(int id);
+        Task<IUserContractorResult> AutenticarUsuario(LoginVM usuario);
         IEnumerable<Usuario> ListarUsuariosAtivos();
+        Task<string> MudarContato();
+        Task<UsuarioReg> GetUsuarioPorId(int idUsuario);
+        Task<List<Usuario>> ListarTodos();
+        Task<List<Usuario>> Buscar();
+        Task<UsuarioReg> InserirUsuario(UsuarioReg usuario);
+        Task<UsuarioReg> AtualizarUsuario(Usuario usuario);
+        Task<bool> DeletarUsuario(int idUsuario);
     }
 }

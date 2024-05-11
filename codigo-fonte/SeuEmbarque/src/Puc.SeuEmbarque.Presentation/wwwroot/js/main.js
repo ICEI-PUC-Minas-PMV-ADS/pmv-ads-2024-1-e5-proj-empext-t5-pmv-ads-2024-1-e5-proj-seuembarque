@@ -20,7 +20,10 @@
 
 
 function CloseModal() {
-    $('#registry-mainregister-modal').modal('hide');
+    $('#registry-mainregister-modal').modal('hide');   
+    setTimeout(function () {
+        location.reload();
+    }, 600);   
 }
 
 function CloseModalPopup() {
@@ -69,7 +72,7 @@ function OpenDynamicModal(modalURL, modalData, modalId, timeout) {
             data: modalData,
             success: function (modalContent) {
                 HideModalLoading();
-
+                $(modalId).attr('data-backdrop', 'static');
                 $(modalId).find('#modal-content').html(modalContent);
                 if (modalContent.indexOf('<div') >= 0)
                     $(modalId).modal('show');

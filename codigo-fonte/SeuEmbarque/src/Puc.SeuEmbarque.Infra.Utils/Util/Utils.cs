@@ -6,7 +6,7 @@ using System.Security.Cryptography;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
-
+using System.Web.Mvc;
 
 namespace Puc.Diario.Infra
 {
@@ -1937,59 +1937,80 @@ namespace Puc.Diario.Infra
         //    return combo;
         //}
 
-        //public static dynamic ComboNivel()
-        //{
-        //    List<SelectListItem> combo = new List<SelectListItem>
-        //        {
-        //            new SelectListItem { Value = "em", Text = "Ensino Médio" },
-        //            new SelectListItem { Value = "ef", Text = "Ensino Fundamental" }
-        //        };
+        public static string FormatarClasse(string txt)
+        {
+            var txtConverted = "";
+            switch (txt)
+            {
+                case "economica":
+                    txtConverted = "Econômica";
+                    break;
+                case "executiva":
+                    txtConverted = "Executiva";
+                    break;
+                case "primeira_classe":
+                    txtConverted = "Primeira Classe";
+                    break;
+                default:
+                    txtConverted = txt;
+                    break;
+            }
+            return txtConverted;
+        }
 
-        //    return combo;
-        //}
+        public static List<SelectListItem> ComboHospedagem()
+        {
+            List<SelectListItem> combo = new List<SelectListItem>
+                {
+                    new SelectListItem { Value = "1", Text = "SIM" },
+                    new SelectListItem { Value = "0", Text = "NÃO" }
+                };
 
-        //public static dynamic ComboTurma()
-        //{
-        //    List<SelectListItem> combo = new List<SelectListItem>
-        //        {
-        //            new SelectListItem { Value = "1", Text = "Turma 1" },
-        //            new SelectListItem { Value = "2", Text = "Turma 2" },
-        //            new SelectListItem{ Value = "3", Text = "Turma 3" },
-        //            new SelectListItem { Value = "4", Text = "Turma 4" },
-        //        };
+            return combo;
+        }
+        public static List<SelectListItem> ComboMasterUser()
+        {
+            List<SelectListItem> combo = new List<SelectListItem>
+                {
+                    new SelectListItem { Value = "1", Text = "Sim" },
+                    new SelectListItem { Value = "0", Text = "Não" }
+                };
 
-        //    return combo;
-        //} 
-        //public static dynamic ComboBimestre()
-        //{
-        //    List<SelectListItem> combo = new List<SelectListItem>
-        //        {
-        //            new SelectListItem { Value = "1", Text = "1° Bimestre" },
-        //            new SelectListItem { Value = "2", Text = "2° Bimestre" },
-        //            new SelectListItem{ Value = "3", Text = "3° Bimestre" },
-        //            new SelectListItem { Value = "4", Text = "4° Bimestre" },
-        //        };
+            return combo;
+        }
 
-        //    return combo;
-        //}
+        public static List<SelectListItem> ComboClasse()
+        {
+            List<SelectListItem> combo = new List<SelectListItem>
+                {
+                    new SelectListItem { Value = "economica", Text = "Econômica" },
+                    new SelectListItem { Value = "executiva", Text = "Executiva" },
+                    new SelectListItem { Value = "primeira_classe", Text = "Primeira Classe" }
+                };
 
-        //public static dynamic ComboMateria()
-        //{
-        //    List<SelectListItem> combo = new List<SelectListItem>
-        //        {
-        //            new SelectListItem { Value = "1", Text = "Português" },
-        //            new SelectListItem { Value = "2", Text = "Inglês" },
-        //            new SelectListItem{ Value = "3", Text = "Artes" },
-        //            new SelectListItem { Value = "4", Text = "Matemática" },
-        //            new SelectListItem { Value = "5", Text = "Ciências" },
-        //            new SelectListItem { Value = "6", Text = "Educação Fisíca" },
-        //            new SelectListItem { Value = "7", Text = "Ensino Religioso" },
-        //            new SelectListItem { Value = "8", Text = "História" },
-        //            new SelectListItem { Value = "9", Text = "Geografia" },
-        //        };
+            return combo;
+        }
 
-        //    return combo;
-        //}
+        public static List<SelectListItem> ComboOpcionais()
+        {
+            List<SelectListItem> combo = new List<SelectListItem>
+                {
+                    new SelectListItem { Value = "NONE", Text = "Nenhum" },
+                    new SelectListItem { Value = "ALL", Text = "ALL" },
+                    new SelectListItem { Value = "C", Text = "C" },
+                    new SelectListItem { Value = "CA", Text = "CA" },
+                    new SelectListItem { Value = "CAJ", Text = "CAJ" },
+                };
+
+            return combo;
+        }
+        public static string FormataTelefone(string telefone)
+        {
+            if (string.IsNullOrEmpty(telefone))
+                return telefone;
+
+            return Convert.ToUInt64(telefone).ToString(@"(00) 00000-0000");
+        }
         #endregion
 
     }

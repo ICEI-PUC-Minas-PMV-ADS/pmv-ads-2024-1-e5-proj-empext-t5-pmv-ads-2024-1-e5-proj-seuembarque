@@ -9,77 +9,77 @@ build_property.EnforceExtendedAnalyzerRules =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = Puc.SeuEmbarque.Presentation
 build_property.RootNamespace = Puc.SeuEmbarque.Presentation
-build_property.ProjectDir = c:\CodigoFonteSeuEmbarque\pmv-ads-2024-1-e5-proj-empext-t5-pmv-ads-2024-1-e5-proj-seuembarque\codigo-fonte\SeuEmbarque\src\Puc.SeuEmbarque.Presentation\
+build_property.ProjectDir = G:\Projeto Eixo5\CodigoFonte\SeuEmbarque\src\Puc.SeuEmbarque.Presentation\
 build_property.RazorLangVersion = 6.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = c:\CodigoFonteSeuEmbarque\pmv-ads-2024-1-e5-proj-empext-t5-pmv-ads-2024-1-e5-proj-seuembarque\codigo-fonte\SeuEmbarque\src\Puc.SeuEmbarque.Presentation
+build_property.MSBuildProjectDirectory = G:\Projeto Eixo5\CodigoFonte\SeuEmbarque\src\Puc.SeuEmbarque.Presentation
 build_property._RazorSourceGeneratorDebug = 
 
-[c:/CodigoFonteSeuEmbarque/pmv-ads-2024-1-e5-proj-empext-t5-pmv-ads-2024-1-e5-proj-seuembarque/codigo-fonte/SeuEmbarque/src/Puc.SeuEmbarque.Presentation/Views/Formulario/formulario_reg.cshtml]
+[G:/Projeto Eixo5/CodigoFonte/SeuEmbarque/src/Puc.SeuEmbarque.Presentation/Views/Clientes/clientes_lst.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2xpZW50ZXNcY2xpZW50ZXNfbHN0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[G:/Projeto Eixo5/CodigoFonte/SeuEmbarque/src/Puc.SeuEmbarque.Presentation/Views/Clientes/clientes_reg.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2xpZW50ZXNcY2xpZW50ZXNfcmVnLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[G:/Projeto Eixo5/CodigoFonte/SeuEmbarque/src/Puc.SeuEmbarque.Presentation/Views/Formulario/formulario_reg.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRm9ybXVsYXJpb1xmb3JtdWxhcmlvX3JlZy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/CodigoFonteSeuEmbarque/pmv-ads-2024-1-e5-proj-empext-t5-pmv-ads-2024-1-e5-proj-seuembarque/codigo-fonte/SeuEmbarque/src/Puc.SeuEmbarque.Presentation/Views/Login/login_auth.cshtml]
+[G:/Projeto Eixo5/CodigoFonte/SeuEmbarque/src/Puc.SeuEmbarque.Presentation/Views/Login/login_auth.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTG9naW5cbG9naW5fYXV0aC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/CodigoFonteSeuEmbarque/pmv-ads-2024-1-e5-proj-empext-t5-pmv-ads-2024-1-e5-proj-seuembarque/codigo-fonte/SeuEmbarque/src/Puc.SeuEmbarque.Presentation/Views/Painel/clientes_lst.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGFpbmVsXGNsaWVudGVzX2xzdC5jc2h0bWw=
+[G:/Projeto Eixo5/CodigoFonte/SeuEmbarque/src/Puc.SeuEmbarque.Presentation/Views/Pacotes/pacotes_lst.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGFjb3Rlc1xwYWNvdGVzX2xzdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/CodigoFonteSeuEmbarque/pmv-ads-2024-1-e5-proj-empext-t5-pmv-ads-2024-1-e5-proj-seuembarque/codigo-fonte/SeuEmbarque/src/Puc.SeuEmbarque.Presentation/Views/Painel/clientes_reg.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGFpbmVsXGNsaWVudGVzX3JlZy5jc2h0bWw=
+[G:/Projeto Eixo5/CodigoFonte/SeuEmbarque/src/Puc.SeuEmbarque.Presentation/Views/Pacotes/pacotes_reg.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGFjb3Rlc1xwYWNvdGVzX3JlZy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/CodigoFonteSeuEmbarque/pmv-ads-2024-1-e5-proj-empext-t5-pmv-ads-2024-1-e5-proj-seuembarque/codigo-fonte/SeuEmbarque/src/Puc.SeuEmbarque.Presentation/Views/Painel/destinos_lst.cshtml]
+[G:/Projeto Eixo5/CodigoFonte/SeuEmbarque/src/Puc.SeuEmbarque.Presentation/Views/Painel/destinos_lst.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGFpbmVsXGRlc3Rpbm9zX2xzdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/CodigoFonteSeuEmbarque/pmv-ads-2024-1-e5-proj-empext-t5-pmv-ads-2024-1-e5-proj-seuembarque/codigo-fonte/SeuEmbarque/src/Puc.SeuEmbarque.Presentation/Views/Painel/pacotes_lst.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGFpbmVsXHBhY290ZXNfbHN0LmNzaHRtbA==
-build_metadata.AdditionalFiles.CssScope = 
-
-[c:/CodigoFonteSeuEmbarque/pmv-ads-2024-1-e5-proj-empext-t5-pmv-ads-2024-1-e5-proj-seuembarque/codigo-fonte/SeuEmbarque/src/Puc.SeuEmbarque.Presentation/Views/Painel/pacotes_reg.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGFpbmVsXHBhY290ZXNfcmVnLmNzaHRtbA==
-build_metadata.AdditionalFiles.CssScope = 
-
-[c:/CodigoFonteSeuEmbarque/pmv-ads-2024-1-e5-proj-empext-t5-pmv-ads-2024-1-e5-proj-seuembarque/codigo-fonte/SeuEmbarque/src/Puc.SeuEmbarque.Presentation/Views/Painel/painel_home.cshtml]
+[G:/Projeto Eixo5/CodigoFonte/SeuEmbarque/src/Puc.SeuEmbarque.Presentation/Views/Painel/painel_home.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGFpbmVsXHBhaW5lbF9ob21lLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/CodigoFonteSeuEmbarque/pmv-ads-2024-1-e5-proj-empext-t5-pmv-ads-2024-1-e5-proj-seuembarque/codigo-fonte/SeuEmbarque/src/Puc.SeuEmbarque.Presentation/Views/Painel/usuario_lst.cshtml]
+[G:/Projeto Eixo5/CodigoFonte/SeuEmbarque/src/Puc.SeuEmbarque.Presentation/Views/Painel/usuario_lst.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGFpbmVsXHVzdWFyaW9fbHN0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/CodigoFonteSeuEmbarque/pmv-ads-2024-1-e5-proj-empext-t5-pmv-ads-2024-1-e5-proj-seuembarque/codigo-fonte/SeuEmbarque/src/Puc.SeuEmbarque.Presentation/Views/Painel/usuario_reg.cshtml]
+[G:/Projeto Eixo5/CodigoFonte/SeuEmbarque/src/Puc.SeuEmbarque.Presentation/Views/Painel/usuario_reg.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGFpbmVsXHVzdWFyaW9fcmVnLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/CodigoFonteSeuEmbarque/pmv-ads-2024-1-e5-proj-empext-t5-pmv-ads-2024-1-e5-proj-seuembarque/codigo-fonte/SeuEmbarque/src/Puc.SeuEmbarque.Presentation/Views/Shared/Error.cshtml]
+[G:/Projeto Eixo5/CodigoFonte/SeuEmbarque/src/Puc.SeuEmbarque.Presentation/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/CodigoFonteSeuEmbarque/pmv-ads-2024-1-e5-proj-empext-t5-pmv-ads-2024-1-e5-proj-seuembarque/codigo-fonte/SeuEmbarque/src/Puc.SeuEmbarque.Presentation/Views/Shared/_FormLayout.cshtml]
+[G:/Projeto Eixo5/CodigoFonte/SeuEmbarque/src/Puc.SeuEmbarque.Presentation/Views/Shared/_FormLayout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9Gb3JtTGF5b3V0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/CodigoFonteSeuEmbarque/pmv-ads-2024-1-e5-proj-empext-t5-pmv-ads-2024-1-e5-proj-seuembarque/codigo-fonte/SeuEmbarque/src/Puc.SeuEmbarque.Presentation/Views/Shared/_LayoutForm.cshtml]
+[G:/Projeto Eixo5/CodigoFonte/SeuEmbarque/src/Puc.SeuEmbarque.Presentation/Views/Shared/_LayoutForm.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXRGb3JtLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/CodigoFonteSeuEmbarque/pmv-ads-2024-1-e5-proj-empext-t5-pmv-ads-2024-1-e5-proj-seuembarque/codigo-fonte/SeuEmbarque/src/Puc.SeuEmbarque.Presentation/Views/Shared/_ValidationScriptsPartial.cshtml]
+[G:/Projeto Eixo5/CodigoFonte/SeuEmbarque/src/Puc.SeuEmbarque.Presentation/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/CodigoFonteSeuEmbarque/pmv-ads-2024-1-e5-proj-empext-t5-pmv-ads-2024-1-e5-proj-seuembarque/codigo-fonte/SeuEmbarque/src/Puc.SeuEmbarque.Presentation/Views/_ViewImports.cshtml]
+[G:/Projeto Eixo5/CodigoFonte/SeuEmbarque/src/Puc.SeuEmbarque.Presentation/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/CodigoFonteSeuEmbarque/pmv-ads-2024-1-e5-proj-empext-t5-pmv-ads-2024-1-e5-proj-seuembarque/codigo-fonte/SeuEmbarque/src/Puc.SeuEmbarque.Presentation/Views/_ViewStart.cshtml]
+[G:/Projeto Eixo5/CodigoFonte/SeuEmbarque/src/Puc.SeuEmbarque.Presentation/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/CodigoFonteSeuEmbarque/pmv-ads-2024-1-e5-proj-empext-t5-pmv-ads-2024-1-e5-proj-seuembarque/codigo-fonte/SeuEmbarque/src/Puc.SeuEmbarque.Presentation/Views/Shared/_Layout.cshtml]
+[G:/Projeto Eixo5/CodigoFonte/SeuEmbarque/src/Puc.SeuEmbarque.Presentation/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-59yk2l80iu

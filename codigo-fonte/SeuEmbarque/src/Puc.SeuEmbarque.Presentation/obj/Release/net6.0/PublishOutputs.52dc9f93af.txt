@@ -5,9 +5,16 @@ G:\Projeto Eixo5\CodigoFonte\SeuEmbarque\src\Puc.SeuEmbarque.Presentation\obj\Re
 G:\Projeto Eixo5\CodigoFonte\SeuEmbarque\src\Puc.SeuEmbarque.Presentation\obj\Release\net6.0\PubTmp\Out\Puc.SeuEmbarque.Presentation.deps.json
 G:\Projeto Eixo5\CodigoFonte\SeuEmbarque\src\Puc.SeuEmbarque.Presentation\obj\Release\net6.0\PubTmp\Out\Puc.SeuEmbarque.Presentation.runtimeconfig.json
 G:\Projeto Eixo5\CodigoFonte\SeuEmbarque\src\Puc.SeuEmbarque.Presentation\obj\Release\net6.0\PubTmp\Out\Puc.SeuEmbarque.Presentation.pdb
+G:\Projeto Eixo5\CodigoFonte\SeuEmbarque\src\Puc.SeuEmbarque.Presentation\obj\Release\net6.0\PubTmp\Out\BCrypt.Net-Next.dll
 G:\Projeto Eixo5\CodigoFonte\SeuEmbarque\src\Puc.SeuEmbarque.Presentation\obj\Release\net6.0\PubTmp\Out\Humanizer.dll
 G:\Projeto Eixo5\CodigoFonte\SeuEmbarque\src\Puc.SeuEmbarque.Presentation\obj\Release\net6.0\PubTmp\Out\MessagePack.dll
 G:\Projeto Eixo5\CodigoFonte\SeuEmbarque\src\Puc.SeuEmbarque.Presentation\obj\Release\net6.0\PubTmp\Out\MessagePack.Annotations.dll
+G:\Projeto Eixo5\CodigoFonte\SeuEmbarque\src\Puc.SeuEmbarque.Presentation\obj\Release\net6.0\PubTmp\Out\System.Web.Mvc.dll
+G:\Projeto Eixo5\CodigoFonte\SeuEmbarque\src\Puc.SeuEmbarque.Presentation\obj\Release\net6.0\PubTmp\Out\System.Web.Razor.dll
+G:\Projeto Eixo5\CodigoFonte\SeuEmbarque\src\Puc.SeuEmbarque.Presentation\obj\Release\net6.0\PubTmp\Out\System.Web.Helpers.dll
+G:\Projeto Eixo5\CodigoFonte\SeuEmbarque\src\Puc.SeuEmbarque.Presentation\obj\Release\net6.0\PubTmp\Out\System.Web.WebPages.Deployment.dll
+G:\Projeto Eixo5\CodigoFonte\SeuEmbarque\src\Puc.SeuEmbarque.Presentation\obj\Release\net6.0\PubTmp\Out\System.Web.WebPages.Razor.dll
+G:\Projeto Eixo5\CodigoFonte\SeuEmbarque\src\Puc.SeuEmbarque.Presentation\obj\Release\net6.0\PubTmp\Out\System.Web.WebPages.dll
 G:\Projeto Eixo5\CodigoFonte\SeuEmbarque\src\Puc.SeuEmbarque.Presentation\obj\Release\net6.0\PubTmp\Out\Microsoft.AspNetCore.Razor.Language.dll
 G:\Projeto Eixo5\CodigoFonte\SeuEmbarque\src\Puc.SeuEmbarque.Presentation\obj\Release\net6.0\PubTmp\Out\Microsoft.Bcl.AsyncInterfaces.dll
 G:\Projeto Eixo5\CodigoFonte\SeuEmbarque\src\Puc.SeuEmbarque.Presentation\obj\Release\net6.0\PubTmp\Out\Microsoft.Build.dll
@@ -40,6 +47,7 @@ G:\Projeto Eixo5\CodigoFonte\SeuEmbarque\src\Puc.SeuEmbarque.Presentation\obj\Re
 G:\Projeto Eixo5\CodigoFonte\SeuEmbarque\src\Puc.SeuEmbarque.Presentation\obj\Release\net6.0\PubTmp\Out\Microsoft.VisualStudio.Web.CodeGeneration.Templating.dll
 G:\Projeto Eixo5\CodigoFonte\SeuEmbarque\src\Puc.SeuEmbarque.Presentation\obj\Release\net6.0\PubTmp\Out\Microsoft.VisualStudio.Web.CodeGeneration.Utils.dll
 G:\Projeto Eixo5\CodigoFonte\SeuEmbarque\src\Puc.SeuEmbarque.Presentation\obj\Release\net6.0\PubTmp\Out\Microsoft.VisualStudio.Web.CodeGenerators.Mvc.dll
+G:\Projeto Eixo5\CodigoFonte\SeuEmbarque\src\Puc.SeuEmbarque.Presentation\obj\Release\net6.0\PubTmp\Out\Microsoft.Web.Infrastructure.dll
 G:\Projeto Eixo5\CodigoFonte\SeuEmbarque\src\Puc.SeuEmbarque.Presentation\obj\Release\net6.0\PubTmp\Out\Microsoft.Win32.SystemEvents.dll
 G:\Projeto Eixo5\CodigoFonte\SeuEmbarque\src\Puc.SeuEmbarque.Presentation\obj\Release\net6.0\PubTmp\Out\Newtonsoft.Json.dll
 G:\Projeto Eixo5\CodigoFonte\SeuEmbarque\src\Puc.SeuEmbarque.Presentation\obj\Release\net6.0\PubTmp\Out\NuGet.Common.dll
@@ -209,8 +217,10 @@ G:\Projeto Eixo5\CodigoFonte\SeuEmbarque\src\Puc.SeuEmbarque.Presentation\obj\Re
 G:\Projeto Eixo5\CodigoFonte\SeuEmbarque\src\Puc.SeuEmbarque.Presentation\obj\Release\net6.0\PubTmp\Out\Puc.SeuEmbarque.Domain.dll
 G:\Projeto Eixo5\CodigoFonte\SeuEmbarque\src\Puc.SeuEmbarque.Presentation\obj\Release\net6.0\PubTmp\Out\Puc.SeuEmbarque.Infra.ApiData.dll
 G:\Projeto Eixo5\CodigoFonte\SeuEmbarque\src\Puc.SeuEmbarque.Presentation\obj\Release\net6.0\PubTmp\Out\Puc.SeuEmbarque.Infra.DI.dll
+G:\Projeto Eixo5\CodigoFonte\SeuEmbarque\src\Puc.SeuEmbarque.Presentation\obj\Release\net6.0\PubTmp\Out\Puc.SeuEmbarque.Infra.Utils.dll
 G:\Projeto Eixo5\CodigoFonte\SeuEmbarque\src\Puc.SeuEmbarque.Presentation\obj\Release\net6.0\PubTmp\Out\Puc.SeuEmbarque.Services.dll
 G:\Projeto Eixo5\CodigoFonte\SeuEmbarque\src\Puc.SeuEmbarque.Presentation\obj\Release\net6.0\PubTmp\Out\Puc.SeuEmbarque.Domain.pdb
 G:\Projeto Eixo5\CodigoFonte\SeuEmbarque\src\Puc.SeuEmbarque.Presentation\obj\Release\net6.0\PubTmp\Out\Puc.SeuEmbarque.Infra.DI.pdb
 G:\Projeto Eixo5\CodigoFonte\SeuEmbarque\src\Puc.SeuEmbarque.Presentation\obj\Release\net6.0\PubTmp\Out\Puc.SeuEmbarque.Services.pdb
 G:\Projeto Eixo5\CodigoFonte\SeuEmbarque\src\Puc.SeuEmbarque.Presentation\obj\Release\net6.0\PubTmp\Out\Puc.SeuEmbarque.Infra.ApiData.pdb
+G:\Projeto Eixo5\CodigoFonte\SeuEmbarque\src\Puc.SeuEmbarque.Presentation\obj\Release\net6.0\PubTmp\Out\Puc.SeuEmbarque.Infra.Utils.pdb

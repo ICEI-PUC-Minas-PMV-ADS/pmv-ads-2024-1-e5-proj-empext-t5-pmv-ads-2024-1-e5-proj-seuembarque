@@ -18,11 +18,14 @@ namespace Puc.SeuEmbarque.Presentation.Controllers
 
         public IActionResult Login()
         {
-            ClaimsPrincipal claimUser = HttpContext.User;
+            bool claimUser = HttpContext.User.Identity.IsAuthenticated;
 
-            if (claimUser.Identity.IsAuthenticated)
+            if (claimUser)
                 return RedirectToAction("Painel", "Painel");
 
+            Response.Headers.Add("Cache-Control", "no-cache, no-store, must-revalidate");
+            Response.Headers.Add("Pragma", "no-cache");
+            Response.Headers.Add("Expires", "0");
 
             return View("login_auth");
         }
@@ -30,7 +33,7 @@ namespace Puc.SeuEmbarque.Presentation.Controllers
         [HttpPost]
         public async Task<IActionResult> Login(LoginVM login)
         {
-            var response = _usuarioService.AutenticarUsuario(login);
+            var response = await _usuarioService.AutenticarUsuario(login);
             if (response.AcaoValida)
             {
 

@@ -8,6 +8,7 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
+
     <title>login</title>
 
     <style>
@@ -109,7 +110,10 @@
     });
 
     function Autenticar(){
-          $('#loginForm').submit();
+        $('#loginBtn').val("Entrando...");
+        setTimeout(function(){
+            $('#loginForm').submit();
+        }, 1200);           
     }
 
     function ValidarForm(){

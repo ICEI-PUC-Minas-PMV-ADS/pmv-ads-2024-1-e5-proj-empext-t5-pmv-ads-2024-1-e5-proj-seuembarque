@@ -17,3 +17,5 @@ G:\Projeto Eixo5\CodigoFonte\SeuEmbarque\src\Puc.SeuEmbarque.Infra.DI\obj\Releas
 G:\Projeto Eixo5\CodigoFonte\SeuEmbarque\src\Puc.SeuEmbarque.Infra.DI\obj\Release\net6.0\refint\Puc.SeuEmbarque.Infra.DI.dll
 G:\Projeto Eixo5\CodigoFonte\SeuEmbarque\src\Puc.SeuEmbarque.Infra.DI\obj\Release\net6.0\Puc.SeuEmbarque.Infra.DI.pdb
 G:\Projeto Eixo5\CodigoFonte\SeuEmbarque\src\Puc.SeuEmbarque.Infra.DI\obj\Release\net6.0\ref\Puc.SeuEmbarque.Infra.DI.dll
+G:\Projeto Eixo5\CodigoFonte\SeuEmbarque\src\Puc.SeuEmbarque.Infra.DI\bin\Release\net6.0\Puc.SeuEmbarque.Infra.Utils.dll
+G:\Projeto Eixo5\CodigoFonte\SeuEmbarque\src\Puc.SeuEmbarque.Infra.DI\bin\Release\net6.0\Puc.SeuEmbarque.Infra.Utils.pdb
