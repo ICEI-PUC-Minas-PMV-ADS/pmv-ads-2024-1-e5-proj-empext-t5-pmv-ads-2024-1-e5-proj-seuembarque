@@ -1,0 +1,568 @@
+﻿@model Puc.SeuEmbarque.Domain.Models.PacoteData
+@using Microsoft.AspNetCore.Mvc.Rendering
+@{
+    Layout = null;
+    var flEdit = ViewBag.flEdit;
+}
+
+
+<link rel="stylesheet" href="~/css/home.css" asp-append-version="true" />
+<link rel="stylesheet" href="~/css/painelFormCss/painelForm.css" asp-append-version="true" />
+<div class="container">
+    <div class="card-body p-0">
+        <div class="row mb-0 bd-border bd-solid bd-dark-gray d-none d-md-flex">
+            <div class="col-4 col-md-4 d-flex justify-content-center align-items-center border border-solid bd-dark-gray border-right blockLogo">
+                <div class="row text-center">
+                    <img src="~/images/logoCompany.png" id="logo">
+                </div>
+            </div>
+            <div class="col-4 col-md-4 d-flex justify-content-center align-items-center border border-solid bd-dark-gray border-right">
+                <h3 class="mb-0 font-weight-bold text-uppercase">Pacote</h3>
+            </div>
+            <div class="col-4 col-md-4">
+                <div class="row mb-0 py-1 border border-solid bd-dark-gray border-bottom text-center blockId">
+                    <label class="col-4 col-md-6 col-form-label font-weight-bold text-center">
+                        Número
+                    </label>
+                    <label class="col-8 col-md-6 col-form-label font-weight-bold text-left text-blue">
+                        <span class="text-blue">PAC-</span>@((Model.package_id == 0 ? "" : Model.package_id))
+                    </label>
+                </div>
+                <div class="row mb-0 py-1 border text-center blockDate">
+                    <label class="col-6 col-md-6 col-form-label font-weight-bold text-center">
+                        Registro
+                    </label>
+                    <div class="col-4 col-md-6 align-self-center text-left mb-1">
+                        <span>@(Model.registration_date != null ? Model.registration_date : "")</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <form method="post" id="frmRegPacote">
+            <input type="hidden" name="hdnIdPacote" id="hdnIdPacote" value="@((Model != null) ? Model.package_id : "")">
+            <input type="hidden" name="hdnNivel" id="hdnNivel" value="">
+
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group mt-2">
+                        <div>
+                            <label class="control-label fw-bolder">CLIENTE</label>
+                        </div>
+                        @if (flEdit)
+                        {
+                            <select name="txtCliente" id="txtCliente" class="form-select form-control form-control-sm">
+                                @foreach (var item in ViewBag.Clientes)
+                                {
+                                    var sel = (item.client_id == Model.client_id ? "selected" : null);
+                                    <option value="@item.client_id" selected="@sel">@item.name</option>
+                                }
+                            </select>
+                            @*<input type="text" class="form-control form-control-sm" name="txtPreco" id="txtPreco" value="@((Model != null) ? Model.price : "R$" )" maxlength="100" />*@
+                            <span asp-validation-for="client_id" class="text-danger"></span>
+
+                            @*<input type="text" class="form-control form-control-sm" name="txtNome" id="txtNome" value="@((Model != null) ? Model.nome_cliente : "" )" maxlength="150" />*@
+                           
+                        }
+                        else
+                        {
+                            <label class="control-label">@Model.nome_cliente</label>
+                        }
+                    </div>
+
+                    <div class="form-group">
+                        <div>
+                            <label class="control-label fw-bolder">ORIGEM</label>
+                        </div>
+                        @if (flEdit)
+                        {
+                            <input type="text" class="form-control form-control-sm" name="origem" id="origem" value="@((Model != null) ? Model.origin : "" )" maxlength="100" />
+                            <span asp-validation-for="origin" class="text-danger"></span>
+                        }
+                        else
+                        {
+                            <label class="control-label">@Model.origin</label>
+                        }
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div>
+                                <label for="dropdownMenuButton" class="control-label fw-bolder">VIAJANTES</label>
+                            </div>
+                            <div class="dropdown" style="width: max-content; border:none;">
+
+                                <button class="btn inputText btnViajantes pt-0" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" data-bs-auto-close="false" aria-expanded="false" @(flEdit ? "" : "disabled" )>
+                                    <span class=""><i class="fas fa-user"></i></span>
+                                    <span id="textInputViajantes"></span>
+                                </button>
+                                <div class="dropdown-menu p-4" style="z-index:1010;">
+                                    <div class="mb-3">
+                                        <label for="qtdAdultos" class="form-label" style="color:#363535; align-self: self-start;">Adultos</label>
+                                        <div class="input-group d-block">
+                                            <button class="btn btn-outline-secondary" type="button" onclick="RemoverViajante(1)" id="subAdulto">
+                                                <span>
+                                                    <i class="fas fa-minus"></i>
+                                                </span>
+                                            </button>
+                                            <input class="inputViajantes" id="qtdAdultos" type="text" value="@(Model.adults > 0 ? Model.adults : 1)" />
+                                            <button class="btn btn-outline-secondary" type="button" onclick="AdicionarViajante(1)" id="addAdulto">
+                                                <span>
+                                                    <i class="fas fa-plus"></i>
+                                                </span>
+                                            </button>
+                                            <span class="idadeViajante">+16 Anos</span>
+                                        </div>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="qtdCriancas" class="form-label" style="color:#363535; align-self: self-start;">Crianças</label>
+                                        <div class="input-group d-block">
+                                            <button class="btn btn-outline-secondary" type="button" onclick="RemoverViajante()" id="subCrianca">
+                                                <span>
+                                                    <i class="fas fa-minus"></i>
+                                                </span>
+                                            </button>
+                                            <input type="text" class="inputViajantes" id="qtdCriancas" value="@(Model.kids > 0 ? Model.kids : 0)" />
+                                            <button class="btn btn-outline-secondary" type="button" onclick="AdicionarViajante()" id="addCrianca">
+                                                <span>
+                                                    <i class="fas fa-plus"></i>
+                                                </span>
+                                            </button>
+                                            <span class="idadeViajante">0 a 15 Anos</span>
+                                        </div>
+                                    </div>
+                                    <button type="button" onclick="MontaTextoInputViajantes(true)" class="btn btn-primary btnConfirmarViajantes">Confirmar</button>
+                                </div>
+                            </div>
+                        </div>
+                         <div class="col-md-6">
+                            <div>
+                                <label class="control-label fw-bolder">CLASSE</label>
+                            </div>
+                            @if (flEdit) 
+                            {
+                                <select name="txtClasse" id="txtClasse" class="form-select form-control form-control-sm">
+                                    @foreach (var item in ViewBag.Classe)
+                                    {
+                                        var sel = "";
+                                        if (Model.travel_class != null && item.Text == Model.travel_class.ToString())
+                                        {
+                                            sel = "selected";
+                                        }
+                                        <option value="@item.Value" selected="@sel">@item.Text</option>
+                                    }
+                                </select>
+                                @*<input type="text" class="form-control form-control-sm" name="txtPreco" id="txtPreco" value="@((Model != null) ? Model.price : "R$" )" maxlength="100" />*@
+                                <span asp-validation-for="price" class="text-danger"></span>
+                            }
+                            else
+                            {
+                                <label class="control-label">@Model.travel_class</label>
+                            }
+                        </div>
+                    </div>
+                </div>
+           
+                <div class="col-md-6">
+                  
+                    <div class="form-group row mt-2 mb-0" style="height: 5rem;">
+                        <div class="col-md-6">
+                            <div>
+                                <label class="control-label fw-bolder">DATA IDA</label>
+                            </div>
+                            @if (flEdit)
+                            {
+                                <input id="dataIda" class="inputText form-control" autocomplete="off" readonly value="@(Model.departure_date != null ? Model.departure_date : "")"/>
+                                <span class="calendarSpan"><i class="calendarIda fas fa-calendar"></i></span>
+                                <span class="clearIconIdaModal" onclick="limparData(1);"><i class="clearIda fa-solid fa-circle-xmark"></i></span>
+                            }
+                            else
+                            {
+                                <label class="control-label">@(Model.departure_date != null ? Model.departure_date : "-")</label>
+                            }
+                        </div>
+                        <div class="col-md-6">
+                            <div>
+                                <label class="control-label form-label fw-bolder">DATA VOLTA</label>
+                            </div>
+                            @if (flEdit)
+                            {
+                                <input id="dataVolta" class="inputText form-control" placeholder="opcional" readonly value="@(Model.return_date != null ? Model.return_date : "")" @(Model.return_date != null || Model.departure_date != null ? "" : "disabled") />
+                                <span class="calendarSpan"><i class="calendarVolta fas fa-calendar"></i></span>
+                                <span class="clearIconVoltaModal" onclick="limparData(2);"><i class="clearVolta fa-solid fa-circle-xmark"></i></span>
+
+                               @* <input type="datetime" class="form-control form-control-sm" name="dataVolta" id="dataVolta" value="@((Model != null) ? Model.return_date : "" )" maxlength="100" />
+                                <span asp-validation-for="return_date" class="text-danger"></span>*@
+                            }
+                            else
+                            {
+                                <label class="control-label">@(Model.return_date != null ? Model.return_date : "-")</label>
+                            }
+                        </div>
+
+                    </div>                    
+                    <div class="form-group">
+                        <div>
+                            <label class="control-label fw-bolder">DESTINO</label>
+                        </div>
+                        @if (flEdit)
+                        {
+                            <input type="text" class="form-control form-control-sm" name="destino" id="destino" value="@((Model != null) ? Model.destination : "" )"/>
+                            <span asp-validation-for="destination" class="text-danger"></span>
+                        }
+                        else
+                        {
+                            <label class="control-label">@Model.destination</label>
+                        }
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div>
+                                <label class="control-label fw-bolder">HOSPEDAGEM</label>
+                            </div>
+                            @if (flEdit)
+                            {
+                                <select name="txtHospedagem" id="txtHospedagem" class="form-select form-control form-control-sm">
+                                    @foreach (var item in (SelectList)ViewBag.Hospedagem)
+                                    {
+                                        var accomodation = Model.accommodation ? 1 : 0;
+                                        var sel = (item.Value == accomodation.ToString() ? "selected" : null);
+                                        <option value="@item.Value" selected="@sel">@item.Text</option>
+                                    }                                   
+                                </select>
+                                @*<input type="text" class="form-control form-control-sm" name="txtPreco" id="txtPreco" value="@((Model != null) ? Model.price : "R$" )" maxlength="100" />*@
+                                <span asp-validation-for="accommodation" class="text-danger"></span>
+                            }
+                            else
+                            {
+                                <label class="control-label">@(Model.accommodation ? "SIM" : "NÃO")</label>
+                            }
+                        </div>
+                        <div class="col-md-4">
+                            <div>
+                                <label class="control-label fw-bolder">OPCIONAIS</label>
+                            </div>
+                            @if (flEdit)
+                            {
+                                <select name="txtOpcionais" id="txtOpcionais" class="form-select form-control form-control-sm">
+                                    @foreach (var item in (SelectList)ViewBag.Opcionais)
+                                    {
+                                        var opc = (Model.meals != null ? Model.meals.ToString() : "NONE");
+                                        var sel = (item.Value.ToString() == opc.ToString() ? "selected" : null);
+                                        <option value="@item.Value" selected="@sel">@item.Text</option>
+                                    }
+                                </select>
+                                @*<input type="text" class="form-control form-control-sm" name="txtPreco" id="txtPreco" value="@((Model != null) ? Model.price : "R$" )" maxlength="100" />*@
+                                <span asp-validation-for="meals" class="text-danger"></span>
+                            }
+                            else
+                            {
+                                <label class="control-label">@(Model.meals != null ? Model.meals : "Nenhum")</label>
+                            }
+                        </div>
+                        <div class="col-md-4">
+                            <div>
+                                <label class="control-label fw-bolder">PREÇO</label>
+                            </div>
+                            @if (flEdit)
+                            {
+                                <input type="text" class="form-control form-control-sm" name="txtPreco" id="txtPreco" value="@((Model != null) ? Model.price.ToString("C") : 0 )" maxlength="100" />
+                                <span asp-validation-for="price" class="text-danger"></span>
+                            }
+                            else
+                            {
+                                <label class="control-label mb-0">@(Model.price.ToString("C"))</label>
+                            }
+                        </div>
+                    </div>            
+                </div>
+            </div>
+        </form>
+        <div class="text-center p-4">
+            @if (flEdit)
+            {
+                <button type="button" class="btn btn-dark btn-xs-only-block mb-1 mb-md-0 mr-1 my-1 my-lg-0" onClick="SalvarRegistro(this);">
+                    @(
+                        (Model.package_id > 0 ? "Salvar" : "Incluir")
+                        )
+                </button>
+            }
+            else
+            {
+                <button type="button" class="btn btn-dark btn-xs-only-block mb-1 mb-md-0 mr-1 my-1 my-lg-0" onClick="EditarRegistro(this, @Model.package_id);">Editar</button>
+            }           
+
+            <button id="deleteBtn" class="btn btn-outline-danger mr-1" onclick="DeletarRegistro(@Model.package_id)">Excluir</button>
+            <button id="closeBtn" class="btn btn-outline-success" onclick="CloseModal()">Fechar</button>
+        </div>
+
+    </div>
+</div>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+<script src="~/js/pacoteFormJs/pacoteForm.js"></script>
+<script>
+    var comHospedagem = false;
+    var qtdAdulto = $('#qtdAdultos');
+    var qtdCrianca = $('#qtdCriancas');
+    var flEdit = '@flEdit';
+
+    $(document).ready(function () {
+        MascaraRS($('#txtPreco'));
+        ConfigurarDatepicker();        
+        ComboClasse();
+        MontaTextoInputViajantes();
+        ConfigurarAutocomplete('#origem');
+        ConfigurarAutocomplete('#destino');
+
+        $('.clearIda').hide();
+        $('.clearVolta').hide();
+
+        if(flEdit){
+             if($('#dataVolta').val() != "" && $('#dataIda').val() != ""){
+                $('.calendarIda').hide()
+                $('.calendarVolta').hide()
+                $('.clearIda').fadeIn();
+                $('.clearVolta').fadeIn();
+            }
+            
+            if ($('#dataVolta').val() == "" && $('#dataIda').val() != "") {
+                $('.calendarIda').hide()
+                $('.clearIda').fadeIn();
+            }
+            
+        }
+
+       
+
+         if($('#txtHospedagem').val() == 0){
+            $('#txtOpcionais').prop("disabled", true);
+            $('#txtOpcionais').val("NONE");
+         }
+        $('#txtHospedagem').on('change', function(value){
+            var valor = $(this).val();
+            if(valor == 0){
+                $('#txtOpcionais').prop("disabled", true);
+                $('#txtOpcionais').val("NONE");
+            }else{
+                $('#txtOpcionais').prop("disabled", false);
+            }
+        });
+      
+
+        $('#dataVolta').on('change', function () {
+            MudarIcone(0, 1);
+            HabilitarHospedagem();
+        });
+
+    });
+
+function SalvarRegistro(btn){
+    var params = LoadParametrosPacote();
+    var flNew = ($('#frmRegPacote').find('#hdnIdPacote').val() == 0);       
+    var form = $('#frmRegPacote');
+        
+    if ($(form).find('#origem').val() == '') {
+        simpleConfirm("Preencha o campo selecionado", 1, "Aviso", function () {
+            setTimeout(function () { $(form).find('#origem').focus(); }, 800);
+        }, true, "OK");
+        return false;
+    }
+
+    if ($(form).find('#destino').val() == '') {
+        simpleConfirm("Preencha o campo selecionado", 1, "Aviso", function () {
+            setTimeout(function () { $(form).find('#destino').focus(); }, 800);
+        }, true, "OK");
+        return false;
+    }
+
+    if ($(form).find('#dataIda').val() == '') {
+        simpleConfirm("Preencha o campo selecionado", 1, "Aviso", function () {
+            setTimeout(function () { $(form).find('#dataIda').focus(); }, 800);
+        }, true, "OK");
+        return false;
+    }
+
+       
+    $(btn).html("Carregando...");
+    $(btn).attr('disabled', 'disabled');
+
+    if(!flNew){
+        $.ajax({
+            url: '@Url.Content("/pacotes/AtualizarPacote")',
+            method: 'POST',
+            dataType: 'json',
+            data: params,
+            success: function (result) {
+                HideModalLoading();
+                try {
+                    var table = $('#pacotesTable').DataTable();
+                    table.ajax.reload();
+
+                    var params = {};
+                    params.idPacote = result.data.package_id;
+                    params.flEdit = false;
+
+                    OpenDynamicModal('@Url.Content("~/Pacotes/Register")', params, '#registry-mainregister-modal', 800);
+
+                } catch (err) {
+
+                }
+
+
+            }
+        });
+    }else{
+        $.ajax({
+            url: '@Url.Content("/pacotes/InserirPacote")',
+            method: 'POST',
+            dataType: 'json',
+            data: params,
+            success: function (result) {
+                HideModalLoading();
+                try {
+                    var table = $('#pacotesTable').DataTable();
+                    table.ajax.reload();         
+
+                    var params = {};
+                    params.idPacote = result.data.package_id;
+                    params.flEdit = false;
+                    
+                    OpenDynamicModal('@Url.Content("~/Pacotes/Register")', params, '#registry-mainregister-modal', 800);
+
+                } catch (err) {
+
+                }
+                
+               
+            }
+        });
+    }
+    
+}
+
+function DeletarRegistro(id) {
+        simpleConfirm("Tem Certeza que deseja excluir este item?", 2, "Aviso", function () {
+                ShowModalLoading();
+                $.ajax({
+                    url: '@Url.Content("/pacotes/DeletarPacote")',
+                    method: 'DELETE',
+                    dataType: 'json',
+                    data: { idPacote: id },
+                    success: function (result) {
+                        HideModalLoading();
+                        try {
+                            var table = $('#pacotesTable').DataTable();
+                            location.reload();
+
+                        } catch (err) {
+
+                        }
+
+
+                    }
+                });
+         }, true, "Sim");
+}
+
+function LoadParametrosPacote() {
+    var opcional = null;
+    var hospedagem = $('#txtHospedagem').val() == "1" ? true : false;
+    var origem = $('#origem').val();
+    var destino = $('#destino').val();
+    var dataIda = $('#dataIda').val();
+    var dataVolta = $('#dataVolta').val();
+    var classe = $('#txtClasse').val();
+    var adultos = parseInt($('#qtdAdultos').val());
+    var criancas = parseInt($('#qtdCriancas').val());
+    var idPacote = $('#frmRegPacote').find('#hdnIdPacote').val();
+    var idCliente = $('#txtCliente').val();
+
+    if (!$('#txtOpcionais').prop("disabled")){
+        opcional = $('#txtOpcionais').val();
+    }
+
+    var precoComRS = $('#frmRegPacote').find('#txtPreco').val();
+    var preco = parseFloat(precoComRS.replace("R$", "").replace(/\./g, "").replace(",", "."));
+
+
+    var params = {
+        client_id: idCliente,
+        origin: origem,
+        destination: destino,
+        departure_date: dataIda,
+        return_date: dataVolta,
+        meals: opcional,
+        accommodation: hospedagem,
+        kids: criancas,
+        adults: adultos,
+        travel_class: classe,
+        package_id: idPacote,
+        price: preco
+
+    };
+
+    return params;
+}
+
+function EditarRegistro(btn, idPacote) {
+    var params = {};
+    params.idPacote = idPacote;
+    params.flEdit = true;
+
+    OpenDynamicModal('@Url.Content("~/Pacotes/Register")', params, '#registry-mainregister-modal', 800);
+}
+
+
+
+function ConfigurarAutocomplete(campo) {
+    $(campo).autocomplete({
+        source: function (request, response) {
+            $.ajax({
+                url: '@Url.Content("/Aeroporto/PesquisarAeroporto")',
+                method: 'GET',
+                dataType: 'json',
+                data: {
+                    termo: request.term
+                },
+                success: function (result) {
+                    var mappedData = $.map(result.data, function (item) {
+                        return {
+                            label: item.name,
+                            value: item.aeroportoId
+                        };
+                    });
+                    response(mappedData);
+                }
+            });
+        },
+        minLength: 2,
+        select: function (event, ui) {
+            $(campo).val(ui.item.label);
+            return false;
+        },
+        open: function (event, ui) {
+            var $input = $(this);
+            var $menu = $input.autocomplete("widget");
+            var $scrollParent = $menu.css('overflow', 'auto');
+            $scrollParent.css({
+                'max-height': '330px',
+                'overflow-y': 'auto',
+                'z-index': '9999'
+            });
+        },
+        appendTo: "body"
+    });
+}
+
+    
+
+function MascaraRS(input){
+    $(input).on('input', function () {
+        let value = $(this).val().replace(/\D/g, '');
+        value = Number(value) / 100;
+        $(this).val(value.toLocaleString('pt-BR', {style: 'currency', currency: 'BRL'}));
+    });
+}
+
+</script>

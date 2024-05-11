@@ -16,4 +16,8 @@
     <ProjectReference Include="..\Puc.SeuEmbarque.Services\Puc.SeuEmbarque.Services.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="wwwroot\images\Logo\" />
+  </ItemGroup>
+
 </Project>

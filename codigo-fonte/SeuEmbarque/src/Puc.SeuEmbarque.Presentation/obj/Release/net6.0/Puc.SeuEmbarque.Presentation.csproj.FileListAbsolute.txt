@@ -239,3 +239,13 @@ G:\Projeto Eixo5\CodigoFonte\SeuEmbarque\src\Puc.SeuEmbarque.Presentation\obj\Re
 G:\Projeto Eixo5\CodigoFonte\SeuEmbarque\src\Puc.SeuEmbarque.Presentation\obj\Release\net6.0\Puc.SeuEmbarque.Presentation.pdb
 G:\Projeto Eixo5\CodigoFonte\SeuEmbarque\src\Puc.SeuEmbarque.Presentation\obj\Release\net6.0\Puc.SeuEmbarque.Presentation.genruntimeconfig.cache
 G:\Projeto Eixo5\CodigoFonte\SeuEmbarque\src\Puc.SeuEmbarque.Presentation\obj\Release\net6.0\ref\Puc.SeuEmbarque.Presentation.dll
+G:\Projeto Eixo5\CodigoFonte\SeuEmbarque\src\Puc.SeuEmbarque.Presentation\bin\Release\net6.0\Puc.SeuEmbarque.Infra.Utils.dll
+G:\Projeto Eixo5\CodigoFonte\SeuEmbarque\src\Puc.SeuEmbarque.Presentation\bin\Release\net6.0\Puc.SeuEmbarque.Infra.Utils.pdb
+G:\Projeto Eixo5\CodigoFonte\SeuEmbarque\src\Puc.SeuEmbarque.Presentation\bin\Release\net6.0\BCrypt.Net-Next.dll
+G:\Projeto Eixo5\CodigoFonte\SeuEmbarque\src\Puc.SeuEmbarque.Presentation\bin\Release\net6.0\System.Web.Mvc.dll
+G:\Projeto Eixo5\CodigoFonte\SeuEmbarque\src\Puc.SeuEmbarque.Presentation\bin\Release\net6.0\System.Web.Razor.dll
+G:\Projeto Eixo5\CodigoFonte\SeuEmbarque\src\Puc.SeuEmbarque.Presentation\bin\Release\net6.0\System.Web.Helpers.dll
+G:\Projeto Eixo5\CodigoFonte\SeuEmbarque\src\Puc.SeuEmbarque.Presentation\bin\Release\net6.0\System.Web.WebPages.Deployment.dll
+G:\Projeto Eixo5\CodigoFonte\SeuEmbarque\src\Puc.SeuEmbarque.Presentation\bin\Release\net6.0\System.Web.WebPages.Razor.dll
+G:\Projeto Eixo5\CodigoFonte\SeuEmbarque\src\Puc.SeuEmbarque.Presentation\bin\Release\net6.0\System.Web.WebPages.dll
+G:\Projeto Eixo5\CodigoFonte\SeuEmbarque\src\Puc.SeuEmbarque.Presentation\bin\Release\net6.0\Microsoft.Web.Infrastructure.dll

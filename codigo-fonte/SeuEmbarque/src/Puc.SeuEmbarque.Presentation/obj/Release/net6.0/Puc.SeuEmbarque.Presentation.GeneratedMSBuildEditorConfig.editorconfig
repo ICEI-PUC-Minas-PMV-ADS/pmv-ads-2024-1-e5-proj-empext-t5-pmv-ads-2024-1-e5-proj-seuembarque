@@ -16,16 +16,44 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = G:\Projeto Eixo5\CodigoFonte\SeuEmbarque\src\Puc.SeuEmbarque.Presentation
 build_property._RazorSourceGeneratorDebug = 
 
+[G:/Projeto Eixo5/CodigoFonte/SeuEmbarque/src/Puc.SeuEmbarque.Presentation/Views/Clientes/clientes_lst.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2xpZW50ZXNcY2xpZW50ZXNfbHN0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[G:/Projeto Eixo5/CodigoFonte/SeuEmbarque/src/Puc.SeuEmbarque.Presentation/Views/Clientes/clientes_reg.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2xpZW50ZXNcY2xpZW50ZXNfcmVnLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [G:/Projeto Eixo5/CodigoFonte/SeuEmbarque/src/Puc.SeuEmbarque.Presentation/Views/Formulario/formulario_reg.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRm9ybXVsYXJpb1xmb3JtdWxhcmlvX3JlZy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[G:/Projeto Eixo5/CodigoFonte/SeuEmbarque/src/Puc.SeuEmbarque.Presentation/Views/Home/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
+[G:/Projeto Eixo5/CodigoFonte/SeuEmbarque/src/Puc.SeuEmbarque.Presentation/Views/Login/login_auth.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTG9naW5cbG9naW5fYXV0aC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[G:/Projeto Eixo5/CodigoFonte/SeuEmbarque/src/Puc.SeuEmbarque.Presentation/Views/Home/Privacy.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
+[G:/Projeto Eixo5/CodigoFonte/SeuEmbarque/src/Puc.SeuEmbarque.Presentation/Views/Pacotes/pacotes_lst.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGFjb3Rlc1xwYWNvdGVzX2xzdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[G:/Projeto Eixo5/CodigoFonte/SeuEmbarque/src/Puc.SeuEmbarque.Presentation/Views/Pacotes/pacotes_reg.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGFjb3Rlc1xwYWNvdGVzX3JlZy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[G:/Projeto Eixo5/CodigoFonte/SeuEmbarque/src/Puc.SeuEmbarque.Presentation/Views/Painel/destinos_lst.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGFpbmVsXGRlc3Rpbm9zX2xzdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[G:/Projeto Eixo5/CodigoFonte/SeuEmbarque/src/Puc.SeuEmbarque.Presentation/Views/Painel/painel_home.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGFpbmVsXHBhaW5lbF9ob21lLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[G:/Projeto Eixo5/CodigoFonte/SeuEmbarque/src/Puc.SeuEmbarque.Presentation/Views/Painel/usuario_lst.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGFpbmVsXHVzdWFyaW9fbHN0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[G:/Projeto Eixo5/CodigoFonte/SeuEmbarque/src/Puc.SeuEmbarque.Presentation/Views/Painel/usuario_reg.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGFpbmVsXHVzdWFyaW9fcmVnLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [G:/Projeto Eixo5/CodigoFonte/SeuEmbarque/src/Puc.SeuEmbarque.Presentation/Views/Shared/Error.cshtml]

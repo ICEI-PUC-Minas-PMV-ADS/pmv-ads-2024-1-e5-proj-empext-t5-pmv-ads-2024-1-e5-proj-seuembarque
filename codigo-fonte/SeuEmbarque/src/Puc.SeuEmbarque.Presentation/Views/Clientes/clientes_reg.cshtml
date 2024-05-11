@@ -1,0 +1,275 @@
+﻿@model Puc.SeuEmbarque.Domain.Models.Cliente.ClienteData
+@using Microsoft.AspNetCore.Mvc.Rendering
+@{
+    Layout = null;
+    var flEdit = ViewBag.flEdit;
+}
+
+
+<link rel="stylesheet" href="~/css/home.css" asp-append-version="true" />
+<link rel="stylesheet" href="~/css/painelFormCss/painelForm.css" asp-append-version="true" />
+<div class="container">
+    <div class="card-body p-0">
+        <div class="row mb-0 bd-border bd-solid bd-dark-gray d-none d-md-flex">
+            <div class="col-4 col-md-4 d-flex justify-content-center align-items-center border border-solid bd-dark-gray border-right blockLogo">
+                <div class="row text-center">
+                    <img src="~/images/logoCompany.png" id="logo">
+                </div>
+            </div>
+            <div class="col-4 col-md-4 d-flex justify-content-center align-items-center border border-solid bd-dark-gray border-right">
+                <h3 class="mb-0 font-weight-bold text-uppercase">Cliente</h3>
+            </div>
+            <div class="col-4 col-md-4">
+                <div class="row mb-0 py-1 border border-solid bd-dark-gray border-bottom text-center blockId">
+                    <label class="col-4 col-md-6 col-form-label font-weight-bold text-center">
+                        Número
+                    </label>
+                    <label class="col-8 col-md-6 col-form-label font-weight-bold text-left text-blue">
+                        <span class="text-blue">CLI-</span>@((Model.client_id == 0 ? "" : Model.client_id))
+                    </label>
+                </div>
+                <div class="row mb-0 py-1 border text-center blockDate">
+                    <label class="col-6 col-md-6 col-form-label font-weight-bold text-center">
+                        Registro
+                    </label>
+                    <div class="col-4 col-md-6 align-self-center text-left mb-1">
+                        <span>@(Model.registration_date != null ? Model.registration_date : "")</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <form method="post" id="frmRegCliente">
+            <input type="hidden" name="hdnIdCliente" id="hdnIdCliente" value="@((Model != null) ? Model.client_id : "")">
+            <input type="hidden" name="hdnNivel" id="hdnNivel" value="">
+
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group mt-2">
+                        <div>
+                            <label class="control-label fw-bolder">NOME</label>
+                        </div>
+                        @if (flEdit)
+                        {
+                            <input type="text" class="form-control form-control-sm" name="nome" id="nome" value="@((Model != null) ? Model.name : "" )" maxlength="100" />
+                            <span asp-validation-for="name" class="text-danger"></span>
+                        }
+                        else
+                        {
+                            <label class="control-label">@Model.name</label>
+                        }
+                    </div>
+                    <div class="form-group">
+                        <div>
+                            <label class="control-label fw-bolder">CPF</label>
+                        </div>
+                        @if (flEdit)
+                        {
+                            <input type="text" class="form-control form-control-sm" name="cpf" id="cpf" value="@((Model.cpf != null) ? Model.cpf : "" )" maxlength="11" />
+                            <span asp-validation-for="cpf" class="text-danger"></span>
+                        }
+                        else
+                        {
+                            <label class="control-label">@((Model.cpf != null) ? Model.cpf : "-")</label>
+                        }
+                    </div>
+               
+                </div>
+
+                <div class="col-md-6">
+
+                    <div class="form-group mt-2">
+                        <div>
+                            <label class="control-label fw-bolder">EMAIL</label>
+                        </div>
+                        @if (flEdit)
+                        {
+                            <input type="text" class="form-control form-control-sm" name="email" id="email" value="@((Model != null) ? Model.email : "" )" maxlength="100" />
+                            <span asp-validation-for="email" class="text-danger"></span>
+                        }
+                        else
+                        {
+                            <label class="control-label">@Model.email</label>
+                        }   
+
+                    </div>
+                    <div class="form-group">
+                        <div>
+                            <label class="control-label fw-bolder">CONTATO</label>
+                        </div>
+                        @if (flEdit)
+                        {
+                            <input type="text" class="form-control form-control-sm" name="cellphone" id="cellphone"  maxlength="15" value="@((Model.cellphone != null) ? Model.cellphone : "" )" />
+                            <span asp-validation-for="cellphone" class="text-danger"></span>
+                        }
+                        else
+                        {
+                            <label class="control-label">@((Model.cellphone != null) ? Model.cellphone : "-")</label>
+                        }
+                    </div>                   
+                </div>
+            </div>
+        </form>
+        <div class="text-center p-4">
+            @if (flEdit)
+            {
+                <button type="button" class="btn btn-dark btn-xs-only-block mb-1 mb-md-0 mr-1 my-1 my-lg-0" onClick="SalvarRegistro(this);">
+                    @(
+                        (Model.client_id > 0 ? "Salvar" : "Incluir")
+                        )
+                </button>
+            }
+            else
+            {
+                <button type="button" class="btn btn-dark btn-xs-only-block mb-1 mb-md-0 mr-1 my-1 my-lg-0" onClick="EditarRegistro(this, @Model.client_id);">Editar</button>
+            }
+
+            <button id="closeBtn" class="btn btn-outline-danger mr-1" onclick="DeletarRegistro(@Model.client_id)">Excluir</button>
+            <button id="closeBtn" class="btn btn-outline-success" onclick="CloseModal()">Fechar</button>
+        </div>
+
+    </div>
+</div>
+<script src="~/js/jqueryMask/jquery.mask.js"></script>
+<script src="~/js/painelMaskJs/painelMask.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+
+<script>
+
+    $(document).ready(function () {
+        $('#cpf').mask('999.999.999-99', { reverse: true });     
+        FormatarTelefone('#cellphone');
+    });
+
+    function SalvarRegistro(btn) {
+        var params = LoadParametrosCliente();
+        var flNew = ($('#frmRegCliente').find('#hdnIdCliente').val() == 0);
+        var form = $('#frmRegCliente');
+        
+        if ($(form).find('#nome').val() == '') {
+            simpleConfirm("Preencha o campo selecionado", 1, "Aviso", function () {
+                setTimeout(function () { $(form).find('#nome').focus(); }, 800);
+            }, true, "OK");
+            return false;
+        }
+
+        if ($(form).find('#email').val() == '') {
+            simpleConfirm("Preencha o campo selecionado", 1, "Aviso", function () {
+                setTimeout(function () { $(form).find('#email').focus(); }, 800);
+            }, true, "OK");
+            return false;
+        }
+        
+        $(btn).html("Carregando...");
+        $(btn).attr('disabled', 'disabled');
+
+        if (!flNew) {
+            $.ajax({
+                url: '@Url.Content("/clientes/AtualizarCliente")',
+                method: 'POST',
+                dataType: 'json',
+                data: params,
+                success: function (result) {
+                    HideModalLoading();
+                    try {
+                        var table = $('#clientesTable').DataTable();
+                        table.ajax.reload();
+                        console.log("RESULTADOOO", result)
+
+                        var params = {};
+                        params.idCliente = result.data.client_id;
+                        params.flEdit = false;
+
+                        OpenDynamicModal('@Url.Content("~/Clientes/Register")', params, '#registry-mainregister-modal', 800);
+
+                    } catch (err) {
+
+                    }
+
+
+                }
+            });
+        } else {
+            $.ajax({
+                url: '@Url.Content("/clientes/InserirCliente")',
+                method: 'POST',
+                dataType: 'json',
+                data: params,
+                success: function (result) {
+                    HideModalLoading();
+                    try {
+                        var table = $('#clientesTable').DataTable();
+                        table.ajax.reload();
+
+                        var params = {};
+                        params.idCliente = result.content.client_id;
+                        params.flEdit = false;
+
+                        OpenDynamicModal('@Url.Content("~/Clientes/Register")', params, '#registry-mainregister-modal', 800);
+
+                    } catch (err) {
+
+                    }
+
+
+                }
+            });
+        }
+
+    }
+
+    function DeletarRegistro(id) {
+        simpleConfirm("Tem Certeza que deseja excluir este item?", 2, "Aviso", function () {
+            ShowModalLoading();
+            $.ajax({
+                url: '@Url.Content("/clientes/DeletarCliente")',
+                method: 'DELETE',
+                dataType: 'json',
+                data: { idCliente: id },
+                success: function (result) {
+                    HideModalLoading();
+                    try {
+                        var table = $('#clientesTable').DataTable();
+                        location.reload();
+
+                    } catch (err) {
+
+                    }
+
+
+                }
+            });
+        }, true, "Sim");
+    }
+
+    function LoadParametrosCliente() {
+        var nome = $('#nome').val();
+        var email = $('#email').val();
+        var cpf = $('#cpf').val().replace(/[^\d]/g, '');
+        var contato = $('#cellphone').val().replace(/\D/g, '');
+        var idCliente = $('#hdnIdCliente').val();
+
+        var params = {
+            client_id: idCliente,
+            name: nome,
+            email: email,
+            cpf: cpf,
+            cellphone: contato
+
+        };
+
+        return params;
+    }
+
+    function EditarRegistro(btn, idCliente) {
+        var params = {};
+        params.idCliente = idCliente;
+        params.flEdit = true;
+
+        OpenDynamicModal('@Url.Content("~/Clientes/Register")', params, '#registry-mainregister-modal', 800);
+    }
+
+
+</script>
