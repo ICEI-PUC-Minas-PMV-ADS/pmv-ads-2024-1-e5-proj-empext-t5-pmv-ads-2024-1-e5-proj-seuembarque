@@ -1,534 +1,646 @@
 ﻿@model Puc.SeuEmbarque.Domain.Models.Pacote
 
 @{
-    ViewData["Title"] = "formulario_reg";
-    Layout = "_FormLayout";
+ViewData["Title"] = "formulario_reg";
+Layout = "_FormLayout";
 }
-    <div class="container">
-        <div class="title-container">
-            <h1 class="title-1 mt-4"> MONTE O SEU</h1>
-            <h2 class="title-2 mb-2">PACOTE DE VIAGEM!</h2>
-            <span class="title-3 m-0">
-                <p><strong>Simples e fácil,</strong> apenas nos envie<br>as informações desejadas:</p>
-            </span>
-        </div>
-        <div class="form-container mt-2">
-            <div class="form-section">
-                <form>
-                    <input type="hidden" id="options" value="" />
+<div class="container">
+<div class="title-container">
+    <h1 class="title-1 mt-4"> MONTE O SEU</h1>
+    <h2 class="title-2 mb-2">PACOTE DE VIAGEM!</h2>
+    <span class="title-3 m-0">
+        <p><strong>Simples e fácil,</strong> apenas nos envie<br>as informações desejadas:</p>
+    </span>
+</div>
+<div class="form-container mt-2">
+    <div class="form-section">
+        <form>
+            <input type="hidden" id="options" value="" />
 
-                    <div>
-                        <label for="nomeCliente">Nome Completo</label>
-                        <input id="nomeCliente" class="inputText form-control" type="text" />
-                        @*<span class="errMessage" id="nomeCliente_error" style="color:red;"></span>*@
-                    </div>
-                    <div>
-                        <label for="emailCliente">Email</label>
-                        <input id="emailCliente" class="inputText form-control" type="text" />
-                        <span class="errMessage" id="emailCliente_error" style="color:red;"></span>
-                    </div>
-                    <div class="lugarInput d-block">
-                        <div>
-                            <label for="origem">Origem</label>
-                            <input id="origem" class="inputText form-control" type="text" />
-                            @*<span class="errMessage" id="origem_error" style="color:red;"></span>*@
-                        </div>
-                         <div>
-                            <label for="destino">Destino</label>
-                            <input id="destino" class="inputText form-control" type="text" />
-                            @*<span class="errMessage" id="destino_error" style="color:red;"></span>*@
-                        </div>
-                    </div>
-                    <div class="dataInput d-block">
-                        <div>
-                            <label for="dataIda">Ida</label>
-                            <input id="dataIda" class="inputText form-control" autocomplete="off" readonly/>
-                            <span><i class="calendarIda fas fa-calendar"></i></span>
-                            @*<span><img class="clearIda" width="30px" height="30px" src="https://ciclovivo.com.br/wp-content/uploads/2018/10/iStock-536613027-1024x683.jpg" /></span>*@
-                            <span class="clearIconIda" onclick="limparData(1);"><i class="clearIda fa-solid fa-circle-xmark"></i></span>
-                        </div>
-                        <div>
-                            <label for="dataVolta">Volta</label>
-                            <input id="dataVolta" class="inputText form-control" placeholder="opcional" autocomplete="off" disabled readonly />
-                            <span><i class="calendarVolta fas fa-calendar"></i></span>
-                            <span class="clearIconVolta" onclick="limparData(2);"><i class="clearVolta fa-solid fa-circle-xmark"></i></span>
-                            
-                        </div>                       
-                    </div>
-
-                    <div class="dropdown mt-1">
-                        <label for="dropdownMenuButton">Viajantes</label>
-                        <button class="btn inputText" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" data-bs-auto-close="false" aria-expanded="false">
-                            <span class="pr-5"><i class="fas fa-user"></i></span>
-                            <span id="textInputViajantes"></span>
-                        </button>
-                        <div class="dropdown-menu p-4" style="z-index:1010;">
-                            <div class="mb-3">
-                                <label for="qtdAdultos" class="form-label" style="color:#363535; align-self: self-start;">Adultos</label>
-                                <div class="input-group d-block">
-                                    <button class="btn btn-outline-secondary" type="button" onclick="RemoverViajante(1)" id="subAdulto">
-                                        <span>
-                                            <i class="fas fa-minus"></i>
-                                        </span> 
-                                    </button>
-                                    <input class="inputViajantes" id="qtdAdultos" type="text" value="1"/>
-                                    <button class="btn btn-outline-secondary" type="button" onclick="AdicionarViajante(1)" id="addAdulto">
-                                        <span>
-                                            <i class="fas fa-plus"></i>
-                                        </span>
-                                    </button>
-                                    <span class="idadeViajante">+16 Anos</span>
-                                </div>
-                            </div>
-                            <div class="mb-3">
-                                <label for="qtdCriancas" class="form-label" style="color:#363535; align-self: self-start;">Crianças</label>
-                                <div class="input-group d-block">
-                                    <button class="btn btn-outline-secondary" type="button" onclick="RemoverViajante()" id="subCrianca">
-                                        <span>
-                                            <i class="fas fa-minus"></i>
-                                        </span>
-                                    </button>
-                                    <input type="text" class="inputViajantes" id="qtdCriancas" value="0" />
-                                    <button class="btn btn-outline-secondary" type="button" onclick="AdicionarViajante()" id="addCrianca">
-                                        <span>
-                                            <i class="fas fa-plus"></i>
-                                        </span>
-                                    </button>
-                                    <span class="idadeViajante">0 a 15 Anos</span>
-                                </div>
-                            </div>
-                             <div class="mb-3">
-                                <label for="classe" class="form-label" style="color:#363535; align-self: self-start;">Classe</label>
-                                <div class="input-group d-block">
-                                    <input id="classe" class="inputText form-control" type="text" readonly>
-                                </div>                               
-                            </div>
-                            <button type="button" onclick="MontaTextoInputViajantes(true)" class="btn btn-primary btnConfirmarViajantes">Confirmar</button>
-                        </div>
-                    </div>
-                </form>
+            <div>
+                <label for="nomeCliente">Nome Completo</label>
+                <input id="nomeCliente" class="inputText form-control" type="text" />
+                @*<span class="errMessage" id="nomeCliente_error" style="color:red;"></span>*@
             </div>
-            <div class="chk-section" style="display:none;">
-                <div class="ml-5" style="margin-bottom: 1.3rem;">
-                    <h3>
-                        Hospedagem 
-                        <button type="button" class="expBtn" 
-                                data-bs-toggle="tooltip" 
-                                data-bs-placement="right" 
-                                data-bs-custom-class="custom-tooltip" 
-                                data-bs-title="Ao optar por hospedagem basta clicar nas opções abaixo para incluir algum adicional! Caso não opte por adicionais retire a seleção e marque apenas 'Sim'">
-                            <i class="fa-duotone fa-circle-question expIcone" style="font-size:20px !important; color:white;"></i>
-                        </button>
-                    </h3>
+            <div>
+                <label for="emailCliente">Email</label>
+                <input id="emailCliente" class="inputText form-control" type="text" />
+                <span class="errMessage" id="emailCliente_error" style="color:red;"></span>
+            </div>
+            <div class="lugarInput d-block">
+                <div>
+                    <label for="origem">Origem</label>
+                    <input id="origem" class="inputText form-control" type="text" />
+                    @*<span class="errMessage" id="origem_error" style="color:red;"></span>*@
                 </div>
-                <div class="checkbox d-flex">
                     <div>
-                        <input id="chkSim" type="checkbox" name="Sim/Não" value="Sim" disabled>
-                        <label for="chkSim">Sim</label>
-                    </div>
-                    <div>
-                        <input id="chkNao" type="checkbox" name="Sim/Não" value="Não" checked disabled> 
-                        <label for="chkNao">Não</label>
-                    </div>
-                </div>
-                <div class="options">
-                    <div>
-                        <span class="option disabled">All inclusive</span>
-                        <span class="option disabled">Café da Manhã</span>
-                    </div>
-                    <div>
-                        <span class="option disabled">Café da Manhã + Almoço</span>
-                    </div>
-                    <div>
-                        <span class="option disabled">Café da Manhã + Almoço + Jantar</span>
-                    </div>
+                    <label for="destino">Destino</label>
+                    <input id="destino" class="inputText form-control" type="text" />
+                    @*<span class="errMessage" id="destino_error" style="color:red;"></span>*@
                 </div>
             </div>
-        </div>
-        @*<div class="checkbox1"><p><strong>Envie</strong> <strong>via WhatsApp!</strong></p></div>*@
-        <a class="redirecionar" aria-label="Enviar no WhatsApp">
-            <i class="fa-brands fa-whatsapp"></i> <p><strong>Envie</strong> <strong>via WhatsApp!</strong></p>
-        </a>
+            <div class="dataInput d-block">
+                <div>
+                    <label for="dataIda">Ida</label>
+                    <input id="dataIda" class="inputText form-control" autocomplete="off" readonly/>
+                    <span><i class="calendarIda fas fa-calendar"></i></span>
+                    @*<span><img class="clearIda" width="30px" height="30px" src="https://ciclovivo.com.br/wp-content/uploads/2018/10/iStock-536613027-1024x683.jpg" /></span>*@
+                    <span class="clearIconIda" onclick="limparData(1);"><i class="clearIda fa-solid fa-circle-xmark"></i></span>
+                </div>
+                <div>
+                    <label for="dataVolta">Volta</label>
+                    <input id="dataVolta" class="inputText form-control" placeholder="opcional" autocomplete="off" disabled readonly />
+                    <span><i class="calendarVolta fas fa-calendar"></i></span>
+                    <span class="clearIconVolta" onclick="limparData(2);"><i class="clearVolta fa-solid fa-circle-xmark"></i></span>                            
+                </div>                       
+            </div>
+
+            <div class="dropdown mt-1">
+                <label for="dropdownMenuButton">Viajantes</label>
+                <button class="btn inputText" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" data-bs-auto-close="false" aria-expanded="false">
+                    <span class="pr-5"><i class="fas fa-user"></i></span>
+                    <span id="textInputViajantes"></span>
+                </button>
+                <div class="dropdown-menu p-4" style="z-index:1010;">
+                    <div class="mb-3">
+                        <label for="qtdAdultos" class="form-label" style="color:#363535; align-self: self-start;">Adultos</label>
+                        <div class="input-group d-block">
+                            <button class="btn btn-outline-secondary" type="button" onclick="RemoverViajante(1)" id="subAdulto">
+                                <span>
+                                    <i class="fas fa-minus"></i>
+                                </span> 
+                            </button>
+                            <input class="inputViajantes" id="qtdAdultos" type="text" value="1"/>
+                            <button class="btn btn-outline-secondary" type="button" onclick="AdicionarViajante(1)" id="addAdulto">
+                                <span>
+                                    <i class="fas fa-plus"></i>
+                                </span>
+                            </button>
+                            <span class="idadeViajante">+16 Anos</span>
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="qtdCriancas" class="form-label" style="color:#363535; align-self: self-start;">Crianças</label>
+                        <div class="input-group d-block">
+                            <button class="btn btn-outline-secondary" type="button" onclick="RemoverViajante()" id="subCrianca">
+                                <span>
+                                    <i class="fas fa-minus"></i>
+                                </span>
+                            </button>
+                            <input type="text" class="inputViajantes" id="qtdCriancas" value="0" />
+                            <button class="btn btn-outline-secondary" type="button" onclick="AdicionarViajante()" id="addCrianca">
+                                <span>
+                                    <i class="fas fa-plus"></i>
+                                </span>
+                            </button>
+                            <span class="idadeViajante">0 a 15 Anos</span>
+                        </div>
+                    </div>
+                        <div class="mb-3">
+                        <label for="classe" class="form-label" style="color:#363535; align-self: self-start;">Classe</label>
+                        <div class="input-group d-block">
+                            <input id="classe" class="inputText form-control" type="text" readonly>
+                        </div>                               
+                    </div>
+                    <button type="button" onclick="MontaTextoInputViajantes(true)" class="btn btn-primary btnConfirmarViajantes">Confirmar</button>
+                </div>
+            </div>
+        </form>
     </div>
+    <div class="chk-section" style="display:none;">
+        <div class="ml-5" style="margin-bottom: 1.3rem;">
+            <h3>
+                Hospedagem 
+                <button type="button" class="expBtn" 
+                        data-bs-toggle="tooltip" 
+                        data-bs-placement="right" 
+                        data-bs-custom-class="custom-tooltip" 
+                        data-bs-title="Ao optar por hospedagem basta clicar nas opções abaixo para incluir algum adicional! Caso não opte por adicionais retire a seleção e marque apenas 'Sim'">
+                    <i class="fa-duotone fa-circle-question expIcone" style="font-size:20px !important; color:white;"></i>
+                </button>
+            </h3>
+        </div>
+        <div class="checkbox d-flex">
+            <div>
+                <input id="chkSim" type="checkbox" name="Sim/Não" value="Sim" disabled>
+                <label for="chkSim">Sim</label>
+            </div>
+            <div>
+                <input id="chkNao" type="checkbox" name="Sim/Não" value="Não" checked disabled> 
+                <label for="chkNao">Não</label>
+            </div>
+        </div>
+        <div class="options">
+            <div>
+                <span class="option disabled">All inclusive</span>
+                <span class="option disabled">Café da Manhã</span>
+            </div>
+            <div>
+                <span class="option disabled">Café da Manhã + Almoço</span>
+            </div>
+            <div>
+                <span class="option disabled">Café da Manhã + Almoço + Jantar</span>
+            </div>
+        </div>
+    </div>
+</div>
+@*<div class="checkbox1"><p><strong>Envie</strong> <strong>via WhatsApp!</strong></p></div>*@
+<a class="redirecionar" aria-label="Enviar no WhatsApp">
+    <i class="fa-brands fa-whatsapp"></i> <p><strong>Envie</strong> <strong>via WhatsApp!</strong></p>
+</a>
+</div>
 
   
-    <script type="text/javascript">
-        var comHospedagem = false;
-        var qtdAdulto = $('#qtdAdultos');
-        var qtdCrianca = $('#qtdCriancas');
+<script type="text/javascript">
+var comHospedagem = false;
+var qtdAdulto = $('#qtdAdultos');
+var qtdCrianca = $('#qtdCriancas');
 
-        $(document).ready(function () {           
+$(document).ready(function () {           
             
-            ComboClasse();
-            MontaTextoInputViajantes()
-            DesabilitarBotaoRemove();
-            ConfigurarAutocomplete('#origem');
-            ConfigurarAutocomplete('#destino');     
-            ConfigurarDatepicker();
+    ComboClasse();
+    MontaTextoInputViajantes()
+    DesabilitarBotaoRemove();
+    ConfigurarAutocomplete('#origem');
+    ConfigurarAutocomplete('#destino');     
+    ConfigurarDatepicker();
 
+    $('.clearIda').hide();
+    $('.clearVolta').hide();
+
+    $('#dataVolta').on('change', function () {
+        console.log("teste");
+        MudarIcone(0, 1);
+        HabilitarHospedagem();
+    });      
+
+    ValidarEmail("#emailCliente", "#emailCliente_error", "Endereço de e-mail inválido");
+    $('.inputText').focus(function () {
+        setTimeout(function () { $('.errMessage').text(""); }, 2500);
+    });
+
+    $('.redirecionar').on('click', async function () {
+        var textoLink = MontarMensagem();
+        var linkWhatsapp = 'https://api.whatsapp.com/send?phone=55'+ '@ViewBag.ConfigWhatsApp' +'&text=' + textoLink;
+        if(ValidarForm()){
+            AdicionarCliente();
+            window.open(linkWhatsapp, '_blank'); 
+        }
+    });
+           
+});
+
+function limparData(clear){
+    if(clear == 1){
+        $("#dataIda").val("");
+        $("#dataIda").trigger("change");
+    }
+    else{
+        $("#dataVolta").val("");
+        $("#dataVolta").trigger("change");
+        MudarIcone(1,2);
+    }
+}
+
+function HabilitarHospedagem(){
+    var dataVoltaVal = $('#dataVolta').val();
+    var hospedagem = $('.chk-section');
+       
+    if (dataVoltaVal != "") {
+        hospedagem.fadeIn(); 
+    } else {
+        hospedagem.fadeOut();                
+    }
+
+    ConfigurarHospedagem(dataVoltaVal);
+               
+}
+
+function ConfigurarDatepicker(){
+    $("#dataIda").datepicker({
+        dateFormat: 'dd/mm/yy',
+        showAnim: "slideDown",
+        minDate: 0,
+        onSelect: function (selectedDate) {
+            var selectedDateObj = $(this).datepicker('getDate');
+            $("#dataVolta").datepicker("option", "minDate", selectedDateObj);
+            $("#dataVolta").prop('disabled', false);
+            MudarIcone(1);
+        }
+    });
+
+    $("#dataIda").on('change', function () {
+        if ($(this).val() == "") {
+            $("#dataVolta").val("");
+            HabilitarHospedagem();
+            $("#dataVolta").prop('disabled', true);
+            MudarIcone(2, 2);
+        }
+    });
+
+    $("#dataVolta").datepicker({
+        dateFormat: 'dd/mm/yy',
+        showAnim: "slideDown",
+        minDate: 0
+    });
+
+}
+
+function MudarIcone(changeIda = 0, changeVolta = 0){
+    if(changeIda != 0){
+        if (changeIda == 1) {
+            $('.calendarIda').hide();
+            $('.clearIda').fadeIn();
+        }else{
+            $('.calendarIda').fadeIn();
             $('.clearIda').hide();
+        }
+    }
+    if (changeVolta != 0) {
+        if (changeVolta == 1) {
+            $('.calendarVolta').hide();
+            $('.clearVolta').fadeIn();
+        } else {
+            $('.calendarVolta').fadeIn();
             $('.clearVolta').hide();
+        }
+    }
+           
+}
+             
+function MontaTextoInputViajantes(toggle){
+    var classeVal = $('#classe').val();
+    var adultosVal = parseInt($('#qtdAdultos').val());
+    var criancasVal = parseInt($('#qtdCriancas').val());
+    var somaPessoas = (adultosVal + criancasVal);
+    var txtPessoa = somaPessoas > 1 ? "Pessoas" : "Pessoa";
 
-            $('#dataVolta').on('change', function () {
-                console.log("teste");
-            MudarIcone(0, 1);
-                HabilitarHospedagem();
-            });      
+    var textInput = `${somaPessoas} ${txtPessoa}, ${classeVal}`;
 
-            ValidarEmail("#emailCliente", "#emailCliente_error", "Endereço de e-mail inválido");
-            $('.inputText').focus(function () {
-                setTimeout(function () { $('.errMessage').text(""); }, 2500);
-            });
+    if(toggle)
+        $('#dropdownMenuButton').click();
 
-            $('.redirecionar').on('click', function () {
-                var textoLink = MontarMensagem();
-                var linkWhatsapp = 'https://api.whatsapp.com/send?phone=5531(seu numero)&text=' + textoLink;
-                if(ValidarForm()){
-                    window.open(linkWhatsapp, '_blank'); 
+    $('#textInputViajantes').text(textInput);           
+}
+
+function AdicionarViajante(addViajante = 0){
+    var totalAdulto = parseInt(qtdAdulto.val());
+    var totalCrianca = parseInt(qtdCrianca.val());            
+
+    if (addViajante == 1) {                
+        qtdAdulto.val(totalAdulto + 1);
+    }else{               
+        qtdCrianca.val(totalCrianca + 1);
+    }
+
+    DesabilitarBotaoRemove();
+}
+
+function RemoverViajante(removerViajante = 0){            
+    var totalAdulto = parseInt(qtdAdulto.val());
+    var totalCrianca = parseInt(qtdCrianca.val());
+
+    if (removerViajante == 1) {
+        qtdAdulto.val(totalAdulto > 1 ? totalAdulto - 1 : totalAdulto = 1);
+    } else {
+        qtdCrianca.val(totalCrianca > 0 ? totalCrianca - 1 : totalCrianca = 0);
+    }
+
+    DesabilitarBotaoRemove();
+}
+
+function DesabilitarBotaoRemove(){
+    if (qtdAdulto.val() == "1")
+        $('#subAdulto').addClass('disabled');
+    else
+        $('#subAdulto').removeClass('disabled');
+
+    if (qtdCrianca.val() == "0")
+        $('#subCrianca').addClass('disabled');
+    else
+        $('#subCrianca').removeClass('disabled');
+}
+
+function ComboClasse(){
+    var classeOptions = [
+        "Econômica",
+        "Executiva",
+        "Primeira Classe"
+    ];
+    $("#classe").autocomplete({
+        source: classeOptions,
+        minLength: 0,
+        appendTo: "#autocomplete-container"
+    });
+    $("#classe").val("Econômica"); //default
+    $('#classe').blur(function(){
+        if($(this).val() == ""){
+            $(this).val("Econômica");
+        }
+    })  
+    $("#classe").on("click", function () {
+        if ($(this).val() != ""){
+            $(this).val("")
+        }
+        $(this).autocomplete("search");
+    });
+$(".ui-autocomplete").css("z-index", 1020);
+}
+
+function ConfigurarAutocomplete(campo) {
+    $(campo).autocomplete({
+        source: function (request, response) {
+            $.ajax({
+                url: '@Url.Content("/Aeroporto/PesquisarAeroporto")',
+                method: 'GET',
+                dataType: 'json',
+                data: {
+                    termo: request.term
+                },
+                success: function (result) {
+                    var mappedData = $.map(result.data, function (item) {
+                        return {
+                            label: item.name,
+                            value: item.aeroportoId
+                        };
+                    });
+                    response(mappedData);
                 }
             });
-           
-        });
-
-        function limparData(clear){
-            if(clear == 1){
-                $("#dataIda").val("");
-                $("#dataIda").trigger("change");
-            }
-            else{
-                $("#dataVolta").val("");
-                $("#dataVolta").trigger("change");
-                MudarIcone(1,2);
-            }
+        },
+        minLength: 2,
+        select: function (event, ui) {
+            $(campo).val(ui.item.label);
+            return false;
+        },
+        open: function(event, ui) {
+            var $input = $(this);
+            var $menu = $input.autocomplete("widget");
+            var $scrollParent = $menu.css('overflow', 'auto');
+            $scrollParent.css({
+                'max-height': '330px', 
+                'overflow-y': 'auto'
+            });
         }
+    });
+}
 
-        function HabilitarHospedagem(){
-            var dataVoltaVal = $('#dataVolta').val();
-            var hospedagem = $('.chk-section');
+function MontarMensagem(){
+    var nome = $('#nomeCliente').val();
+    var email = $('#emailCliente').val();
+    var origem = $('#origem').val();
+    var destino = $('#destino').val();
+    var dataIda = $('#dataIda').val();
+    var dataVolta = $('#dataVolta').val();
+    var opcionais = $('#options').val();
+    var classe = $('#classe').val();
+    var adultos = parseInt($('#qtdAdultos').val());
+    var criancas = parseInt($('#qtdCriancas').val());
+
+    var textoLink = "Olá%20Seu%20Embarque!%20Segue%20informações%20da%20viagem%20que%20desejo%20para%20cotação:%0A%0A";
+
+    textoLink += "*Nome:* " + nome + "%0A";
+    textoLink += "*Email:* " + email + "%0A";
+    textoLink += "*Origem:* " + origem + "%0A";
+    textoLink += "*Destino:* " + destino + "%0A";
+    textoLink += "*Data de Ida:* " + dataIda + "%0A";
+    if (dataVolta != "")
+        textoLink += "*Data de Volta:* " + dataVolta + "%0A";
+
+    textoLink += "*Adultos:* " + adultos + "%0A";
+
+    if (criancas > 0)
+        textoLink += "*Crianças:* " + criancas + "%0A";
+
+    textoLink += "*Classe:* " + classe + "%0A";
+          
+    if (comHospedagem)
+        opcionais != "" ? textoLink += "*Hospedagem com:* " + opcionais.replace(/\s*\+\s*/g, ', ') : textoLink += "*Hospedagem:* " + "Sim";
+
+          
+
+    return textoLink;
+}
        
-            if (dataVoltaVal != "") {
-                hospedagem.fadeIn(); 
-            } else {
-                hospedagem.fadeOut();                
+function ConfigurarHospedagem(hasValue) {
+            
+    const options = $('.option');
+    const chkSim = $('#chkSim');
+    const chkNao = $('#chkNao');
+    let chks = $('#chkSim, #chkNao');
+
+    chks.addClass('disabled');
+
+    //var hasValue = valueData; datavolta on change
+
+    if (hasValue != ""){
+        $(chks).prop('disabled', false);
+        chks.removeClass('disabled');
+    }
+    else {
+        chkSim.prop('checked', false);
+        if (!chkNao.is(":checked")){
+            chkNao.click();
+        }
+        chks.prop('disabled', true);
+        chks.addClass('disabled');
+    }
+
+    chkSim.change(function () {
+        if ($(this).prop('checked')) {
+            options.removeClass('disabled');
+            chkNao.prop('checked', false);
+            comHospedagem = true;
+        } else {
+            options.addClass('disabled').removeClass('option-selected');
+        }
+    });
+
+    chkNao.change(function () {
+        if ($(this).prop('checked')) {
+            options.addClass('disabled').removeClass('option-selected');
+            chkSim.prop('checked', false);
+            comHospedagem = false;
+            $('#options').val('');
+        } else {
+            options.removeClass('disabled');
+        }
+    });
+
+    options.click(function () {
+        if (!$(this).hasClass('disabled')) {
+            var isSelected = $(this).hasClass('option-selected');
+
+            // Remove a seleção de todos os elementos
+            options.removeClass('option-selected');
+
+            // Limpa o valor do campo
+            $('#options').val('');
+
+            // Se o elemento n estiver selecionado, adiciona a seleçao
+            if (!isSelected) {
+                $(this).addClass('option-selected');
+                var value = $(this).text().trim();
+                $('#options').val(value);
             }
 
-            ConfigurarHospedagem(dataVoltaVal);
+            var option = $('#options').val();
+            console.log("Selected option:", option.replace(/\s*\+\s*/g, ', '));
+        }
+    });
+}
+
+function ValidarForm(){
+    var nome = $('#nomeCliente').val();
+    var email = $('#emailCliente').val();
+    var origem = $('#origem').val();
+    var destino = $('#destino').val();
+    var dataIda = $('#dataIda').val();
+    //var dataVolta = $('#dataVolta').val();
+
+    if (nome == '') {
+        ExibirErro(true, "Por Favor preencha o Nome!", "Nome Completo");
+        setTimeout(function () { $('#nomeCliente').focus(); }, 800);
+        return false;
+    }
+    if (email == '') {
+        ExibirErro(true, "Por Favor preencha o Email!", "Email");
+        setTimeout(function () { $('#emailCliente').focus(); }, 800);
+        return false;
+    }
+    if (origem == '') {
+        ExibirErro(true, "Por Favor preencha a Origem!", "Origem");
+        setTimeout(function () { $('#origem').focus(); }, 800);
+        return false;
+    }
+    if (destino == '') {
+        ExibirErro(true, "Por Favor preencha o Destino!", "Destino");
+        setTimeout(function () { $('#destino').focus(); }, 800);
+        return false;
+    }
+    if (dataIda == '') {
+        ExibirErro(true, "Não é possivel realizar a cotação sem a data de Ida!", "Data Ida");
+        setTimeout(function () { $('#dataIda').focus(); }, 800);
+        return false;
+    }
+    //if (dataVolta == '') {
+    //    $('#dataVolta_error').text('Por Favor preencha a Data!');
+    //    setTimeout(function () { $('#dataVolta').focus(); }, 800);
+    //    return false;
+    //}
+
+    return true;
+}
+
+function AdicionarPacote(clienteId){     
+    var params = LoadParametrosPacote();
+    params.pacote.client_id = clienteId;
+
+    $.ajax({
+        url: '@Url.Content("/Pacotes/InserirPacote")',
+        method: 'POST',
+        dataType: 'json',
+        data: params.pacote,
+        success: function (result) {
                
         }
+    });
+}
 
-        function ConfigurarDatepicker(){
-            $("#dataIda").datepicker({
-                dateFormat: 'dd/mm/yy',
-                showAnim: "slideDown",
-                minDate: 0,
-                onSelect: function (selectedDate) {
-                    var selectedDateObj = $(this).datepicker('getDate');
-                    $("#dataVolta").datepicker("option", "minDate", selectedDateObj);
-                    $("#dataVolta").prop('disabled', false);
-                    MudarIcone(1);
-                }
-            });
+function AdicionarCliente(){
+    var params = LoadParametrosPacote();
 
-            $("#dataIda").on('change', function () {
-                if ($(this).val() == "") {
-                    $("#dataVolta").val("");
-                    HabilitarHospedagem();
-                    $("#dataVolta").prop('disabled', true);
-                    MudarIcone(2, 2);
-                }
-            });
-
-            $("#dataVolta").datepicker({
-                dateFormat: 'dd/mm/yy',
-                showAnim: "slideDown",
-                minDate: 0
-            });
-
+    $.ajax({
+        url: '@Url.Content("/Clientes/InserirCliente")',
+        method: 'POST',
+        dataType: 'json',
+        data: params.cliente,
+        success: function (result) {
+            if(result){
+                var idCliente = result.content.client_id;                   
+                if(result.content.client_id > 0){
+                    AdicionarPacote(result.content.client_id);
+                }                    
+            }               
         }
+    });
+}
 
-        function MudarIcone(changeIda = 0, changeVolta = 0){
-            if(changeIda != 0){
-                if (changeIda == 1) {
-                    $('.calendarIda').hide();
-                    $('.clearIda').fadeIn();
-                }else{
-                    $('.calendarIda').fadeIn();
-                    $('.clearIda').hide();
-                }
-            }
-            if (changeVolta != 0) {
-                if (changeVolta == 1) {
-                    $('.calendarVolta').hide();
-                    $('.clearVolta').fadeIn();
-                } else {
-                    $('.calendarVolta').fadeIn();
-                    $('.clearVolta').hide();
-                }
-            }
-           
+function FormatarHospedagem(opcional){
+    var opcionais = opcional;
+    switch (opcional) {
+        case "All inclusive":
+            opcionais = "ALL"
+            break;
+        case"Café da Manhã":
+            opcionais = "C"
+            break;
+        case "Café da Manhã + Almoço":
+            opcionais ="CA"
+            break;
+        case "Café da Manhã + Almoço + Jantar":
+            opcionais = "CAJ"
+            break;           
+        default:
+            opcionais = "";
+    }
+
+    return opcionais;
+}
+
+function FormatarClasse(classe){
+    var nome = "";
+    switch (classe) {
+        case "Econômica":
+            nome = "economica"
+            break;
+        case "Executiva":
+            nome = "executiva"
+            break;
+        case "Primeira Classe":
+            nome = "primeira_classe"
+            break;
+        default:
+            nome = classe;
+    }
+    return nome;
+}
+
+function LoadParametrosPacote(){
+    var nome = $('#nomeCliente').val();
+    var email = $('#emailCliente').val();
+
+    var origem = $('#origem').val();
+    var destino = $('#destino').val();
+    var dataIda = $('#dataIda').val();
+    var dataVolta = $('#dataVolta').val();
+    var opcional = $('#options').val();
+    var classe = FormatarClasse($('#classe').val());
+    var adultos = parseInt($('#qtdAdultos').val());
+    var criancas = parseInt($('#qtdCriancas').val());
+
+    var opcionais = FormatarHospedagem(opcional);
+
+    var params = {
+        pacote: {
+            client_id: 0,
+            origin: origem,
+            destination: destino,
+            departure_date: dataIda,
+            return_date: dataVolta,
+            meals: opcionais,
+            accommodation: comHospedagem,
+            kids: criancas,
+            adults: adultos,
+            travel_class: classe
+        },
+
+        cliente: {
+            name: nome,
+            email: email
         }
-             
-        function MontaTextoInputViajantes(toggle){
-            var classeVal = $('#classe').val();
-            var adultosVal = parseInt($('#qtdAdultos').val());
-            var criancasVal = parseInt($('#qtdCriancas').val());
-            var somaPessoas = (adultosVal + criancasVal);
-            var txtPessoa = somaPessoas > 1 ? "Pessoas" : "Pessoa";
+    };
 
-            var textInput = `${somaPessoas} ${txtPessoa}, ${classeVal}`;
-
-            if(toggle)
-                $('#dropdownMenuButton').click();
-
-            $('#textInputViajantes').text(textInput);           
-        }
-
-        function AdicionarViajante(addViajante = 0){
-            var totalAdulto = parseInt(qtdAdulto.val());
-            var totalCrianca = parseInt(qtdCrianca.val());            
-
-            if (addViajante == 1) {                
-                qtdAdulto.val(totalAdulto + 1);
-            }else{               
-                qtdCrianca.val(totalCrianca + 1);
-            }
-
-            DesabilitarBotaoRemove();
-        }
-
-        function RemoverViajante(removerViajante = 0){            
-            var totalAdulto = parseInt(qtdAdulto.val());
-            var totalCrianca = parseInt(qtdCrianca.val());
-
-            if (removerViajante == 1) {
-                qtdAdulto.val(totalAdulto > 1 ? totalAdulto - 1 : totalAdulto = 1);
-            } else {
-                qtdCrianca.val(totalCrianca > 0 ? totalCrianca - 1 : totalCrianca = 0);
-            }
-
-            DesabilitarBotaoRemove();
-        }
-
-        function DesabilitarBotaoRemove(){
-            if (qtdAdulto.val() == "1")
-                $('#subAdulto').addClass('disabled');
-            else
-                $('#subAdulto').removeClass('disabled');
-
-            if (qtdCrianca.val() == "0")
-                $('#subCrianca').addClass('disabled');
-            else
-                $('#subCrianca').removeClass('disabled');
-        }
-
-        function ComboClasse(){
-            var classeOptions = [
-                "Econômica",
-                "Executiva",
-                "Primeira Classe"
-            ];
-            $("#classe").autocomplete({
-                source: classeOptions,
-                minLength: 0,
-                appendTo: "#autocomplete-container"
-            });
-            $("#classe").val("Econômica"); //default
-            $('#classe').blur(function(){
-                if($(this).val() == ""){
-                    $(this).val("Econômica");
-                }
-            })  
-            $("#classe").on("click", function () {
-                if ($(this).val() != ""){
-                    $(this).val("")
-                }
-                $(this).autocomplete("search");
-            });
-        $(".ui-autocomplete").css("z-index", 1020);
-        }
-
-        function ConfigurarAutocomplete(campo) {
-            $(campo).autocomplete({
-                source: function (request, response) {
-                    $.ajax({
-                        url: '@Url.Content("/Aeroporto/PesquisarAeroporto")',
-                        method: 'GET',
-                        dataType: 'json',
-                        data: {
-                            termo: request.term
-                        },
-                        success: function (result) {
-                            var mappedData = $.map(result.data, function (item) {
-                                return {
-                                    label: item.name,
-                                    value: item.hierarchy
-                                };
-                            });
-                            response(mappedData);
-                        }
-                    });
-                },
-                minLength: 2,
-                select: function (event, ui) {
-                    $(campo).val(ui.item.label);
-                    return false;
-                },
-                open: function(event, ui) {
-                    var $input = $(this);
-                    var $menu = $input.autocomplete("widget");
-                    var $scrollParent = $menu.css('overflow', 'auto');
-                    $scrollParent.css({
-                        'max-height': '330px', 
-                        'overflow-y': 'auto'
-                    });
-                }
-            });
-        }
-
-        function MontarMensagem(){
-            var nome = $('#nomeCliente').val();
-            var email = $('#emailCliente').val();
-            var origem = $('#origem').val();
-            var destino = $('#destino').val();
-            var dataIda = $('#dataIda').val();
-            var dataVolta = $('#dataVolta').val();
-            var opcionais = $('#options').val();
-            var classe = $('#classe').val();
-            var adultos = parseInt($('#qtdAdultos').val());
-            var criancas = parseInt($('#qtdCriancas').val());
-
-            var textoLink = "Olá%20Seu%20Embarque!%20Segue%20informações%20da%20viagem%20que%20desejo%20para%20cotação:%0A%0A";
-
-            textoLink += "*Nome:* " + nome + "%0A";
-            textoLink += "*Email:* " + email + "%0A";
-            textoLink += "*Origem:* " + origem + "%0A";
-            textoLink += "*Destino:* " + destino + "%0A";
-            textoLink += "*Data de Ida:* " + dataIda + "%0A";
-            if (dataVolta != "")
-                textoLink += "*Data de Volta:* " + dataVolta + "%0A";
-
-            textoLink += "*Adultos:* " + adultos + "%0A";
-
-            if (criancas > 0)
-                textoLink += "*Crianças:* " + criancas + "%0A";
-
-            textoLink += "*Classe:* " + classe + "%0A";
-          
-            if (comHospedagem)
-                opcionais != "" ? textoLink += "*Hospedagem com:* " + opcionais.replace(/\s*\+\s*/g, ', ') : textoLink += "*Hospedagem:* " + "Sim";
-
-          
-
-            return textoLink;
-        }
-       
-        function ConfigurarHospedagem(hasValue) {
-            
-            const options = $('.option');
-            const chkSim = $('#chkSim');
-            const chkNao = $('#chkNao');
-            let chks = $('#chkSim, #chkNao');
-
-            chks.addClass('disabled');
-
-            //var hasValue = valueData; datavolta on change
-
-            if (hasValue != ""){
-                $(chks).prop('disabled', false);
-                chks.removeClass('disabled');
-            }
-            else {
-                chkSim.prop('checked', false);
-                if (!chkNao.is(":checked")){
-                    chkNao.click();
-                }
-                chks.prop('disabled', true);
-                chks.addClass('disabled');
-            }
-
-            chkSim.change(function () {
-                if ($(this).prop('checked')) {
-                    options.removeClass('disabled');
-                    chkNao.prop('checked', false);
-                    comHospedagem = true;
-                } else {
-                    options.addClass('disabled').removeClass('option-selected');
-                }
-            });
-
-            chkNao.change(function () {
-                if ($(this).prop('checked')) {
-                    options.addClass('disabled').removeClass('option-selected');
-                    chkSim.prop('checked', false);
-                    comHospedagem = false;
-                    $('#options').val('');
-                } else {
-                    options.removeClass('disabled');
-                }
-            });
-
-            options.click(function () {
-                if (!$(this).hasClass('disabled')) {
-                    var isSelected = $(this).hasClass('option-selected');
-
-                    // Remove a seleção de todos os elementos
-                    options.removeClass('option-selected');
-
-                    // Limpa o valor do campo
-                    $('#options').val('');
-
-                    // Se o elemento n estiver selecionado, adiciona a seleçao
-                    if (!isSelected) {
-                        $(this).addClass('option-selected');
-                        var value = $(this).text().trim();
-                        $('#options').val(value);
-                    }
-
-                    var option = $('#options').val();
-                    console.log("Selected option:", option.replace(/\s*\+\s*/g, ', '));
-                }
-            });
-        }
-
-        function ValidarForm(){
-            var nome = $('#nomeCliente').val();
-            var email = $('#emailCliente').val();
-            var origem = $('#origem').val();
-            var destino = $('#destino').val();
-            var dataIda = $('#dataIda').val();
-            //var dataVolta = $('#dataVolta').val();
-
-            if (nome == '') {
-                ExibirErro(true, "Por Favor preencha o Nome!", "Nome Completo");
-                setTimeout(function () { $('#nomeCliente').focus(); }, 800);
-                return false;
-            }
-            if (email == '') {
-                ExibirErro(true, "Por Favor preencha o Email!", "Email");
-                setTimeout(function () { $('#emailCliente').focus(); }, 800);
-                return false;
-            }
-            if (origem == '') {
-                ExibirErro(true, "Por Favor preencha a Origem!", "Origem");
-                setTimeout(function () { $('#origem').focus(); }, 800);
-                return false;
-            }
-            if (destino == '') {
-                ExibirErro(true, "Por Favor preencha o Destino!", "Destino");
-                setTimeout(function () { $('#destino').focus(); }, 800);
-                return false;
-            }
-            if (dataIda == '') {
-                ExibirErro(true, "Não é possivel realizar a cotação sem a data de Ida!", "Data Ida");
-                setTimeout(function () { $('#dataIda').focus(); }, 800);
-                return false;
-            }
-            //if (dataVolta == '') {
-            //    $('#dataVolta_error').text('Por Favor preencha a Data!');
-            //    setTimeout(function () { $('#dataVolta').focus(); }, 800);
-            //    return false;
-            //}
-
-            return true;
-        }
-    </script>
+    return params;     
+}
+</script>

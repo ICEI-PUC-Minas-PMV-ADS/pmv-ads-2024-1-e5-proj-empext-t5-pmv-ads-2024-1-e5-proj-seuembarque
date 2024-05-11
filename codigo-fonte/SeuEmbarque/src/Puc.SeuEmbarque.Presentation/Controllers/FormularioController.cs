@@ -7,13 +7,19 @@ namespace Puc.SeuEmbarque.Presentation.Controllers
     public class FormularioController : Controller
     {
         private readonly IAeroportoService _aeroportoService;
-        public FormularioController(IAeroportoService aeroportoService)
+        private readonly IPacoteService _pacoteService;
+        private readonly IClienteService _clienteService;
+        private readonly IUsuarioService _usuarioService;
+        public FormularioController(IAeroportoService aeroportoService, IUsuarioService usuarioService)
         {
             _aeroportoService = aeroportoService;
+            _usuarioService = usuarioService;
         }
         // GET: FormularioController
-        public ActionResult Formulario()
+        public async Task<ActionResult> Formulario()
         {
+            var config = await _usuarioService.MudarContato();
+            ViewBag.ConfigWhatsApp = config;
             return View("formulario_reg");
         }
 
@@ -23,7 +29,7 @@ namespace Puc.SeuEmbarque.Presentation.Controllers
             var list = await _aeroportoService.GetAeroportos(termo);
 
             return Ok(new { data = list });
-        }
+        }      
 
     }
 }

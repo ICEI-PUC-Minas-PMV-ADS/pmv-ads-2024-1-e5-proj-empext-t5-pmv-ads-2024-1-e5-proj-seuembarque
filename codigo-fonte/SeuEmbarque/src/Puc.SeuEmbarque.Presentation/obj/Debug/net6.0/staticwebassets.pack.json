@@ -5,6 +5,10 @@
       "PackagePath": "staticwebassets\\Puc.SeuEmbarque.Presentation.bundle.scp.css"
     },
     {
+      "Id": "G:\\Projeto Eixo5\\CodigoFonte\\SeuEmbarque\\src\\Puc.SeuEmbarque.Presentation\\wwwroot\\css\\StyleSheet.css",
+      "PackagePath": "staticwebassets\\css\\StyleSheet.css"
+    },
+    {
       "Id": "G:\\Projeto Eixo5\\CodigoFonte\\SeuEmbarque\\src\\Puc.SeuEmbarque.Presentation\\wwwroot\\css\\datepicker.css",
       "PackagePath": "staticwebassets\\css\\datepicker.css"
     },
@@ -61,12 +65,20 @@
       "PackagePath": "staticwebassets\\css\\home.css"
     },
     {
+      "Id": "G:\\Projeto Eixo5\\CodigoFonte\\SeuEmbarque\\src\\Puc.SeuEmbarque.Presentation\\wwwroot\\css\\painelFormCss\\painelForm.css",
+      "PackagePath": "staticwebassets\\css\\painelFormCss\\painelForm.css"
+    },
+    {
       "Id": "G:\\Projeto Eixo5\\CodigoFonte\\SeuEmbarque\\src\\Puc.SeuEmbarque.Presentation\\wwwroot\\css\\site.css",
       "PackagePath": "staticwebassets\\css\\site.css"
     },
     {
       "Id": "G:\\Projeto Eixo5\\CodigoFonte\\SeuEmbarque\\src\\Puc.SeuEmbarque.Presentation\\wwwroot\\favicon.ico",
       "PackagePath": "staticwebassets\\favicon.ico"
+    },
+    {
+      "Id": "G:\\Projeto Eixo5\\CodigoFonte\\SeuEmbarque\\src\\Puc.SeuEmbarque.Presentation\\wwwroot\\images\\ImagemAvatar.png",
+      "PackagePath": "staticwebassets\\images\\ImagemAvatar.png"
     },
     {
       "Id": "G:\\Projeto Eixo5\\CodigoFonte\\SeuEmbarque\\src\\Puc.SeuEmbarque.Presentation\\wwwroot\\images\\WhatsAppButtonGreenLarge.svg",
@@ -79,6 +91,26 @@
     {
       "Id": "G:\\Projeto Eixo5\\CodigoFonte\\SeuEmbarque\\src\\Puc.SeuEmbarque.Presentation\\wwwroot\\images\\WhatsAppButtonGreenSmall.svg",
       "PackagePath": "staticwebassets\\images\\WhatsAppButtonGreenSmall.svg"
+    },
+    {
+      "Id": "G:\\Projeto Eixo5\\CodigoFonte\\SeuEmbarque\\src\\Puc.SeuEmbarque.Presentation\\wwwroot\\images\\logoCompany.png",
+      "PackagePath": "staticwebassets\\images\\logoCompany.png"
+    },
+    {
+      "Id": "G:\\Projeto Eixo5\\CodigoFonte\\SeuEmbarque\\src\\Puc.SeuEmbarque.Presentation\\wwwroot\\js\\alertConfirm.js",
+      "PackagePath": "staticwebassets\\js\\alertConfirm.js"
+    },
+    {
+      "Id": "G:\\Projeto Eixo5\\CodigoFonte\\SeuEmbarque\\src\\Puc.SeuEmbarque.Presentation\\wwwroot\\js\\bootbox.js",
+      "PackagePath": "staticwebassets\\js\\bootbox.js"
+    },
+    {
+      "Id": "G:\\Projeto Eixo5\\CodigoFonte\\SeuEmbarque\\src\\Puc.SeuEmbarque.Presentation\\wwwroot\\js\\bootbox.locales.js",
+      "PackagePath": "staticwebassets\\js\\bootbox.locales.js"
+    },
+    {
+      "Id": "G:\\Projeto Eixo5\\CodigoFonte\\SeuEmbarque\\src\\Puc.SeuEmbarque.Presentation\\wwwroot\\js\\bootbox.min.js",
+      "PackagePath": "staticwebassets\\js\\bootbox.min.js"
     },
     {
       "Id": "G:\\Projeto Eixo5\\CodigoFonte\\SeuEmbarque\\src\\Puc.SeuEmbarque.Presentation\\wwwroot\\js\\datepicker\\datepicker-pt-BR.js",
@@ -97,8 +129,20 @@
       "PackagePath": "staticwebassets\\js\\form.js"
     },
     {
+      "Id": "G:\\Projeto Eixo5\\CodigoFonte\\SeuEmbarque\\src\\Puc.SeuEmbarque.Presentation\\wwwroot\\js\\jqueryMask\\jquery.mask.js",
+      "PackagePath": "staticwebassets\\js\\jqueryMask\\jquery.mask.js"
+    },
+    {
       "Id": "G:\\Projeto Eixo5\\CodigoFonte\\SeuEmbarque\\src\\Puc.SeuEmbarque.Presentation\\wwwroot\\js\\main.js",
       "PackagePath": "staticwebassets\\js\\main.js"
+    },
+    {
+      "Id": "G:\\Projeto Eixo5\\CodigoFonte\\SeuEmbarque\\src\\Puc.SeuEmbarque.Presentation\\wwwroot\\js\\pacoteFormJs\\pacoteForm.js",
+      "PackagePath": "staticwebassets\\js\\pacoteFormJs\\pacoteForm.js"
+    },
+    {
+      "Id": "G:\\Projeto Eixo5\\CodigoFonte\\SeuEmbarque\\src\\Puc.SeuEmbarque.Presentation\\wwwroot\\js\\painelMaskJs\\painelMask.js",
+      "PackagePath": "staticwebassets\\js\\painelMaskJs\\painelMask.js"
     },
     {
       "Id": "G:\\Projeto Eixo5\\CodigoFonte\\SeuEmbarque\\src\\Puc.SeuEmbarque.Presentation\\wwwroot\\lib\\bootstrap\\LICENSE",
