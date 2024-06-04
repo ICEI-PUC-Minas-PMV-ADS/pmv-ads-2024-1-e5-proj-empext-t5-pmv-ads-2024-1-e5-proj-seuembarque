@@ -3,7 +3,7 @@
 @{
     var currentPage = ViewContext.RouteData.Values["action"] as string;
     var pageTitle = (currentPage == "Avaliacao") ? "Avaliações" : currentPage;
-
+    var userName = User.Identity.Name != null ? User.Identity.Name.ToString() : "";
 }
 <html lang="en">
 <head>
@@ -80,15 +80,60 @@
         margin-left:20px;
         margin-top:15px;
     }
+    .containerNavCollapse{
+        width: 100%;
+        display: flex;
+        align-items: center;
+    }
+    .containerNavCollapse button{
+        height: fit-content;
+    }
+
+    .containerNavCollapse ul {
+        width: fit-content;
+    }
+
+    #logo{
+        width:150px;
+    }
+    @@media only screen and (max-width: 600px) {
+        #logo {
+            width: 100px;
+        }
+    }
+    .navContainer{
+        background-color: #0f303d !important;
+        border-radius:10px;
+    }
+    #sidebarCollapse{
+        background-color: #0f303d !important;
+    }  
+    #sidebarCollapse:hover{
+        background-color: #195770 !important;
+    }
+    #sidebar{
+        background-color: #0f303d !important;
+    }
+
+    .dt-button{
+        background-color: #0f303d !important;
+    }
+
+    .dt-button:hover {
+        background-color: #195770 !important;
+    }
+
 </style>
 <body>
+    <canvas id="initialsCanvas"  width="53" height="53" style="display: none;"></canvas>
     <div class="wrapper d-flex align-items-stretch">
         <nav id="sidebar">
             <div class="navbar-brand d-flex mr-0">
                 <div class="userImage">
-                    <img src="~/images/ImagemAvatar.png" class="rounded-circle" width="53" height="53" alt="Profile">
+                    <img id="initialsImage" class="rounded-circle" src="" alt="User Initials">
+                    @*<img src="~/images/ImagemAvatar2.png" class="rounded-circle" width="53" height="53" alt="Profile">*@
                 </div>
-                <div class="userNameEmail mt-1">
+                <div class="userNameEmail mt-2">
                     <div class="w-100">
                         <p class="ml-2 mb-0 userName">@User.Identity.Name</p>
                     </div>
@@ -107,45 +152,43 @@
                         <a class="nav-link text-light ml-3" asp-area="" asp-controller="Clientes" asp-action="Clientes"><i class="fa-solid fa-users mr-2"></i> Clientes</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-light ml-1" asp-area="" asp-controller="" asp-action=""><i class="fa-solid fa-chart-line mr-2"></i> Dashboard</a>
+                        <a class="nav-link text-light ml-1" asp-area="" asp-controller="Dashboard" asp-action="Dashboard"><i class="fa-solid fa-chart-line mr-2"></i> Dashboard</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-light ml-1" asp-area="" asp-controller="Painel" asp-action="Usuarios"><i class="fa-solid fa-user mr-2"></i> Usuários</a>
+                        <a class="nav-link text-light ml-1" asp-area="" asp-controller="Usuario" asp-action="Usuarios"><i class="fa-solid fa-user mr-2"></i> Usuários</a>
                     </li> 
                     <li class="nav-item">
-                        <a class="nav-link text-light ml-1" id="logout" asp-area=""><i class="fa-solid fa-right-from-bracket mr-2"></i> Logout</a>
+                        <a class="nav-link text-light ml-1 mt-5" id="logout" asp-area=""><i class="fa-solid fa-right-from-bracket mr-2"></i> Logout</a>
                     </li>
                 </ul>
             </div>
             <div class="text-center logoImg">
-                <img src="~/images/logoCompany.png" id="logo" width="60%">
+              
             </div>
         </nav>
 
         <!-- Page Content  -->
         <div id="content" class="p-4 p-md-5">
-
-            <nav class="navbar navbar-expand-lg navbar-light bg-light">
-                <div class="container-fluid">
-
+            <nav class="navContainer navbar navbar-expand-lg navbar-light">
+                <div class="containerNavCollapse">
                     <button type="button" id="sidebarCollapse" class="btn btn-dark">
                         <i class="fa fa-bars"></i>
                         <span class="sr-only">Toggle Menu</span>
-                    </button>
-                    <button class="btn btn-dark d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                        <i class="fa fa-bars"></i>
-                    </button>
+                    </button>                  
 
-                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                        <ul class="nav navbar-nav ml-auto">
+                    <div class="navbar-collapse" id="">
+                        <ul class="nav navbar-nav ml-auto pr-2">
                             <li class="nav-item">
-                                <a class="nav-link" style="font-size:18px;" href="#">@pageTitle</a>
+                                <img src="~/images/logoCompany.png" id="logo">
                             </li>
                         </ul>
                     </div>
                 </div>
             </nav>
-            @RenderBody()
+            <div>
+                @RenderBody()
+
+            </div>
         </div>
     </div>
     <!--MODAIS-->
@@ -172,13 +215,15 @@
     <script src="~/js/jqueryMask/jquery.mask.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
     <script src="~/js/datepicker/external/jquery.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
     <script src="~/js/datepicker/jquery-ui.min.js"></script>
+    <script src="~/js/datepicker/datepicker-pt-BR.js"></script>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/js/main.js" asp-append-version="true"></script>    
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-     <script src="~/js/alertConfirm.js" asp-append-version="true"></script>
-   <script src="~/js/bootbox.js" asp-append-version="true"></script>
+    <script src="~/js/alertConfirm.js" asp-append-version="true"></script>
+    <script src="~/js/bootbox.js" asp-append-version="true"></script>
     <script src="https://cdn.datatables.net/2.0.5/js/dataTables.js"></script>
     @await RenderSectionAsync("Scripts", required: false)
 
@@ -187,9 +232,17 @@
             e.preventDefault();
             ShowModalLoading();
             setTimeout(function(){
-                window.location.href = "/Painel/LogOut";
+                window.location.href = "/Usuario/LogOut";
             }, 1500); 
         });
+        $(document).ready(function(){
+            const userName = '@userName';
+            const initials = getUserInitials(userName);
+            var initialsImage = createInitialsImage(initials);
+            $('#initialsImage').prop("src", initialsImage);
+        });     
+
+     
     </script>
 </body>
 </html>

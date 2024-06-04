@@ -10,9 +10,9 @@
    
 </head>
 <body>
-
-    <div class="container col-md-12 m-0 colDataTable">
-        <table class="table table-bordered table-hover table-responsive w-100" id="pacotesTable">
+    <canvas id="initialsCanvas" width="13" height="13" style="display: none;"></canvas>
+    <div class="container col-md-12 m-0 colDataTable p-0">
+        <table class="table table-responsive table-bordered table-hover w-100" id="pacotesTable">
             <thead class="thead-light">
                 <tr>
                     <th>N°</th>
@@ -51,7 +51,8 @@
     }
 
 
-    $(document).ready(function () {
+    $(document).ready(function () {    
+        
         ShowModalLoading();
         $('#pacotesTable').DataTable({
             dom: '<"datatable-header"fB><"datatable-scroll"t><"datatable-footer"ipl>',
@@ -88,11 +89,19 @@
                 {
                     width: '12%',
                     //Cliente
-                    data: function (row, type, set, meta) { //COLUMN CUSTOM DATA (DIFFERENT FORMATS FOR EACH DATATABLE FUNCTION)                       
-                        var content = "<div >" + row.nome_cliente + "</div>";
+                    data: function (row, type, set, meta) { //COLUMN CUSTOM DATA (DIFFERENT FORMATS FOR EACH DATATABLE FUNCTION)
+                        const userName = row.nome_cliente;
+                        const initials = getUserInitials(userName);
+                        const initialsImage = createInitialsImage(initials);
+                        var showInitials = isMobile();
+                        var content;
+                        if (!showInitials)
+                            content = "<div> <img id=\"initialsImage\" class=\"rounded-circle mb-1\" height=\"18\" src=\"" + initialsImage + "\" alt=\"User Initials\"> " + row.nome_cliente + "</div>";
+                        else
+                            content = "<div>" + row.nome_cliente + "</div>";
                         return content;
                     },
-                    className: 'd-none d-md-table-cell'
+                    className: 'd-md-table-cell'
                 },
                 {
                     width: '21%',//Origem
@@ -108,7 +117,7 @@
                         var content = "<div>" + row.destination + "</div>";
                         return content;
                     },
-                    className: 'd-none d-md-table-cell text-center'
+                    className: 'd-md-table-cell text-center'
                 },                
                 { 
                     width: '8%', //Data ida
@@ -125,7 +134,7 @@
                         var content = "<div>" + data + "</div>";
                         return content;
                     },
-                    className: 'd-none d-md-table-cell text-center'
+                    className: 'd-md-table-cell text-center'
                 },
                 {
                     width: '5%', //Preço
@@ -133,7 +142,7 @@
                         var content = "<div>" + parseFloat(row.price).toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' }) + "</div>";
                         return content;
                     },
-                    className: 'd-none d-md-table-cell text-center'
+                    className: 'd-md-table-cell text-center'
                 }
             ],
             initComplete: function () {
@@ -143,7 +152,7 @@
                 $('.dt-buttons').addClass('d-none d-md-block');
                 $('.dt-search').find('span').addClass('d-none d-md-block');
                 $('.dt-search').addClass('text');
-                $('.dt-search').prepend('<button class="dt-button btn btn-dark mr-1" tabindex="0" type="button" onclick="OpenDynamicModal(\'@Url.Content("~/Pacotes/Register")\', null, \'#registry-mainregister-modal\', 800);"><span><i class="fas fa-plus"></i></span></button>');
+                $('.dt-search').prepend('<button class="regBtn dt-button btn btn-dark mr-1" tabindex="0" type="button" onclick="OpenDynamicModal(\'@Url.Content("~/Pacotes/Register")\', null, \'#registry-mainregister-modal\', 800);"><span><i class="fas fa-plus"></i></span></button>');
                 $('.dt-search').find('input[type="search"]').attr({ 'name': 'txtSearch' });
 
                 if (window.innerWidth < 768)

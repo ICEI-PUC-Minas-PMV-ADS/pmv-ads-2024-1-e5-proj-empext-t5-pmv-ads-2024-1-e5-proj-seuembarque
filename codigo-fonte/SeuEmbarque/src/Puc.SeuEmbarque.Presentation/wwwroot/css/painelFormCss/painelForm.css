@@ -97,6 +97,10 @@
     background-color: #ffffff;
 }
 
+#dataVolta:disabled {
+    background-color: #e9ecef;
+}
+
 #dropdownMenuButton {
     background-color: #ffffff;
 }
@@ -331,7 +335,7 @@ h3 {
     z-index: 1600 !important; /* has to be larger than 1050 */
 }
 
-#logo {
+#logoModal {
     width: 200px;
 }
 
@@ -344,7 +348,7 @@ h3 {
 }
 
 .blockLogo {
-    background-color: black;
+    background-color: #0f303d;
     border-radius: 20px 0px 0px 20px;
 }
 

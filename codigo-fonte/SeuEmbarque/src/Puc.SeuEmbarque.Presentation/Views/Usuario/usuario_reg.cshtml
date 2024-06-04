@@ -1,0 +1,291 @@
+﻿@model Puc.SeuEmbarque.Domain.Models.Usuario.UsuarioReg
+@using Microsoft.AspNetCore.Mvc.Rendering
+@{
+    Layout = null;
+    var flEdit = ViewBag.flEdit;
+    var flNew = ViewBag.isNew;
+}
+
+
+<link rel="stylesheet" href="~/css/home.css" asp-append-version="true" />
+<link rel="stylesheet" href="~/css/painelFormCss/painelForm.css" asp-append-version="true" />
+<div class="container">
+    <div class="card-body p-0">
+        <div class="row mb-0 bd-border bd-solid bd-dark-gray d-none d-md-flex">
+            <div class="col-4 col-md-4 d-flex justify-content-center align-items-center border border-solid bd-dark-gray border-right blockLogo">
+                <div class="row text-center">
+                    <img src="~/images/logoCompany.png" id="logo">
+                </div>
+            </div>
+            <div class="col-4 col-md-4 d-flex justify-content-center align-items-center border border-solid bd-dark-gray border-right">
+                <h3 class="mb-0 font-weight-bold text-uppercase">Usuário</h3>
+            </div>
+            <div class="col-4 col-md-4">
+                <div class="row mb-0 py-1 border border-solid bd-dark-gray border-bottom text-center blockId">
+                    <label class="col-4 col-md-6 col-form-label font-weight-bold text-center">
+                        Número
+                    </label>
+                    <label class="col-8 col-md-6 col-form-label font-weight-bold text-left text-blue">
+                        <span class="text-blue">CLI-</span>@((Model.user_id == 0 ? "" : Model.user_id))
+                    </label>
+                </div>
+                <div class="row mb-0 py-1 border text-center blockDate">
+                    <label class="col-6 col-md-6 col-form-label font-weight-bold text-center">
+                        Registro
+                    </label>
+                    <div class="col-4 col-md-6 align-self-center text-left mb-1">
+                        @*<span>@(Model.registration_date != null ? Model.registration_date : "")</span>*@
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <form method="post" id="frmRegUsuario">
+            <input type="hidden" name="hdnIdUsuario" id="hdnIdUsuario" value="@((Model != null) ? Model.user_id : "")">
+            <input type="hidden" name="hdnNivel" id="hdnNivel" value="">
+
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group mt-2">
+                        <div>
+                            <label class="control-label fw-bolder">NOME</label>
+                        </div>
+                        @if (flEdit)
+                        {
+                            <input type="text" class="form-control form-control-sm" name="nome" id="nome" value="@((Model != null) ? Model.name : "" )" maxlength="100" />
+                            <span asp-validation-for="name" class="text-danger"></span>
+                        }
+                        else
+                        {
+                            <label class="control-label">@Model.name</label>
+                        }
+                    </div>
+                    <div class="form-group">
+                        <div>
+                            <label class="control-label fw-bolder">CONTATO</label>
+                        </div>
+                        @if (flEdit)
+                        {
+                            <input type="text" class="form-control form-control-sm" name="cellphone" id="cellphone" value="@((Model.cellphone != null) ? Model.cellphone : "" )" maxlength="15" />
+                            <span asp-validation-for="cellphone" class="text-danger"></span>
+                        }
+                        else
+                        {
+                            <label class="control-label">@((Model.cellphone != null) ? Model.cellphone : "-")</label>
+                        }
+                    </div>
+
+                </div>
+
+                <div class="col-md-6">
+
+                    <div class="form-group mt-2">
+                        <div>
+                            <label class="control-label fw-bolder">EMAIL</label>
+                        </div>
+                        @if (flEdit)
+                        {
+                            <input type="text" class="form-control form-control-sm" name="email" id="email" value="@((Model != null) ? Model.email : "" )" maxlength="100" />
+                            <span asp-validation-for="email" class="text-danger"></span>
+                        }
+                        else
+                        {
+                            <label class="control-label">@Model.email</label>
+                        }
+
+                    </div>
+                    <div class="col-md-12 row">
+
+                        <div class="form-group col-md-6 p-0">
+                             <div>
+                                <label class="control-label fw-bolder">USUÀRIO MASTER</label>
+                            </div>
+                            @if (flEdit)
+                            {
+                                <select name="masteUser" id="masteUser" class="form-select form-control form-control-sm">
+                                    @foreach (var item in (SelectList)ViewBag.MasterUser)
+                                    {
+                                        var master = (Model.master_user != null && Model.master_user == true) ? 1 : 0;
+                                        var sel = (item.Value == master.ToString() ? "selected" : null);
+                                        <option value="@item.Value" selected="@sel">@item.Text</option>
+                                    }                                   
+                                </select>
+                                @*<input type="text" class="form-control form-control-sm" name="txtPreco" id="txtPreco" value="@((Model != null) ? Model.price : "R$" )" maxlength="100" />*@
+                                <span asp-validation-for="master_user" class="text-danger"></span>
+                            }
+                            else
+                            {
+                                <label class="control-label">@((Model.master_user != null && Model.master_user == true) ? "Sim" : "Não")</label>
+                            }
+                        </div>
+                        @if (flNew)
+                        {
+                            <div class="form-group col-md-6 pr-0">
+                                <div>
+                                    <label class="control-label fw-bolder">SENHA</label>
+                                </div>
+                                <input type="text" class="form-control form-control-sm" name="senha" id="senha" value="@((Model.password != null) ? Model.password : "" )" />
+                                <span asp-validation-for="password" class="text-danger"></span>
+                            </div>
+                         }
+                     </div>
+                </div>
+            </div>
+        </form>
+        <div class="text-center p-4">
+            @if (flEdit)
+            {
+                <button type="button" class="btn btn-dark btn-xs-only-block mb-1 mb-md-0 mr-1 my-1 my-lg-0" onClick="SalvarRegistro(this);">
+                    @(
+                        (Model.user_id > 0 ? "Salvar" : "Incluir")
+                        )
+                </button>
+            }
+            else
+            {
+                <button type="button" class="btn btn-dark btn-xs-only-block mb-1 mb-md-0 mr-1 my-1 my-lg-0" onClick="EditarRegistro(this, @Model.user_id);">Editar</button>
+            }
+
+            <button id="closeBtn" class="btn btn-outline-success" onclick="CloseModal()">Fechar</button>
+        </div>
+
+    </div>
+</div>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+<script src="~/js/painelMaskJs/painelMask.js"></script>
+<script>
+
+    $(document).ready(function () {
+        FormatarTelefone('#cellphone');
+    });
+
+    function SalvarRegistro(btn) {
+        var params = LoadParametrosCliente();
+        var flNew = ($('#frmRegUsuario').find('#hdnIdUsuario').val() == 0);
+        var form = $('#frmRegUsuario');        
+      
+
+        if ($(form).find('#nome').val() == '') {
+            simpleConfirm("Preencha o campo selecionado", 1, "Aviso", function () {
+                setTimeout(function () { $(form).find('#nome').focus(); }, 800);
+            }, true, "OK");
+            return false;
+        }
+
+        if ($(form).find('#email').val() == '') {
+            simpleConfirm("Preencha o campo selecionado", 1, "Aviso", function () {
+                setTimeout(function () { $(form).find('#email').focus(); }, 800);
+            }, true, "OK");
+            return false;
+        }
+
+        if ($(form).find('#cellphone').val() == '') {
+            simpleConfirm("Preencha o campo selecionado", 1, "Aviso", function () {
+                setTimeout(function () { $(form).find('#cellphone').focus(); }, 800);
+            }, true, "OK");
+            return false;
+        }
+
+        if (flNew) {
+            if ($(form).find('#senha').val() == '') {
+                simpleConfirm("Preencha o campo selecionado", 1, "Aviso", function () {
+                    setTimeout(function () { $(form).find('#senha').focus(); }, 800);
+                }, true, "OK");
+                return false;
+            }
+        }
+
+        console.log("PARAMETROOOOOS", params);
+        $(btn).html("Carregando...");
+        $(btn).attr('disabled', 'disabled');
+
+        if (!flNew) {
+            $.ajax({
+                url: '@Url.Content("/usuario/AtualizarUsuario")',
+                method: 'POST',
+                dataType: 'json',
+                data: params,
+                success: function (result) {
+                    HideModalLoading();
+                    try {
+                        var table = $('#usuariosTable').DataTable();
+                        table.ajax.reload();
+                        console.log("RESULTADOOO", result)
+
+                        var params = {};
+                        params.idUsuario = result.data.user_id;
+                        params.flEdit = false;
+
+                        OpenDynamicModal('@Url.Content("~/Usuario/Register")', params, '#registry-mainregister-modal', 800);
+
+                    } catch (err) {
+
+                    }
+                }
+            });
+        } else {
+            $.ajax({
+                url: '@Url.Content("/usuario/InserirUsuario")',
+                method: 'POST',
+                dataType: 'json',
+                data: params,
+                success: function (result) {
+                    HideModalLoading();
+                    try {
+                        var table = $('#usuariosTable').DataTable();
+                        table.ajax.reload();
+
+                        var params = {};
+                        params.idUsuario = result.content.user_id;
+                        params.flEdit = false;
+
+                        OpenDynamicModal('@Url.Content("~/Usuario/Register")', params, '#registry-mainregister-modal', 800);
+
+                    } catch (err) {
+
+                    }
+
+
+                }
+            });
+        }
+
+    }
+
+    function LoadParametrosCliente() {
+        var nome = $('#nome').val();
+        var email = $('#email').val();
+        var contato = $('#cellphone').val().replace(/\D/g, '');
+        var idUsuario = $('#hdnIdUsuario').val();
+        var masterUser = $('#masteUser').val();
+        var senha = $('#senha').val();
+
+        var hasSenha = false;
+        if(senha != null || senha != ""){
+            hasSenha = true;
+        }
+
+        var params = {};        
+        params.master_user = masterUser;
+        params.user_id = idUsuario,
+        params.name = nome;
+        params.email = email;
+        if (hasSenha)
+            params.password = senha;
+        params.cellphone = contato;
+
+        return params;
+    }
+
+    function EditarRegistro(btn, idUsuario) {
+        var params = {};
+        params.idUsuario = idUsuario;
+        params.flEdit = true;
+
+        OpenDynamicModal('@Url.Content("~/Usuario/Register")', params, '#registry-mainregister-modal', 800);
+    }
+
+
+</script>

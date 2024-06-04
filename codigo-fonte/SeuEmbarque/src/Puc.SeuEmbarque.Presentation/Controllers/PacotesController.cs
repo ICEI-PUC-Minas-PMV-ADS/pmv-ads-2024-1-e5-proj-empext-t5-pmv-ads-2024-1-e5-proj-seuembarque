@@ -19,6 +19,8 @@ namespace Puc.SeuEmbarque.Presentation.Controllers
         }
         // CRIAR UM DROPDOWN DE CLIENTES NA HORA DE INSERIR MANUALMENTE UM CLIENTE PARA VINCULAR O ID E AI SIM INSERIR UM PACOTE
         // GET: PacotesController
+
+        [HttpGet("Painel/Pacotes")]
         public ActionResult Pacotes()
         {
             return View("pacotes_lst");

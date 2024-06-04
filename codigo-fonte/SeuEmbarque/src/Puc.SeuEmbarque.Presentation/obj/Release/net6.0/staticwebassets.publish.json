@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "6Uo8nkJKkbUaXBLY/1QVhNVbjpPC07tnImgc9obG4Rk=",
+  "Hash": "CDtFREmOUdG1/1alubaX29KqU4DO93ySj/UQk7w8Gto=",
   "Source": "Puc.SeuEmbarque.Presentation",
   "BasePath": "_content/Puc.SeuEmbarque.Presentation",
   "Mode": "Default",
@@ -372,6 +372,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\images\\ImagemAvatar.png"
+    },
+    {
+      "Identity": "G:\\Projeto Eixo5\\CodigoFonte\\SeuEmbarque\\src\\Puc.SeuEmbarque.Presentation\\wwwroot\\images\\ImagemAvatar2.png",
+      "SourceId": "Puc.SeuEmbarque.Presentation",
+      "SourceType": "Discovered",
+      "ContentRoot": "G:\\Projeto Eixo5\\CodigoFonte\\SeuEmbarque\\src\\Puc.SeuEmbarque.Presentation\\wwwroot\\",
+      "BasePath": "_content/Puc.SeuEmbarque.Presentation",
+      "RelativePath": "images/ImagemAvatar2.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\ImagemAvatar2.png"
     },
     {
       "Identity": "G:\\Projeto Eixo5\\CodigoFonte\\SeuEmbarque\\src\\Puc.SeuEmbarque.Presentation\\wwwroot\\images\\logoCompany.png",
