@@ -16,7 +16,7 @@ namespace Puc.SeuEmbarque.Presentation.Controllers
             _clienteService = clienteService;
         }
 
-
+        [HttpGet("Painel/Clientes")]
         public ActionResult Clientes()
         {
             return View("clientes_lst");

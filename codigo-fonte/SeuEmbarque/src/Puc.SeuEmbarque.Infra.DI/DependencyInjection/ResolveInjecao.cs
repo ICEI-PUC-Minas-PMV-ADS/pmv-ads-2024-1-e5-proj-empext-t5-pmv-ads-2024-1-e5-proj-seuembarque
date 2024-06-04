@@ -31,6 +31,7 @@ namespace Puc.SeuEmbarque.Infra.DI.DependencyInjection
             services.AddScoped<IUserContractorResult, UserContractorResult>();
             services.AddScoped<IPacoteService, PacoteService>();
             services.AddScoped<IClienteService, ClienteService>();
+            services.AddScoped<IDashboardService, DashboardService>();
             //services.AddScoped<IUsuarioRepository, UsuarioRepository>();
             #endregion
 

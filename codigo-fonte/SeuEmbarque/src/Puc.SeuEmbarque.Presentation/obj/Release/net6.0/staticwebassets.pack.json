@@ -81,6 +81,10 @@
       "PackagePath": "staticwebassets\\images\\ImagemAvatar.png"
     },
     {
+      "Id": "G:\\Projeto Eixo5\\CodigoFonte\\SeuEmbarque\\src\\Puc.SeuEmbarque.Presentation\\wwwroot\\images\\ImagemAvatar2.png",
+      "PackagePath": "staticwebassets\\images\\ImagemAvatar2.png"
+    },
+    {
       "Id": "G:\\Projeto Eixo5\\CodigoFonte\\SeuEmbarque\\src\\Puc.SeuEmbarque.Presentation\\wwwroot\\images\\WhatsAppButtonGreenLarge.svg",
       "PackagePath": "staticwebassets\\images\\WhatsAppButtonGreenLarge.svg"
     },

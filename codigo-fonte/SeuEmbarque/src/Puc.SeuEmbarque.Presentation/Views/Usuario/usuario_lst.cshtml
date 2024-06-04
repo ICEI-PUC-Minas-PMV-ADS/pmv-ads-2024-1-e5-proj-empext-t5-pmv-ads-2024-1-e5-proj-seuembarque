@@ -1,0 +1,185 @@
+﻿@model List<Puc.SeuEmbarque.Domain.Models.Usuario.Usuario>
+@{
+    //Layout = null;
+}
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdn.datatables.net/2.0.5/css/dataTables.dataTables.min.css">
+
+</head>
+<body>
+    <canvas id="initialsCanvas"  width="13" height="13" style="display: none;"></canvas>
+    <div class="container col-md-12 m-0 colDataTable p-0">
+        <table class="table table-responsive table-bordered table-hover w-100" id="usuariosTable">
+            <thead class="thead-light">
+                <tr>
+                    <th>N°</th>
+                    <th>Nome</th>
+                    <th>Email</th>
+                    <th>Telefone</th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+    </div>
+</body>
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+<script src="https://cdn.datatables.net/2.0.5/js/dataTables.min.js"></script>
+
+
+
+<script type="text/javascript">
+
+    function LoadRegistroUsr(id) {
+        if (id > 0) {
+            var params = {};
+            params.idUsuario = id;
+            params.flEdit = false;
+            OpenDynamicModal('@Url.Content("~/Usuario/Register")', params, '#registry-mainregister-modal', 800);
+        } else {
+            var params = {};
+            params.idUsuario = id;
+            params.flEdit = true;
+            OpenDynamicModal('@Url.Content("~/Usuario/Register")', params, '#registry-mainregister-modal', 800);
+        }
+    }
+
+
+    $(document).ready(function () {
+        ShowModalLoading();
+        $('#usuariosTable').DataTable({
+            dom: '<"datatable-header"fB><"datatable-scroll"t><"datatable-footer"ipl>',
+            language: {
+                search: "",
+                searchPlaceholder: "Digite Aqui...",
+                lengthMenu: "Mostrar _MENU_ registros por página",
+                infoEmpty: "Nenhum registro encontrado.",
+                zeroRecords: "Nenhum registro encontrado.",
+                loadingRecords: "Carregando...",
+                lengthMenu: "Exibir: _MENU_"
+            },
+            ordering: true,
+            order: [[0, 'desc']],
+            columnDefs: [
+                {
+                    orderData: [0],
+                    targets: 1
+                }
+            ],
+            ajax: {
+                url: "/Usuario/GetListaUsuarios",
+                dataSrc: "data"
+            },
+            columns: [
+                {
+                    width: '5%', //ID
+                    data: function (row, type, set, meta) { //COLUMN CUSTOM DATA (DIFFERENT FORMATS FOR EACH DATATABLE FUNCTION)
+                        var content = "<a href=\"javascript:void(0);\" class=\"data-export text-blue text-bold\" onclick=\"LoadRegistroUsr(" + row.user_id + ")\">USR-" + row.user_id + "</a>";
+                        return content;
+                    },
+                    className: 'd-md-table-cell text-center'
+                },
+                {
+                    width: '5%',
+                    //nome
+                    data: function (row, type, set, meta) { //COLUMN CUSTOM DATA (DIFFERENT FORMATS FOR EACH DATATABLE FUNCTION)
+                        const userName = row.name;
+                        const initials = getUserInitials(userName);
+                        const initialsImage = createInitialsImage(initials);
+                        var showInitials = isMobile();
+                        var content;
+                        if (!showInitials)
+                            content = "<div> <img id=\"initialsImage\" class=\"rounded-circle mb-1\" height=\"18\" src=\"" + initialsImage + "\" alt=\"User Initials\"> " + row.name + "</div>";
+                        else
+                            content = "<div>" + row.name + "</div>";
+
+                        return content;
+                    },
+                    className: 'd-md-table-cell text-center'
+                },
+                {
+                    width: '5%',//email
+                    data: function (row, type, set, meta) { //COLUMN CUSTOM DATA (DIFFERENT FORMATS FOR EACH DATATABLE FUNCTION)
+                        var content = "<div>" + row.email + "</div>";
+                        return content;
+                    },
+                    className: 'd-md-table-cell text-center'
+                },
+                {
+                    width: '5%',//cpf
+                    data: function (row, type, set, meta) { //COLUMN CUSTOM DATA (DIFFERENT FORMATS FOR EACH DATATABLE FUNCTION)
+                        var dataCell = row.cellphone;
+                        dataCell = dataCell.replace(/^(\d{2})(\d)/g, '($1) $2'); // Adiciona o formato (00) no início
+                        dataCell = dataCell.replace(/(\d{5})(\d)/, '$1-$2');
+                        var content = "<div>" + dataCell + "</div>";
+                        return content;
+                    },
+                    className: 'd-md-table-cell text-center'
+                }
+            ],
+            initComplete: function () {
+                var table = this.api();
+                HideModalLoading();
+                console.log("Sorting settings:", this.api().order());
+                $('.dt-buttons').addClass('d-none d-md-block');
+                $('.dt-search').find('span').addClass('d-none d-md-block');
+                $('.dt-search').addClass('text');
+                $('.dt-search').prepend('<button class="dt-button btn btn-dark mr-1" tabindex="0" type="button" onclick="OpenDynamicModal(\'@Url.Content("~/Usuario/Register")\', null, \'#registry-mainregister-modal\', 800);"><span><i class="fas fa-plus"></i></span></button>');
+                $('.dt-search').find('input[type="search"]').attr({ 'name': 'txtSearch' });
+
+                if (window.innerWidth < 768)
+                    $('.dt-search').find('input[type="search"]').css('width', '115px');
+
+                var timer;
+                var lastSearch;
+                $(".dt-search input")
+                    .off("keyup input")
+                    .bind("input").on("keyup",
+                        function (e) {
+                            if (e.keyCode == 13) {
+                                clearTimeout(timer)
+                                table.search(this.value).draw();
+                                return
+                            }
+
+                            if (this.value == "" || (this.value.length >= 3 && lastSearch != this.value)) {
+                                clearTimeout(timer)
+                                timer = setTimeout(() => {
+                                    lastSearch = this.value
+                                    table.search(this.value).draw()
+                                },
+                                    500);
+                            }
+
+                            return;
+                        });
+
+                $('#usuariosTable').on('draw.dt', function () {
+                    HideModalLoading();
+                });
+
+                $('#usuariosTable').on('page.dt', function () {
+                    ShowModalLoading();
+                });
+
+                $('#usuariosTable').on('length.dt', function () {
+                    ShowModalLoading();
+                });
+
+                $('#usuariosTable').on('search.dt', function () {
+                    $('.dt-search').find('input[type="search"]').blur();
+                    ShowModalLoading();
+                });
+
+            }
+        }).on('init.dt', function (e, settings, processing) {
+            $('.colDataTable').fadeIn();
+            HideModalLoading();
+        });
+    });
+
+</script>
+</html>

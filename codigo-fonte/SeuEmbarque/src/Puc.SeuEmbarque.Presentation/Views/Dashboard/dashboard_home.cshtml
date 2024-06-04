@@ -1,0 +1,290 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.11.6/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/5.1.3/js/bootstrap.min.js"></script>
+<style>
+    .carousel-indicators li {
+        background-color: #000000; /* Cor de fundo dos botões */
+    }
+
+    .carousel-item .chart-container {
+        display: flex !important;
+        justify-content: center;
+    }
+
+    .carousel-control-prev-icon {
+        background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23000000' viewBox='0 0 8 8'%3E%3Cpath d='M5.25 0l-4 4 4 4 1.5-1.5-2.5-2.5 2.5-2.5-1.5-1.5z'/%3E%3C/svg%3E") !important;
+    }
+
+    .carousel-control-next-icon {
+        background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23000000' viewBox='0 0 8 8'%3E%3Cpath d='M2.75 0l-1.5 1.5 2.5 2.5-2.5 2.5 1.5 1.5 4-4-4-4z'/%3E%3C/svg%3E") !important;
+    }
+
+    #rotate-message {
+        display: none;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.8);
+        color: white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        z-index: 9999;
+    }
+</style>
+<div id="carouselExampleIndicators" class="carousel slide" style="height: 68vh;" data-ride="false">
+    <ol class="carousel-indicators">
+        <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+        <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+        <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+    </ol>
+    <div class="carousel-inner">
+        <div class="carousel-item active">
+            <div class="chart-container" style="position: relative; height:50vh;">
+                <canvas id="grafFaturamento"></canvas>
+            </div>
+        </div>
+        <div class="carousel-item">
+            <div class="chart-container" style="position: relative; height:50vh;">
+                <canvas id="grafDestino"></canvas>
+            </div>
+        </div>
+        <div class="carousel-item">
+            <div class="chart-container" style="position: relative; height:50vh;">
+                <canvas id="grafCliente"></canvas>
+            </div>
+        </div>
+    </div>   
+</div>
+<div id="rotate-message">
+    Por favor, gire seu dispositivo para o modo paisagem para acessar o dashboard.
+</div>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script type="text/javascript">  
+
+    $(document).ready(async function () {
+        await CarregarDadosDestino();
+        await CarregarDadosFaturamento();
+        await CarregarDadosCliente();
+    });
+
+    window.addEventListener('resize', checkOrientation);
+    window.addEventListener('load', checkOrientation);
+    window.addEventListener('orientationchange', checkOrientation);
+
+    function checkOrientation() {
+        if (window.innerHeight > window.innerWidth) {
+            document.getElementById('rotate-message').style.display = 'flex';
+            document.getElementById('carouselExampleIndicators').style.display = 'none';
+        } else {
+            document.getElementById('rotate-message').style.display = 'none';
+            document.getElementById('carouselExampleIndicators').style.display = 'block';
+        }
+    }
+
+
+    function CarregarDadosFaturamento() {
+        ShowModalLoading();
+        $.ajax({
+            url: '@Url.Content("/Dashboard/GetDadosFaturamento")',
+            method: 'GET',
+            dataType: 'json',
+            success: function (result) {
+                var dados = result.data;
+                RenderizarGraficoFaturamento(dados);
+                HideModalLoading();
+            },
+            error: function (xhr, status, error) {
+                console.error("Erro ao carregar dados de faturamento:", status, error);
+                console.error("Resposta do servidor:", xhr.responseText);
+            }
+        });
+    }
+
+    function CarregarDadosDestino() {
+        ShowModalLoading();
+        $.ajax({
+            url: '@Url.Content("/Dashboard/GetDadosDestinos")',
+            method: 'GET',
+            dataType: 'json',
+            success: function (result) {
+                var dados = result.data;
+                RenderizarGraficoDestinos(dados);
+                HideModalLoading();
+            }
+        });
+    }
+
+    function CarregarDadosCliente() {
+        ShowModalLoading();
+        $.ajax({
+            url: '@Url.Content("/Dashboard/GetDadosClientes")',
+            method: 'GET',
+            dataType: 'json',
+            success: function (result) {
+                var dados = result.data;
+                RenderizarGraficoClientes(dados);
+                HideModalLoading();
+            }
+        });
+    }
+
+function RenderizarGraficoDestinos(dados) {
+    const grafDestino = document.getElementById('grafDestino');
+    new Chart(grafDestino, {
+        type: 'bar',
+        data: {
+            labels: dados.map((d, index) => `${EncurtarTexto(d.label, 25)} - ${index + 1}°`),
+            datasets: [{
+                label: 'Destinos mais procurados',
+                data: dados.map(d => d.valor),
+                backgroundColor: '#0f303d',
+                borderColor: '#195770',
+                borderWidth: 1
+            }]
+        },
+        options: {
+            indexAxis: 'y',
+            plugins: {
+                tooltip: {
+                    callbacks: {
+                        title: function (tooltipItems) {
+                            return dados[tooltipItems[0].dataIndex].label;
+                        },
+                        label: function (context) {
+                            var label = ' N° Solicitações: ';
+                            label += context.dataset.data[context.dataIndex];
+                            return label;
+                        }
+                    }
+                }
+            },
+            scales: {
+                y: {
+                    ticks: {
+                        stepSize: 1
+                    }
+                }
+            }
+        }
+    });
+}
+
+    function RenderizarGraficoFaturamento(dados) {
+        const grafFaturamento = document.getElementById('grafFaturamento');
+        new Chart(grafFaturamento, {
+            data: {
+
+                datasets: [ 
+                {
+                    type: 'line',
+                    label: 'Média de preço (Pacotes)',
+                    data: dados.map(d => d.mediaPreco),
+                    backgroundColor: '#1b94c3',
+                    borderColor: '#1b94c3',
+                    borderWidth: 1
+                },
+                {
+                    type: 'bar',
+                    label: 'Faturamento por mês',
+                    data: dados.map(d => d.faturamento),
+                    backgroundColor: '#0f303d',
+                    borderColor: '#195770',
+                    borderWidth: 1
+                }
+               ],
+                labels: dados.map(d => Maiusculo(d.mes))
+            },
+            options: {
+                responsive: true,
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        ticks: {
+                            callback: function (value, index, values) {
+                                return 'R$ ' + value.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+                            }
+                        }
+                    }
+                },
+                plugins: {
+                    tooltip: {
+                        callbacks: {
+                            label: function (context) {
+                                var datasetLabel = context.dataset.label || '';
+                                var label = '';
+                                if (datasetLabel.includes('Faturamento')) {
+                                    label = 'Faturamento: ';
+                                } else if (datasetLabel.includes('Média')) {
+                                    label = 'Média por pacote: ';
+                                }
+                                var value = context.parsed.y || 0;
+                                label += 'R$ ' + value.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+                                return label;
+                            }
+                        }
+                    }
+                }
+            }
+        });
+    }
+
+    function RenderizarGraficoClientes(dados) {
+        const grafClientes = document.getElementById('grafCliente');
+        new Chart(grafClientes, {
+            type: 'bar',
+            data: {
+                labels: dados.map(d => d.label),
+                datasets: [{
+                    label: 'Quantidade de Pacotes por Cliente',
+                    data: dados.map(d => d.valor),
+                    backgroundColor: '#1b94c3',
+                    borderColor: '#1b94c3',
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                plugins: {
+                    tooltip: {
+                        callbacks: {
+                            title: function (tooltipItems) {
+                                return dados[tooltipItems[0].dataIndex].label;
+                            },
+                            label: function (context) {
+                                var label = ' N° Pacotes: ';
+                                label += context.dataset.data[context.dataIndex];
+                                return label;
+                            }
+                        }
+                    }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+    }
+
+    function EncurtarTexto(texto, tamanhoMaximo) {
+        if (texto.length > tamanhoMaximo) {
+            return texto.substring(0, tamanhoMaximo) + '...';
+        }
+        return texto;
+    }
+
+    function Maiusculo(string) {
+        return string.charAt(0).toUpperCase() + string.slice(1);
+    }
+</script>

@@ -16,6 +16,7 @@ namespace Puc.SeuEmbarque.Presentation.Controllers
             _usuarioService = usuarioService;
         }
         // GET: FormularioController
+        [HttpGet("")]
         public async Task<ActionResult> Formulario()
         {
             var config = await _usuarioService.MudarContato();

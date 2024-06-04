@@ -118,3 +118,41 @@ function Autenticar() {
         }
     });
 }
+//USER AVATAR----------------------------------
+function getUserInitials(name) {
+    const names = name.split(' ');
+    let initials = names[0][0];
+    if (names.length > 1) {
+        initials += names[names.length - 1][0].toUpperCase();
+    }
+    return initials;
+}
+
+function createInitialsImage(initials, bgColor = '#195770', textColor = '#FFF') {
+    const canvas = document.getElementById('initialsCanvas');
+    const context = canvas.getContext('2d');
+
+    // Background
+    context.fillStyle = bgColor;
+    context.fillRect(0, 0, canvas.width, canvas.height);
+
+    // Text
+    context.fillStyle = textColor;
+    context.font = 'bold 25px Arial';
+    context.textAlign = 'center';
+    context.textBaseline = 'middle';
+    context.fillText(initials, canvas.width / 2, canvas.height / 1.9);
+
+    // Convert to image
+    return canvas.toDataURL('image/png');
+
+}
+
+function getRandomColor() {
+    const letters = '0123456789ABCDEF';
+    let color = '#';
+    for (let i = 0; i < 6; i++) {
+        color += letters[Math.floor(Math.random() * 16)];
+    }
+    return color;
+}

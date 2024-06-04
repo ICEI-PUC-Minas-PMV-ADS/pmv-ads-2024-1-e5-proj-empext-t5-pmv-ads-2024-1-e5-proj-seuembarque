@@ -16,12 +16,13 @@ namespace Puc.SeuEmbarque.Presentation.Controllers
             _usuarioService = usuarioService;
         }
 
+        [HttpGet("Login")]
         public IActionResult Login()
         {
             bool claimUser = HttpContext.User.Identity.IsAuthenticated;
 
             if (claimUser)
-                return RedirectToAction("Painel", "Painel");
+                return RedirectToAction("Dashboard", "Dashboard");
 
             Response.Headers.Add("Cache-Control", "no-cache, no-store, must-revalidate");
             Response.Headers.Add("Pragma", "no-cache");
@@ -43,7 +44,7 @@ namespace Puc.SeuEmbarque.Presentation.Controllers
                 await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme,
                     claimsPrincipal, (AuthenticationProperties?)response.Properties);
 
-                return RedirectToAction("Painel", "Painel");
+                return RedirectToAction("Dashboard", "Dashboard");
             }
 
             ViewData["ValidateMessage"] = response.Message;

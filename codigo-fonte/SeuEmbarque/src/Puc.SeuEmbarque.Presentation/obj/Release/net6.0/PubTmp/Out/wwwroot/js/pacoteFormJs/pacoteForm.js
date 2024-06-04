@@ -108,7 +108,6 @@ function ConfigurarDatepicker() {
         showAnim: "slideDown",
         minDate: 0
     });
-
 }
 
 

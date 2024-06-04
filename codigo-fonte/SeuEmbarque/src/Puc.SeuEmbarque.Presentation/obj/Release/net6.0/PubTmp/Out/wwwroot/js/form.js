@@ -62,6 +62,7 @@ function HabilitarHospedagem() {
 }
 
 function ConfigurarDatepicker() {
+    console.log("DATEPICKER form");
     $("#dataIda").datepicker({
         dateFormat: 'dd/mm/yy',
         showAnim: "slideDown",

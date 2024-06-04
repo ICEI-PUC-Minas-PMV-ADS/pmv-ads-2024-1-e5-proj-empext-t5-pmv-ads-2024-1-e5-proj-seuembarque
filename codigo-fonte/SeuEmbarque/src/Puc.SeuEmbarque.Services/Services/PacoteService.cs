@@ -89,11 +89,10 @@ namespace Puc.SeuEmbarque.Services.Services
             try
             {
                 var pacotes = await _pacoteRepository.ListarTodos();
-                var pacoteDto = new List<PacoteData>();
 
-                if(pacoteDto != null)
+                if(pacotes != null)
                 {
-                    return pacoteDto;
+                    return pacotes.data;
                 }
                 else
                 {

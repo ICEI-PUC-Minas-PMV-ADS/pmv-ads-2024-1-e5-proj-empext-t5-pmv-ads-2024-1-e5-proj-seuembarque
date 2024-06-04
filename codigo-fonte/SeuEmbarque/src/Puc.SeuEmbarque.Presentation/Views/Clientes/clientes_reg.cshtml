@@ -3,6 +3,12 @@
 @{
     Layout = null;
     var flEdit = ViewBag.flEdit;
+     string formatted_date = "";
+    if (Model.registration_date != null)
+    {
+        DateTime dateObject = DateTime.ParseExact(Model.registration_date, "dd/MM/yyyy HH:mm:ss", System.Globalization.CultureInfo.InvariantCulture);
+        formatted_date = dateObject.ToString("dd/MM/yyyy");
+    }
 }
 
 
@@ -33,7 +39,7 @@
                         Registro
                     </label>
                     <div class="col-4 col-md-6 align-self-center text-left mb-1">
-                        <span>@(Model.registration_date != null ? Model.registration_date : "")</span>
+                        <span>@(Model.registration_date != null ? formatted_date : "")</span>
                     </div>
                 </div>
             </div>

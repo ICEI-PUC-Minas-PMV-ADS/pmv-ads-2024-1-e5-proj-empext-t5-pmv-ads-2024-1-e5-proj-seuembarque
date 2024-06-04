@@ -2995,14 +2995,14 @@ fieldset:disabled a.btn {
 
 .btn-dark {
     color: #fff;
-    background-color: #343a40;
-    border-color: #343a40;
+    background-color: #0f303d;
+    border-color: #0f303d;
 }
 
     .btn-dark:hover {
         color: #fff;
-        background-color: #23272b;
-        border-color: #1d2124;
+        background-color: #195770;
+        border-color: #195770;
     }
 
     .btn-dark:focus, .btn-dark.focus {
@@ -11435,9 +11435,9 @@ h1, h2, h3, h4, h5,
 
 .navbar {
     padding: 15px 10px;
-    background: #fff;
+    /*background: #fff;*/
     border: none;
-    border-radius: 0;
+    /*border-radius: 0;*/
     margin-bottom: 40px;
     -webkit-box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
     box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
