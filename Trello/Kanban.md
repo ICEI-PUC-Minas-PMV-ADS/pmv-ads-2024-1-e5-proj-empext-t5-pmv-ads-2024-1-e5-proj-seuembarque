@@ -6,7 +6,7 @@
 
 ---
 ### Kanban 05/06/2024
-![image](imgKanban/TrelloEtapa4.png)
+![image](imgKanban/TrelloEtapa4Fim.png)
 ---
 
 ### Kanban 12/05/2024
