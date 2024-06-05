@@ -4,8 +4,11 @@
 |-----------|
 |https://trello.com/b/8IJOQrrJ/projeto-eixo5-seu-embarque
 
-
 ---
+### Kanban 05/06/2024
+![image](imgKanban/TrelloEtapa4Fim.png)
+---
+
 ### Kanban 12/05/2024
 ![image](imgKanban/TrelloEtapa4.png)
 
