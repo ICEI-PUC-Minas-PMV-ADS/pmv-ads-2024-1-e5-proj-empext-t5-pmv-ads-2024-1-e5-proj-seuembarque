@@ -69,7 +69,9 @@ Diante dos cenários apresentados e analisando os requisitos do projeto, foi rea
 |Requisito associado: |RF-007| Deverá ser desenvolvido uma api para registro dos dados dos clientes e pacotes | ALTA |
 |Objetivo do Teste| Verificar se o retorno de dados nos gráficos baseado nas informações cadastradas na tela de pacotes estão válidas. 
 |Passos   |1) Acessar a aplicação; 2) Acessar a tela de Pacotes e realizar um cadastro completo; 3) Após o cadastro, verificar se os gráficos contidos em dashboard foram alterados de acordo com os dados informados. 
-| Critério de Êxito| Todos os gráficos devem ser preenchidos e atualizados com base a cada cadastro de pacote realizado.|
+| Critério de Êxito| 1- Primeiro gráfico deve retornar a média de preço dos pacotes juntamente com o faturamento mensal dos pacotes cadastrados|
+| Critério de Êxito| 2- Segundo gráfico deve retornar os destinos mais procurados pelos pacotes cadastrados|
+| Critério de Êxito| 3- Terceiro gráfico deve retornar a quantidade de pacotes por clientes cadastrados|
  
 # Evidências de Testes de Software
 
