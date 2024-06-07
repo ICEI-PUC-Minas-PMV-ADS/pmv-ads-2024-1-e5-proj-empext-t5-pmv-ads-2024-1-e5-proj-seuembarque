@@ -197,6 +197,8 @@ Apresente imagens e/ou vídeos que comprovam que um determinado teste foi execut
 
 ![Grafico1](https://raw.githubusercontent.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2024-1-e5-proj-empext-t5-pmv-ads-2024-1-e5-proj-seuembarque/main/documentos/img/TestesDeSoftware/TestesGraficos1.jpeg)
 
+![Grafico2](https://raw.githubusercontent.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2024-1-e5-proj-empext-t5-pmv-ads-2024-1-e5-proj-seuembarque/main/documentos/img/TestesDeSoftware/TestesGraficos5.jpeg)
+
 
 ## Evidências de Testes de Software - Backend
 |CT-006 – Inserção de novo cliente      |       | 
