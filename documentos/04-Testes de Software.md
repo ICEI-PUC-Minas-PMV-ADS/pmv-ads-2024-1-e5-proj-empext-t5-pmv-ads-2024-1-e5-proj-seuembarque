@@ -63,6 +63,13 @@ Diante dos cenários apresentados e analisando os requisitos do projeto, foi rea
 |Objetivo do Teste| Verificar se a filtragem de pacotes por múltiplos critérios está funcionando. 
 |Passos   |1) Acessar a aplicação; 2) Digitar algum termo do pacote em filtrar seguido do critério desejado e selecionar o método GET; 3) Clicar em "send"
 | Critério de Êxito| Todos os pacotes que correspondam aos critérios digitados devem ser listados. Os filtros são cumulativos. No caso de strings, são fornecidas todas os valores que possuam parte dos valores digitados, para facilitar a busca (operador %ILIKE%).|
+
+|*Caso de Teste      | *CT-010 – Teste de Gráficos         | 
+|------------------|-------------------------------|
+|Requisito associado: |RF-007| Deverá ser desenvolvido uma api para registro dos dados dos clientes e pacotes | ALTA |
+|Objetivo do Teste| Verificar se o retorno de dados nos gráficos baseado nas informações cadastradas em PACOTES estão válidas. 
+|Passos   |1) Acessar a aplicação; 2) Acessar a tela de Pacotes e realizar um cadastro completo; 3) Após o cadastro, verificar se os gráficos contidos em DASHBOARD foram alterados de acordo com os dados informados. 
+| Critério de Êxito| Todos os gráficos devem ser preenchidos e atualizados com base a cada cadastro de pacote realizado.|
  
 # Evidências de Testes de Software
 
