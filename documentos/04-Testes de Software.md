@@ -72,7 +72,14 @@ Diante dos cenários apresentados e analisando os requisitos do projeto, foi rea
 | Critério de Êxito| 1- Primeiro gráfico deve retornar a média de preço dos pacotes juntamente com o faturamento mensal dos pacotes cadastrados|
 | Critério de Êxito| 2- Segundo gráfico deve retornar os destinos mais procurados pelos pacotes cadastrados|
 | Critério de Êxito| 3- Terceiro gráfico deve retornar a quantidade de pacotes por clientes cadastrados|
- 
+
+|*Caso de Teste      | *CT-011 – Teste de Imagem de Cliente (Iniciais do Nome)         | 
+|------------------|-------------------------------|
+|Requisito associado: |RF-008| O sistema deve possuir uma tela para que o administrador possa registrar clientes e editar os mesmos	| BAIXA |
+|Objetivo do Teste| Verificar se a imagem de perfil do cliente está sendo exibida com as iniciais do nome. 
+|Passos   |1) Acessar a aplicação; 2) Acessar a tela de Clientes e realizar um cadastro completo; 3) Após o cadastro, verificar se a imagem do perfil corresponde as iniciais do nome do cliente
+| Critério de Êxito| 1- Imagem de perfil exibida com as iniciais do primeiro nome e último nome |
+
 # Evidências de Testes de Software
 
 Apresente imagens e/ou vídeos que comprovam que um determinado teste foi executado, e o resultado esperado foi obtido. Normalmente são screenshots de telas, ou vídeos do software em funcionamento. 
