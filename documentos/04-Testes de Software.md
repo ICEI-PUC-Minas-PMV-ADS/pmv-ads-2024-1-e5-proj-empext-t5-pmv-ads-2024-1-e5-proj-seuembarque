@@ -222,6 +222,19 @@ Apresente imagens e/ou vídeos que comprovam que um determinado teste foi execut
 
 ![Grafico2](https://raw.githubusercontent.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2024-1-e5-proj-empext-t5-pmv-ads-2024-1-e5-proj-seuembarque/main/documentos/img/TestesDeSoftware/TestesGraficos5.jpeg)
 
+| Testes 	| CT-011 – Teste de Imagem de Cliente (Iniciais do Nome) |
+|:---:	|:---:	|
+
+-> Inserção de novo cliente
+
+![Imagem Perfil Cliente 1](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2024-1-e5-proj-empext-t5-pmv-ads-2024-1-e5-proj-seuembarque/blob/28e063725b241f516f580967ce8451c03cad5dad/documentos/img/Imagem%20Perfil%20Cliente%201.png)
+
+![Imagem Perfil Cliente 2](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2024-1-e5-proj-empext-t5-pmv-ads-2024-1-e5-proj-seuembarque/blob/28e063725b241f516f580967ce8451c03cad5dad/documentos/img/Imagem%20Perfil%20Cliente%202.png)
+
+-> Verificação da imagem de perfil
+
+![Imagem Perfil Cliente 3](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2024-1-e5-proj-empext-t5-pmv-ads-2024-1-e5-proj-seuembarque/blob/28e063725b241f516f580967ce8451c03cad5dad/documentos/img/Imagem%20Perfil%20Cliente%203.png)
+
 | Testes 	| CT-012 – Teste de Imagem de Usuário (Iniciais do Nome) |
 |:---:	|:---:	|
 
