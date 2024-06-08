@@ -222,6 +222,23 @@ Apresente imagens e/ou vídeos que comprovam que um determinado teste foi execut
 
 ![Grafico2](https://raw.githubusercontent.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2024-1-e5-proj-empext-t5-pmv-ads-2024-1-e5-proj-seuembarque/main/documentos/img/TestesDeSoftware/TestesGraficos5.jpeg)
 
+| Testes 	| CT-012 – Teste de Imagem de Usuário (Iniciais do Nome) |
+|:---:	|:---:	|
+
+-> Acessar a aplicação
+
+![Teste de imagem Usuário 1](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2024-1-e5-proj-empext-t5-pmv-ads-2024-1-e5-proj-seuembarque/blob/91c84a2f64ea1406308a044599a77ae709a3595a/documentos/img/Teste%20de%20imagem%20Usu%C3%A1rio%201.jpg)
+
+-> Inserção de novo usuário
+
+![Teste de imagem Usuário 2](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2024-1-e5-proj-empext-t5-pmv-ads-2024-1-e5-proj-seuembarque/blob/91c84a2f64ea1406308a044599a77ae709a3595a/documentos/img/Teste%20de%20imagem%20Usu%C3%A1rio%202.jpg)
+
+![Teste de imagem Usuário 3](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2024-1-e5-proj-empext-t5-pmv-ads-2024-1-e5-proj-seuembarque/blob/91c84a2f64ea1406308a044599a77ae709a3595a/documentos/img/Teste%20de%20imagem%20Usu%C3%A1rio%203.jpg)
+
+-> Verificação da imagem de perfil
+
+![Teste de imagem Usuário 4](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2024-1-e5-proj-empext-t5-pmv-ads-2024-1-e5-proj-seuembarque/blob/91c84a2f64ea1406308a044599a77ae709a3595a/documentos/img/Teste%20de%20imagem%20Usu%C3%A1rio%204.jpg)
+
 
 ## Evidências de Testes de Software - Backend
 |CT-006 – Inserção de novo cliente      |       | 
