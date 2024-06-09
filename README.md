@@ -23,8 +23,8 @@ Essa aplicação visa a integrar a comunicação entre cliente e uma agência de
 
 ## Instruções de utilização
 
-Para utilização do sistema basta acessar os seguintes links
-<a href="http://gatecnologia-001-site1.etempurl.com/">Formulário</a>
+Para utilização do sistema basta acessar os seguintes links</br>
+<a href="http://gatecnologia-001-site1.etempurl.com/">Formulário</a></br>
 <a href="http://gatecnologia-001-site1.etempurl.com/Painel">Painel</a>
 
 # Documentação
