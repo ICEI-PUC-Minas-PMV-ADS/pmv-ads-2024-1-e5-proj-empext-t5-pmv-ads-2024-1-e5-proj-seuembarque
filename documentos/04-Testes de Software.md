@@ -216,11 +216,19 @@ Apresente imagens e/ou vídeos que comprovam que um determinado teste foi execut
 | Testes 	| CT-010 – Gráficos |
 |:---:	|:---:	|
 
--> A partir da listagem de PACOTES temos dados com valores (Preço do Pacote), esse valor é diretamente relacionado aos gráficos abaixo.
+-> Grafico 1. A partir da listagem de PACOTES temos dados com valores (Preço do Pacote), esse valor é diretamente relacionado aos gráficos abaixo.
 
 ![Grafico1](https://raw.githubusercontent.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2024-1-e5-proj-empext-t5-pmv-ads-2024-1-e5-proj-seuembarque/main/documentos/img/TestesDeSoftware/TestesGraficos1.jpeg)
 
 ![Grafico2](https://raw.githubusercontent.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2024-1-e5-proj-empext-t5-pmv-ads-2024-1-e5-proj-seuembarque/main/documentos/img/TestesDeSoftware/TestesGraficos5.jpeg)
+
+-> Gráfico 2. Informando corretamente a partir da listagem de PACOTES os dados de DESTINOS MAIS PROCURADOS:
+
+![Grafico3](https://raw.githubusercontent.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2024-1-e5-proj-empext-t5-pmv-ads-2024-1-e5-proj-seuembarque/main/documentos/img/TestesDeSoftware/TestesGraficos3.jpeg)
+
+-> Gráfico 3. Informando corretamente a partir da listagem de PACOTES os dados com a MÉDIDA DE PREÇODOS PACOTES e FATURAMENTO POR MÊS.
+
+![Grafico4](https://raw.githubusercontent.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2024-1-e5-proj-empext-t5-pmv-ads-2024-1-e5-proj-seuembarque/main/documentos/img/TestesDeSoftware/TestesGraficos5.jpeg)
 
 | Testes 	| CT-011 – Teste de Imagem de Cliente (Iniciais do Nome) |
 |:---:	|:---:	|
