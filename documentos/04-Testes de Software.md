@@ -63,7 +63,30 @@ Diante dos cenários apresentados e analisando os requisitos do projeto, foi rea
 |Objetivo do Teste| Verificar se a filtragem de pacotes por múltiplos critérios está funcionando. 
 |Passos   |1) Acessar a aplicação; 2) Digitar algum termo do pacote em filtrar seguido do critério desejado e selecionar o método GET; 3) Clicar em "send"
 | Critério de Êxito| Todos os pacotes que correspondam aos critérios digitados devem ser listados. Os filtros são cumulativos. No caso de strings, são fornecidas todas os valores que possuam parte dos valores digitados, para facilitar a busca (operador %ILIKE%).|
- 
+
+|*Caso de Teste      | *CT-010 – Teste de Gráficos         | 
+|------------------|-------------------------------|
+|Requisito associado: |RF-007| Deverá ser desenvolvido uma api para registro dos dados dos clientes e pacotes | ALTA |
+|Objetivo do Teste| Verificar se o retorno de dados nos gráficos baseado nas informações cadastradas na tela de pacotes estão válidas. 
+|Passos   |1) Acessar a aplicação; 2) Acessar a tela de Pacotes e realizar um cadastro completo; 3) Após o cadastro, verificar se os gráficos contidos em dashboard foram alterados de acordo com os dados informados. 
+| Critério de Êxito| 1- Primeiro gráfico deve retornar a média de preço dos pacotes juntamente com o faturamento mensal dos pacotes cadastrados|
+| Critério de Êxito| 2- Segundo gráfico deve retornar os destinos mais procurados pelos pacotes cadastrados|
+| Critério de Êxito| 3- Terceiro gráfico deve retornar a quantidade de pacotes por clientes cadastrados|
+
+|*Caso de Teste      | *CT-011 – Teste de Imagem de Cliente (Iniciais do Nome)         | 
+|------------------|-------------------------------|
+|Requisito associado: |RF-008| O sistema deve possuir uma tela para que o administrador possa registrar clientes e editar os mesmos	| BAIXA |
+|Objetivo do Teste| Verificar se a imagem de perfil do cliente está sendo exibida com as iniciais do nome. 
+|Passos   |1) Acessar a aplicação; 2) Acessar a tela de Clientes e realizar um cadastro completo; 3) Após o cadastro, verificar se a imagem do perfil corresponde as iniciais do nome do cliente |
+| Critério de Êxito| 1- Imagem de perfil exibida com as iniciais do primeiro e último nome |
+
+|*Caso de Teste      | *CT-012 – Teste de Imagem de Usuário (Iniciais do Nome)   | 
+|------------------|-------------------------------|
+|Requisito associado: |RF-012| O sistema deve possuir uma tela para que o administrador possa registrar usuários e editar os mesmos	| BAIXA |
+|Objetivo do Teste| Verificar se a imagem de perfil do Usuário está sendo exibida com as iniciais do nome. 
+|Passos   |1) Acessar a aplicação; 2) Acessar a tela de Usuário e realizar um cadastro completo; 3) Após o cadastro, verificar se a imagem do perfil corresponde as iniciais do nome do Usuário |
+| Critério de Êxito| 1- Imagem de perfil exibida com as iniciais do primeiro e último nome |
+
 # Evidências de Testes de Software
 
 Apresente imagens e/ou vídeos que comprovam que um determinado teste foi executado, e o resultado esperado foi obtido. Normalmente são screenshots de telas, ou vídeos do software em funcionamento. 
@@ -189,6 +212,54 @@ Apresente imagens e/ou vídeos que comprovam que um determinado teste foi execut
 -> Resultado da busca
 
 ![Filtragem de pacotes 3](https://github.com/Alemagalhaes01/Seu-embarque/blob/011c93654599b7626b95d0417406fee2ba1688d1/documentos/img/Filtragem%20de%20pacotes%203.jpg)
+
+| Testes 	| CT-010 – Gráficos |
+|:---:	|:---:	|
+
+-> Grafico 1. A partir da listagem de PACOTES temos dados com valores (Preço do Pacote), esse valor é diretamente relacionado aos gráficos abaixo.
+
+![Grafico1](https://raw.githubusercontent.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2024-1-e5-proj-empext-t5-pmv-ads-2024-1-e5-proj-seuembarque/main/documentos/img/TestesDeSoftware/TestesGraficos1.jpeg)
+
+![Grafico2](https://raw.githubusercontent.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2024-1-e5-proj-empext-t5-pmv-ads-2024-1-e5-proj-seuembarque/main/documentos/img/TestesDeSoftware/TestesGraficos5.jpeg)
+
+-> Gráfico 2. Informando corretamente a partir da listagem de PACOTES os dados de DESTINOS MAIS PROCURADOS:
+
+![Grafico3](https://raw.githubusercontent.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2024-1-e5-proj-empext-t5-pmv-ads-2024-1-e5-proj-seuembarque/main/documentos/img/TestesDeSoftware/TestesGraficos3.jpeg)
+
+-> Gráfico 3. Informando corretamente a partir da listagem de PACOTES os dados com a MÉDIDA DE PREÇODOS PACOTES e FATURAMENTO POR MÊS.
+
+![Grafico4](https://raw.githubusercontent.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2024-1-e5-proj-empext-t5-pmv-ads-2024-1-e5-proj-seuembarque/main/documentos/img/TestesDeSoftware/TestesGraficos5.jpeg)
+
+| Testes 	| CT-011 – Teste de Imagem de Cliente (Iniciais do Nome) |
+|:---:	|:---:	|
+
+-> Inserção de novo cliente
+
+![Imagem Perfil Cliente 1](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2024-1-e5-proj-empext-t5-pmv-ads-2024-1-e5-proj-seuembarque/blob/28e063725b241f516f580967ce8451c03cad5dad/documentos/img/Imagem%20Perfil%20Cliente%201.png)
+
+![Imagem Perfil Cliente 2](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2024-1-e5-proj-empext-t5-pmv-ads-2024-1-e5-proj-seuembarque/blob/28e063725b241f516f580967ce8451c03cad5dad/documentos/img/Imagem%20Perfil%20Cliente%202.png)
+
+-> Verificação da imagem de perfil
+
+![Imagem Perfil Cliente 3](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2024-1-e5-proj-empext-t5-pmv-ads-2024-1-e5-proj-seuembarque/blob/28e063725b241f516f580967ce8451c03cad5dad/documentos/img/Imagem%20Perfil%20Cliente%203.png)
+
+| Testes 	| CT-012 – Teste de Imagem de Usuário (Iniciais do Nome) |
+|:---:	|:---:	|
+
+-> Acessar a aplicação
+
+![Teste de imagem Usuário 1](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2024-1-e5-proj-empext-t5-pmv-ads-2024-1-e5-proj-seuembarque/blob/91c84a2f64ea1406308a044599a77ae709a3595a/documentos/img/Teste%20de%20imagem%20Usu%C3%A1rio%201.jpg)
+
+-> Inserção de novo usuário
+
+![Teste de imagem Usuário 2](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2024-1-e5-proj-empext-t5-pmv-ads-2024-1-e5-proj-seuembarque/blob/91c84a2f64ea1406308a044599a77ae709a3595a/documentos/img/Teste%20de%20imagem%20Usu%C3%A1rio%202.jpg)
+
+![Teste de imagem Usuário 3](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2024-1-e5-proj-empext-t5-pmv-ads-2024-1-e5-proj-seuembarque/blob/91c84a2f64ea1406308a044599a77ae709a3595a/documentos/img/Teste%20de%20imagem%20Usu%C3%A1rio%203.jpg)
+
+-> Verificação da imagem de perfil
+
+![Teste de imagem Usuário 4](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2024-1-e5-proj-empext-t5-pmv-ads-2024-1-e5-proj-seuembarque/blob/91c84a2f64ea1406308a044599a77ae709a3595a/documentos/img/Teste%20de%20imagem%20Usu%C3%A1rio%204.jpg)
+
 
 ## Evidências de Testes de Software - Backend
 |CT-006 – Inserção de novo cliente      |       | 
