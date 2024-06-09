@@ -23,7 +23,9 @@ Essa aplicação visa a integrar a comunicação entre cliente e uma agência de
 
 ## Instruções de utilização
 
-Assim que a primeira versão do sistema estiver disponível, deverá complementar com as instruções de utilização. Descreva como instalar eventuais dependências e como executar a aplicação.
+Para utilização do sistema basta acessar os seguintes links
+<a href="http://gatecnologia-001-site1.etempurl.com/">Formulário</a>
+<a href="http://gatecnologia-001-site1.etempurl.com/Painel">Painel</a>
 
 # Documentação
 
