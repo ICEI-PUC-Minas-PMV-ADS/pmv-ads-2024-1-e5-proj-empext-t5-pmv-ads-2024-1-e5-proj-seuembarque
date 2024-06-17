@@ -38,35 +38,35 @@ Diante dos cenários apresentados e analisando os requisitos do projeto, foi rea
 
 |*Caso de Teste      | *CT-006 – Inserção de novo cliente        | 
 |------------------|-------------------------------|
-|Requisito associado: |RF-007| Deverá ser desenvolvido uma api para registro dos dados dos clientes e pacotes | ALTA |
+|Requisito associado: |RF-007 - Deverá ser desenvolvido uma api para registro dos dados dos clientes e pacotes | ALTA |
 |Objetivo do Teste| Verificar se o registro de clientes e está sendo executado corretamente. 
 |Passos   |1) Acessar a aplicação; 2) Fazer o payload no Postman, usando o raw json, de acordo com o modelo client; 3) Digitar a url /cliente e selecionar o método POST; 4) Clicar em "send".| 
 | Critério de Êxito| Um novo cliente deve ser inserido no banco de dados.|
 
 |*Caso de Teste      | *CT-007 – Listagem de clientes         | 
 |------------------|-------------------------------|
-|Requisito associado: |RF-007| Deverá ser desenvolvido uma api para registro dos dados dos clientes e pacotes | ALTA |
+|Requisito associado: |RF-007 - Deverá ser desenvolvido uma api para registro dos dados dos clientes e pacotes | ALTA |
 |Objetivo do Teste| Verificar a listagem de clientes já inseridos no banco de dados. 
 |Passos   |1) Acessar a aplicação; 2) Digitar a url /clientes e selecionar o método GET; 3) Clicar em "send"
 | Critério de Êxito| Todos os clientes devem ser listados. |
 
 |*Caso de Teste      | *CT-008 – Inserção de solicitação de novo pacote de viagem       | 
 |------------------|-------------------------------|
-|Requisito associado: |RF-007| Deverá ser desenvolvido uma api para registro dos dados dos clientes e pacotes | ALTA |
+|Requisito associado: |RF-007 - Deverá ser desenvolvido uma api para registro dos dados dos clientes e pacotes | ALTA |
 |Objetivo do Teste| Verificar a inserção de um novo pacote. 
 |Passos   |1) Acessar a aplicação; 2) Digitar a url /pacote 3) Montar o payload, em raw json, de acordo com o modelo package e selecionar o método POST; 3) Clicar em "send"
 | Critério de Êxito| Uma nova solicitação de pacote deve ser inserida no banco de dados. |
 
 |*Caso de Teste      | *CT-009 – Filtragem de pacotes          | 
 |------------------|-------------------------------|
-|Requisito associado: |RF-007| Deverá ser desenvolvido uma api para registro dos dados dos clientes e pacotes | ALTA |
+|Requisito associado: |RF-007 - Deverá ser desenvolvido uma api para registro dos dados dos clientes e pacotes | ALTA |
 |Objetivo do Teste| Verificar se a filtragem de pacotes por múltiplos critérios está funcionando. 
 |Passos   |1) Acessar a aplicação; 2) Digitar algum termo do pacote em filtrar seguido do critério desejado e selecionar o método GET; 3) Clicar em "send"
 | Critério de Êxito| Todos os pacotes que correspondam aos critérios digitados devem ser listados. Os filtros são cumulativos. No caso de strings, são fornecidas todas os valores que possuam parte dos valores digitados, para facilitar a busca (operador %ILIKE%).|
 
 |*Caso de Teste      | *CT-010 – Teste de Gráficos         | 
 |------------------|-------------------------------|
-|Requisito associado: |RF-007| Deverá ser desenvolvido uma api para registro dos dados dos clientes e pacotes | ALTA |
+|Requisito associado: |RF-007 - Deverá ser desenvolvido uma api para registro dos dados dos clientes e pacotes | ALTA |
 |Objetivo do Teste| Verificar se o retorno de dados nos gráficos baseado nas informações cadastradas na tela de pacotes estão válidas. 
 |Passos   |1) Acessar a aplicação; 2) Acessar a tela de Pacotes e realizar um cadastro completo; 3) Após o cadastro, verificar se os gráficos contidos em dashboard foram alterados de acordo com os dados informados. 
 | Critério de Êxito| 1- Primeiro gráfico deve retornar a média de preço dos pacotes juntamente com o faturamento mensal dos pacotes cadastrados|
@@ -75,14 +75,14 @@ Diante dos cenários apresentados e analisando os requisitos do projeto, foi rea
 
 |*Caso de Teste      | *CT-011 – Teste de Imagem de Cliente (Iniciais do Nome)         | 
 |------------------|-------------------------------|
-|Requisito associado: |RF-008| O sistema deve possuir uma tela para que o administrador possa registrar clientes e editar os mesmos	| BAIXA |
+|Requisito associado: |RF-008 - O sistema deve possuir uma tela para que o administrador possa registrar clientes e editar os mesmos	| BAIXA |
 |Objetivo do Teste| Verificar se a imagem de perfil do cliente está sendo exibida com as iniciais do nome. 
 |Passos   |1) Acessar a aplicação; 2) Acessar a tela de Clientes e realizar um cadastro completo; 3) Após o cadastro, verificar se a imagem do perfil corresponde as iniciais do nome do cliente |
 | Critério de Êxito| 1- Imagem de perfil exibida com as iniciais do primeiro e último nome |
 
 |*Caso de Teste      | *CT-012 – Teste de Imagem de Usuário (Iniciais do Nome)   | 
 |------------------|-------------------------------|
-|Requisito associado: |RF-012| O sistema deve possuir uma tela para que o administrador possa registrar usuários e editar os mesmos	| BAIXA |
+|Requisito associado: |RF-012 - O sistema deve possuir uma tela para que o administrador possa registrar usuários e editar os mesmos	| BAIXA |
 |Objetivo do Teste| Verificar se a imagem de perfil do Usuário está sendo exibida com as iniciais do nome. 
 |Passos   |1) Acessar a aplicação; 2) Acessar a tela de Usuário e realizar um cadastro completo; 3) Após o cadastro, verificar se a imagem do perfil corresponde as iniciais do nome do Usuário |
 | Critério de Êxito| 1- Imagem de perfil exibida com as iniciais do primeiro e último nome |
