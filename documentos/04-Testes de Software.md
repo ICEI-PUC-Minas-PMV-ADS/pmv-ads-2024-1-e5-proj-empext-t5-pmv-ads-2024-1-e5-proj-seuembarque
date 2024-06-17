@@ -78,14 +78,14 @@ Diante dos cenários apresentados e analisando os requisitos do projeto, foi rea
 |Requisito associado: |RF-008 - O sistema deve possuir uma tela para que o administrador possa registrar clientes e editar os mesmos	| BAIXA |
 |Objetivo do Teste| Verificar se a imagem de perfil do cliente está sendo exibida com as iniciais do nome. 
 |Passos   |1) Acessar a aplicação; 2) Acessar a tela de Clientes e realizar um cadastro completo; 3) Após o cadastro, verificar se a imagem do perfil corresponde as iniciais do nome do cliente |
-| Critério de Êxito| 1- Imagem de perfil exibida com as iniciais do primeiro e último nome |
+| Critério de Êxito| Imagem de perfil exibida com as iniciais do primeiro e último nome |
 
 |*Caso de Teste      | *CT-012 – Teste de Imagem de Usuário (Iniciais do Nome)   | 
 |------------------|-------------------------------|
 |Requisito associado: |RF-012 - O sistema deve possuir uma tela para que o administrador possa registrar usuários e editar os mesmos	| BAIXA |
 |Objetivo do Teste| Verificar se a imagem de perfil do Usuário está sendo exibida com as iniciais do nome. 
 |Passos   |1) Acessar a aplicação; 2) Acessar a tela de Usuário e realizar um cadastro completo; 3) Após o cadastro, verificar se a imagem do perfil corresponde as iniciais do nome do Usuário |
-| Critério de Êxito| 1- Imagem de perfil exibida com as iniciais do primeiro e último nome |
+| Critério de Êxito| Imagem de perfil exibida com as iniciais do primeiro e último nome |
 
 # Evidências de Testes de Software
 
